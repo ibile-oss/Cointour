@@ -1,0 +1,221 @@
+@import url(var.css);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s linear;
+}
+.Ctr_cnt_xxxxxxxxr{
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 40px;
+    z-index: 20;
+    background: rgb(250, 252, 253);
+    padding: 5px;
+}
+.Ctr_child01_xxxxxx{
+    height: auto;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Ctr_child01_xxxxxx .Ctr_logo_cnt_xxxxx{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items:center;
+    display: flex;
+}
+.Ctr_child01_xxxxxx .Ctr_logo_cnt_xxxxx img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.Ctr_random_txt_xxxxxx{
+    font-weight: 500;
+    color: rgb(39, 121, 107);
+}
+.Ctr_owl_slider_xxxxxxxx{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+.Ctr_Owl2_xxxxxx{
+    width: 100% !important;
+    height: auto;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.Ctr_Owl2_xxxxxx button{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: skyblue;
+    font-size: medium;
+    color: white;
+    border-radius: .4rem;
+}
+.Ctr_Owl2_xxxxxx button:hover{
+    background: rgb(39, 121, 107);
+}
+.sign_up_table{
+    height: auto;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    background: rgb(226, 225, 225);
+    padding: 10px;
+    border-radius: 1rem;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: var(--shad1);
+}
+.sign{
+    height: auto;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+.sign h2{
+    color: rgb(17, 119, 159);
+}
+.sign span{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: .4rem;
+    border: 1px solid rgb(217, 215, 215);
+}
+.sign span img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sign span img:hover{
+    opacity: 0.9;
+}
+.sign span img:active{
+    opacity: 0.5;
+    transition: 0s !important;
+}
+.login_{
+    display: none;
+}
+.log__{
+    gap: 15px !important;
+}
+.sign_up_t{
+    height: auto;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}
+.sign_up_t div{
+    height: auto;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+.lt_part{
+    flex-direction: column;
+    gap: 7px;
+    width: 50%;
+}
+.Ctr_inpt_wrap{
+    height: auto;
+    width: 100% !important;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    padding: 2px;
+    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.3);
+    border-radius: .4rem;
+    background: white;
+}
+.Ctr_inpt_wrap input{
+    padding: 7px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: medium;
+}
+.Ctr_inpt_wrap input::placeholder{
+    font-size: medium;
+}
+.Ctr_inpt_wrap span{
+    color:rgb(217, 215, 215) ;
+}
+.rt_part img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.Ctr_inpt_wrap button:hover{
+    background: rgb(39, 121, 107);
+}
+.Ctr_inpt_wrap button{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    font-size: medium;
+    z-index: 5;
+    position: relative;
+    border-radius: .4rem;
+    background:linear-gradient(rgb(116, 215, 254),rgb(96, 174, 204),rgb(55, 159, 200)) ;
+}
+.bubbles{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    transition: 7s linear !important;
+}
+.Ctr_inpt_wrap button{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
