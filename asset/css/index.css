@@ -159,6 +159,7 @@
     position: relative;
     gap: 30px;
     background: url('../img/3d-rendewring-cryptocurency-distribution-concept_23-2149901333.jpg');
+    background-size: cover;
 }
 .all_tasking_for_user::-webkit-scrollbar{
     display: none;
@@ -225,7 +226,6 @@
     padding: 5px;
     border-radius: .4rem;
     gap: 20px;
-    border: 1px solid var(--bdrClr1);
 }
 .round:hover button{
     transition: 0s !important;
@@ -571,6 +571,7 @@
 }
 .__txt_smal{
     font-size: xx-small;
+    color: rgb(5, 5, 81);
 }
 .avarter_cnt label{
     height: 15px;
@@ -786,9 +787,10 @@ h2{
     align-items: center;
     display: flex;
     padding: 5px;
-    border-radius: .5rem;
     position: relative;
     transition: 0s !important;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.301);
+    background: white;
     gap: 5px;
     cursor: pointer;
 }
@@ -829,6 +831,8 @@ h2{
    align-items: center;
    display: flex;
    flex-direction: column;
+   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.301);
+   background: white;
    padding: 5px;
 }
 .space_evenly{
@@ -854,8 +858,8 @@ h2{
 }
 .instruction_state{
     height: 0;
-    opacity: 0;
     width: 100%;
+    opacity: 0;
     justify-content: flex-start;
     align-items: center;
     display: flex;
@@ -867,7 +871,7 @@ h2{
 }
 .show{
     opacity: 1;
-    height: 400px;
+    height: auto;
 }
 .txt_to{
     text-align: center;
@@ -897,7 +901,6 @@ h2{
     flex-direction: column;
     padding: 5px;
     transition: 0s !important;
-    border-radius: .5rem;
     gap: 5px;
     cursor: pointer;
 }
@@ -910,7 +913,6 @@ h2{
     flex-direction: column;
     padding: 5px;
     transition: 0s !important;
-    border-radius: .5rem;
     gap: 5px;
     cursor: pointer;
 }
@@ -928,7 +930,13 @@ h2{
     justify-content: center;
     align-items: center;
     display: flex;
-    border-radius: .4rem;
+}
+.tools span{
+    transition: 0s !important;
+}
+.toolsss span{
+    transition: 0s !important;
+
 }
 .toolsss nav img{
     height: 100%;
@@ -1172,7 +1180,7 @@ button{
     height: 100%;
     width: 100%;
     color: white;
-    background: linear-gradient(rgb(16, 99, 176),rgb(21, 121, 214),rgb(35, 144, 245));
+    display: none;
 }
 .aniout{
     animation: aniout 0.5s ease;
@@ -1194,6 +1202,7 @@ button{
     border-top: 3px solid rgb(16, 99, 176);
     animation: spin 0.9s infinite;
     border-radius: 50%;
+    display: none;
 }
 @keyframes spin{
     100%{
@@ -1422,10 +1431,11 @@ button{
     height: auto;
     width: 100%;
     padding: 5px;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     display: flex;
-    border-radius: .4rem;
+    box-shadow: 0px 9px 10px 0px rgba(0, 0, 0, 0.301);
+    background: white;
 }
 .anoter_part .menu{
     height: auto;
@@ -1438,11 +1448,10 @@ button{
     gap: 5px;
 }
 .anoter_part .menu .img_{
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     border-radius: .4rem;
     padding: 5px;
-    border: 1px solid var(--bdrClr1);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -1490,9 +1499,10 @@ button{
     align-items: center;
     display: flex;
     cursor: pointer;
-    border-radius: .4rem;
     transition: 0s !important;
     gap: 10px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.301);
+    background: white;
     padding: 10px;
 }
 .me_on_mdias:hover{
@@ -1555,7 +1565,6 @@ button{
     gap: 20px;
     padding: 5px;
     border-radius: .4rem;
-    border: 1px solid var(--bdrClr1);
 }
 .testimonials{
     height: auto;
@@ -1707,14 +1716,11 @@ button{
     position: relative;
     align-items: center;
     display: flex;
-    border-radius: .3em;
-    padding: 5px;
+    border-radius: .9em;
+    padding: 10px;
     transition: 0s !important;
+    background: rgba(121, 119, 119, 0.699);
     gap: 5px;
-}
-.item_tf_wrap:hover{
-    background: rgba(0, 0, 0, 0.068);
-    transition: 0s !important;
 }
 .item_tf_wrap:active{
     opacity: 0.5;
@@ -2201,7 +2207,6 @@ button{
     gap: 10px;
     border-radius: .4em;
     padding: 10px;
-    border: 1px solid var(--bdrClr1);
 }
 .video_link{
     height: auto;
@@ -2631,7 +2636,6 @@ button{
     gap: 10px;
     transition: 0s !important;
     padding: 15px;
-    border-radius: .4rem;
     cursor: pointer;
     border: 1px solid var(--bdrClr1);
 }
