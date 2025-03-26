@@ -2,7 +2,7 @@
    .sign_up_t{
       flex-direction: column-reverse;
    }
-   .task_part{
+   .task_part, .ABout_tools, .hmeChld, .Home, .Friends, .Task, .Linkwallet{
       width: 65%;
    }
    .Ctr_cnt_xxxxxxxxr{
@@ -25,7 +25,12 @@
       width: 100%;
       
    }
-   
+   .pin_wrapper{
+      width: 70%;
+   }
+   .uplo{
+      width: 30%;
+   }
 }
 @media (max-width:900px){
    .sign_up_t div{
@@ -34,22 +39,60 @@
    .Ctr_child01_xxxxxx{
       width: 50%;
    }
-   .task_part{
+   .task_part, .ABout_tools, .hmeChld, .Home, .Friends, .Task, .Linkwallet{
       width: 70%;
+   }
+   .pin_wrapper{
+      width: 80%;
+   }
+   .add_test{
+      width: 100%;
+   }
+
+   .wrap_tes_ti{
+      width: 90%;
+   }
+   .payment_list{
+      size: 90%;
+   }
+   .uplo{
+      width: 35%;
+   }
+   .search_by_name{
+      width: 90%;
    }
 }
 @media (max-width:800px){
    .sign_up_t div{
       width: 75%;
    }
-   .task_part{
+   .headdd{
+      text-align: center;
+   }
+   .task_part, .ABout_tools, .hmeChld, .Home, .Friends, .Task, .Linkwallet{
       width: 90%;
+   }
+   .why_am_i_not_paid_{
+      width: 80%;
+      left: 0;
+   }
+   .search_by_name{
+      width: 100%;
+   }
+   .wrap_tes_ti{
+      width: 100%;
    }
    .cnt_each_,.avater{
       border-radius: 0px !important;
    }
    .avater img{
       border-radius: 0px !important;
+   }
+   .totop_up_plans{
+      width: 95%;
+   }
+   .pin_wrapper{
+      width: 90%;
    }
    .Ctr_Owl2_xxxxxx{
          width: 65%;
@@ -60,13 +103,39 @@
    .Ctr_cnt_xxxxxxxxr{
       gap: 70px;
    }
+   .payment_list{width: 100%;}
 }
 @media (max-width:780px){
-   .task_part{
+   .task_part, .ABout_tools, .hmeChld, .Home, .Friends, .Task, .Linkwallet{
+      width: 100%;
+   }
+   .wrp__arr{
+      font-size: x-small;
+   }
+   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr{
+      width: 90%;
+   }
+   .pin_wrapper{
       width: 100%;
    }
    button{
       font-size: x-small !important;
+   }
+   .eligible_state nav{
+      width: 60% !important;
+   }
+   .eligible_state button{
+      width: 80%;
+      font-size: larger !important;
+   }
+   .item_spa_x_xx p{
+      font-size:small;
+   }
+   .coin_claim p{
+      font-size: small;
+   }
+   .coin_claim{
+      padding: 5px;
    }
 }
 @media (max-width:700px){
@@ -87,12 +156,34 @@
    .Ctr_child01_xxxxxx{
       width: 95%;
    }
+   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr{
+      width: 95%;
+   }
 }
 @media (max-width:500px){
    .sign_up_t div{
       width: 100%;
    }
+   .show{
+      height: 500px;
+   }
    .Ctr_child01_xxxxxx{
       width: 100%;
    }
+   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr{
+      width: 100%;
+   }
+}
+@media(max-width:400px){
+   #style_cheet{
+      width: 70px;
+   }
+}
+@media(max-width:360px){
+   .wrp__arr{
+      font-size: xx-small;
+   }
+}
+@media(max-width:320px){
+
 }

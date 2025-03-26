@@ -1,0 +1,28 @@
+
+#canva1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+}
+#beetlmorph, #player, #player_jets, #rhinomorph{
+    display: none;
+}
+.restart:active{
+    opacity: 0.5;
+}
+.restart{
+    height: 40px;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    position: absolute;
+    right: 50%;
+}
