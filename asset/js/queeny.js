@@ -1,3 +1,4 @@
+
 let Home = querySelector('.Home');
     let Friend = querySelector('.Friends');
         let Hclk = querySelectorAll('.Hoclk');
@@ -45,9 +46,28 @@ let comboLock = querySelectorAll('.wrap_cmbo .combo_lock');
                         let lvlLock = querySelectorAll('.level_items .level_lock');
 let lvlOpen = querySelectorAll('.level_items .level_open');
     let LvL_s = querySelectorAll('.wrap_levels .LvL_s');
+        let auk = querySelector('.audii');
+            let Star_pad = querySelector('.Star_pad');
+                let _js_slc = querySelector('._js_slc');
+                    let clsSTR = querySelector('._2____');
+                        let strCNT = querySelector('.____cnt');
+                            let Count_len = querySelector('.Count_len');
+                                let __coin_purchase = querySelectorAll('.__coin_purchase');
+let amnt = querySelectorAll('.wrp__arr .Amnt');
 
 
+// COIN REFER PURCHASE
+let amntPur = [1000,2000,3000,4000,5000,6000,7000,8000,9000];
+for (let x = 0; x < __coin_purchase.length; x++){
+    amnt[x].setAttribute('dataPurchase',amntPur[x]);
+    const Purchase = () =>{
+        PurChaseAmnt(amnt[x].getAttribute('dataPurchase'), amnt[x].innerHTML);
+        __coin_purchase[x].disabled = true;
+    }
 
+    __coin_purchase[x].addEventListener('click',Purchase);
+}
+// COIN REFER PURCHASE
 
 
 
@@ -73,12 +93,16 @@ let lvlOpen = querySelectorAll('.level_items .level_open');
             let l_9tru = balnce.innerHTML >= lvl_9;
                 let l_10 = balnce.innerHTML >= lvl_10;
     let StrCnt = [1,1,1,1,1,2,2,2,2,3];
+    let lenCount = strCNT.children.length;
     for (let x = 0; x < levelStar.length; x++){
+        Count_len.innerHTML = `${lenCount} Own Stars`;
+        if(lenCount == 16){
+            Count_len.innerHTML = `Stars Completed`;
+        }
         levelC[x].setAttribute('dataInt',StrCnt[x]);
         if(l_1tru){
             lvlLock[x].style.setProperty('display','none');
             lvlOpen[x].style.setProperty('display','flex');
-            
         }
         const Star = () =>{
             if(LvL_s[x].textContent == 'Level 1'){
@@ -144,6 +168,9 @@ let lvlOpen = querySelectorAll('.level_items .level_open');
             }
             PupOutRewards(dailyAmount[x].getAttribute('data'));
             dailyReward_wrap[x].disabled = true;
+            daily_lock[x].style.setProperty('display','flex');
+            daily_open[x].style.setProperty('display','none');
+            daily_open[x].classList.remove('fa-shake');
         }
     }
 // DAILY COMBO CODE HEREEEEEEEEEEEEEEEEEEEEEEEEEEEE
@@ -175,6 +202,9 @@ for (let x = 0; x < dailyCombo.length; x++) {
 
         PupOutRewards2(comboClaim[x].getAttribute('data'));
         dailyCombo[x].disabled = true;
+        comboLock[x].style.setProperty('display','flex');
+        comboOpen[x].style.setProperty('display','none');
+        comboOpen[x].classList.remove('fa-shake');
     }
 
     dailyCombo[x].addEventListener('click', Shop)
@@ -257,7 +287,7 @@ opnStr.onclick = () =>{
     store.style.setProperty('display','flex');
     market.style.setProperty('display','none');
 }
-for (let x = 0; x < smOpn.length; x++) {
+for (let x = 0; x < smOpn.length; x++){
     smOpn[x].onclick = () =>{
         if(smOpntxt[x].innerHTML == 'Daily Rwards'){
             dyrwds.style.setProperty('display','flex');
@@ -265,6 +295,7 @@ for (let x = 0; x < smOpn.length; x++) {
             mylvl.style.setProperty('display','none');
             market.style.setProperty('display','none');
             store.style.setProperty('display','none');
+            Star_pad.style.setProperty('display','none');
         }
         if(smOpntxt[x].innerHTML == 'Daily Combo'){
             dlyCbo.style.setProperty('display','flex');
@@ -272,6 +303,7 @@ for (let x = 0; x < smOpn.length; x++) {
             dyrwds.style.setProperty('display','none');
             market.style.setProperty('display','none');
             store.style.setProperty('display','none');
+            Star_pad.style.setProperty('display','none');
         }
         if(smOpntxt[x].innerHTML == 'Daily Sell'){
             market.style.setProperty('display','flex');
@@ -279,6 +311,7 @@ for (let x = 0; x < smOpn.length; x++) {
             mylvl.style.setProperty('display','none');
             dyrwds.style.setProperty('display','none');
             store.style.setProperty('display','none');
+            Star_pad.style.setProperty('display','none');
         }
     }
 }
@@ -302,6 +335,7 @@ lvclk.onclick = () =>{
     dlyCbo.style.setProperty('display','none');
     market.style.setProperty('display','none');
     store.style.setProperty('display','none');
+    Star_pad.style.setProperty('display','none');
 }   
 cllvl.onclick = () =>{
     mylvl.classList.add('return');
@@ -345,4 +379,15 @@ for (let x = 0; x < navigate.length; x++){
         Task.style.setProperty('display','none');
     }
 }
-    
+const ClasTogle = () =>{
+    Star_pad.style.setProperty('display','flex');
+    dlyCbo.style.setProperty('display','none');
+    mylvl.style.setProperty('display','none');
+    market.style.setProperty('display','none');
+    store.style.setProperty('display','none');
+    dyrwds.style.setProperty('display','none');
+}
+clsSTR.onclick = () =>{
+    Star_pad.style.setProperty('display','none');
+}
+_js_slc.addEventListener('click', ClasTogle);   

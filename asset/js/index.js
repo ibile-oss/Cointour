@@ -547,7 +547,7 @@ for (let x = 0; x < close_.length; x++) {
 var pw = nt_cnt.clientWidth;
 var ph = nt_cnt.clientHeight;
 
-create_Bubble();
+// create_Bubble();
 
 for (let x = 0; x < alltoolsCnt.length; x++) {
         all_Tools[x].setAttribute('txt',all_Tools[x].innerHTML);

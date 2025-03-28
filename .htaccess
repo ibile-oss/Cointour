@@ -1,0 +1,4 @@
+# TRYING TO PASS OR RUN PHP CODE IN HTML
+
+
+AddType application/x-httpd-php .html

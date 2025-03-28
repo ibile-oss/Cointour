@@ -112,7 +112,7 @@
    .wrp__arr{
       font-size: x-small;
    }
-   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr{
+   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr, ._2____{
       width: 90%;
    }
    .pin_wrapper{
@@ -137,6 +137,9 @@
    .coin_claim{
       padding: 5px;
    }
+   .target{
+      width: 70%;
+   }
 }
 @media (max-width:700px){
    .sign_up_t div{
@@ -156,8 +159,11 @@
    .Ctr_child01_xxxxxx{
       width: 95%;
    }
-   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr{
+   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr, ._2____{
       width: 95%;
+   }
+   .target{
+      width: 80%;
    }
 }
 @media (max-width:500px){
@@ -167,13 +173,19 @@
    .Ctr_child01_xxxxxx{
       width: 100%;
    }
-   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr{
+   .h_X_X_X_x, .daily_wra_clos_Plus, .combo_hh_r, .mar_ket_hhr, .sh_hhdr, ._2____{
       width: 100%;
+   }
+   .target{
+      width: 90%;
    }
 }
 @media(max-width:400px){
    #style_cheet{
       width: 70px;
+   }
+   .target{
+      width: 100%;
    }
 }
 @media(max-width:360px){
