@@ -1,3 +1,7 @@
+<?php
+    require_once dirname(__FILE__) ."/asset/inc/function.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,7 @@
     <link rel="shortcut icon" href="asset/img/ctrlogo.png" type="image/x-icon">
     <title>Cointour</title>
 </head>
-<body>
+<body class="getMyRoot" url="<?=__Root__?>">
     <div class="Ctr_cnt_xxxxxxxxr">
         <nav class="Ctr_child01_xxxxxx">
             <span class="Ctr_logo_cnt_xxxxx">
@@ -36,38 +40,43 @@
             </div>
         </nav>
 
-        <div class="sign_up_table signup_">
+        <form onsubmit="SignUp(event)" action="" class="sign_up_table signup_">
             <nav class="sign">
                 <h2>Sign in</h2>
             </nav>
             <div class="sign_up_t">
                 <div class="lt_part">
+                    <nav class="err"></nav>
                     <div class="Ctr_inpt_wrap">
-                        <span>Name*</span> <input type="text" placeholder="Enter name">
+                        <span>Fist name*</span> <input class="fname" type="text" placeholder="Fist name">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Email*</span> <input type="text" placeholder="Enter email">
+                        <span>Last name*</span> <input class="lname" type="text" placeholder="Last name">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Phone*</span> <input type="text" placeholder="Enter phone">
+                        <span>Email*</span> <input class="email" type="text" placeholder="Enter email">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Password*</span> <input type="password" placeholder="Enter password">
+                        <span>Phone*</span> <input class="phone" type="text" placeholder="Enter phone">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Comfirm*</span> <input type="password" placeholder="Comfirm password">
+                        <span>Password*</span> <input class="password" type="password" placeholder="Enter password">
+                        <span class="un__ passw fas fa-eye"></span>
+                    </div>
+                    <div class="Ctr_inpt_wrap">
+                        <span>Confirm*</span> <input class="cnpassord" type="password" placeholder="Confirm password">
                     </div>
                     <div class="Ctr_inpt_wrap">
                         <button>Sign in</button>
                     </div>
                 </div>
                 <div class="rt_part">
-                    <img src="asset/img/pic1.png" alt="">
+                    <nav><img src="asset/img/pic1.png" alt=""></nav>
                 </div>
             </div>
-        </div>
+        </form>
 
-        <div class="sign_up_table login_">
+        <form class="sign_up_table login_">
             <nav class="sign">
                 <h2>Log in</h2>
             </nav>
@@ -87,7 +96,7 @@
                     <img src="asset/img/pic3.png" alt="">
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     
 
@@ -95,6 +104,6 @@
     <script src="owl/owl.autoplay.js"></script>
     <script src="owl/owl.animate.js"></script>
     <script src="asset/js/signin.js"></script>
-    <script src="fontawesome/js/all.min.js"></script>
+    <script src="asset/js/api.js"></script>
 </body>
 </html>
