@@ -175,20 +175,21 @@ function Wallet_first_menu(){
 
 function Close_Tabs(){
     dyrwds.classList.add('return');
-    dlyCbo.classList.add('return');
-    mylvl.classList.add('return');
-    store.classList.add('return');
-    market.classList.add('return');
+        dlyCbo.classList.add('return');
+            mylvl.classList.add('return');
+                store.classList.add('return');
+                    market.classList.add('return');
+    Star_pad.style.setProperty('display','none');
     setTimeout(() =>{
-        dyrwds.style.setProperty('display','none');
-        dlyCbo.style.setProperty('display','none');
-        mylvl.style.setProperty('display','none');
-        store.style.setProperty('display','none');
-        market.style.setProperty('display','none');
+            dyrwds.style.setProperty('display','none');
+                dlyCbo.style.setProperty('display','none');
+                    mylvl.style.setProperty('display','none');
+                        store.style.setProperty('display','none');
+                            market.style.setProperty('display','none');
         dyrwds.classList.remove('return');
-        dlyCbo.classList.remove('return');
-        mylvl.classList.remove('return');
-        store.classList.remove('return');
+                dlyCbo.classList.remove('return');
+                    mylvl.classList.remove('return');
+                        store.classList.remove('return');
         market.classList.remove('return');
     },400)
 }
@@ -217,6 +218,7 @@ function PupOutRewards(param){
     let attri = 'asset/img/icons8-coins-64 (5).png';
     let go = 0;
     let set = setInterval(() =>{
+        audio.play();
         go++
         a = createElement('span');
             a.className = 'PopOutRewards';
@@ -235,8 +237,8 @@ function PupOutRewards(param){
             clearInterval(set);
             a.remove();
             SaveCoinB(param);
+            audio.pause();
         }
-        // audio.play();
     },70);
 }
 
@@ -283,6 +285,7 @@ function LevelUp(parameter){
         for (let x = 0; x < ee.length; x++){
             setTimeout(() =>{
                 ee[x].remove();
+                auk.play();
             },1000);
         }
 
@@ -292,6 +295,21 @@ function LevelUp(parameter){
                 e.remove();
                 strCnt.innerHTML = '';
                 strCnt.appendChild(strImgWrap);
+                for (let x = 0; x < parameter; x++) {
+                    let str = createElement('span');
+                         let strIn = createElement('i');
+                             let strInIner = createElement('img');
+                         strIn.appendChild(strInIner);
+                     str.appendChild(strIn);
+                         let Attri = 'asset/img/str.gif';
+                             strInIner.setAttribute('src',Attri);
+                             strCNT.insertAdjacentElement('afterbegin',str);
+                                let lenCount = strCNT.children.length;
+                                Count_len.innerHTML = `${lenCount} Own Stars`;
+                    if(lenCount == 16){
+                        Count_len.innerHTML = `Stars Completed`;
+                    }
+                }
             },1000);
 
             setTimeout(() => {
@@ -302,6 +320,64 @@ function LevelUp(parameter){
             },4000);
         }
     },100);
+}
+
+function PurChaseAmnt(AmPlus, AmMinus){
+    let a = createElement('div');
+            let ab = createElement('div');
+        let b = createElement('nav');
+            let c = createElement('div');
+                let e = createElement('span');
+                    let f = createElement('nav');
+                        let g = createElement('img');
+                    ab.appendChild(b);
+                b.appendChild(e);
+            ab.appendChild(c);
+        c.appendChild(f);
+    f.appendChild(g);
+            a.className = 'aElement';
+                b.className = 'AMnutwrap';
+                    let strt = 0;
+                        c.className = 'imgtowrap';
+                            let bot = 'asset/img/Bot_.png';
+                        g.setAttribute('src',bot);
+                    e.innerHTML = strt;
+            ab.className = 'wrapper_Purchased';
+            a.appendChild(ab);
+        Friend.appendChild(a);
+        g.classList.add('tuptle');
+    let set = setInterval(() =>{
+        strt++
+        AmMinus--;
+        e.innerHTML = '+' + strt;
+        balnce.innerHTML++
+        let h = createElement('span');
+            h.className = 'coin_toPlus';
+                let i = createElement('i');
+                    let img = createElement('img');
+                let src = 'asset/img/9382196.png';
+            img.setAttribute('src',src);
+        i.appendChild(img);
+            h.appendChild(i);
+                ab.appendChild(h);
+
+            let el = querySelectorAll('.coin_toPlus');
+            for (let x = 0; x < el.length; x++){
+                setTimeout(() =>{
+                    el[x].remove();
+                },400);
+            }
+        if(strt == AmPlus){
+            clearInterval(set);
+            g.classList.remove('tuptle');
+            SaveCoinB(AmPlus);
+            a.classList.add('return');
+            setTimeout(() =>{
+                a.remove();
+                a.classList.remove('return');
+            },400);
+        }
+    },20);
 }
 
 function SaveCoinB(data){

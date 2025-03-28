@@ -227,6 +227,14 @@
     display: flex;
     padding: 10px;
 }
+._2____{
+    height: auto;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
 .daily_wra_clos_Plus{
     height: auto;
     width: 80%;
@@ -316,6 +324,20 @@
     background: linear-gradient(rgba(12, 48, 70, 0.877),rgba(17, 83, 124, 0.877),rgba(27, 131, 196, 0.877));
 }
 .h_X_X_X_x span{
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    transition: 0s !important;
+    align-items: center;
+    display: flex;
+    border-radius: .4em;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid var(--bdrClr1);
+    box-shadow: 0px 2px 1px 0px black;
+    background: linear-gradient(rgba(12, 48, 70, 0.877),rgba(17, 83, 124, 0.877),rgba(27, 131, 196, 0.877));
+}
+._2____ span{
     height: 40px;
     width: 40px;
     justify-content: center;
@@ -761,6 +783,10 @@
     color: rgb(255, 0, 85);
     font-size: larger;
 }
+._2____ span i{
+    color: rgb(255, 0, 85);
+    font-size: larger;
+}
 .daily_wra_clos_Plus span i{
     color: rgb(255, 0, 85);
     font-size: larger;
@@ -786,6 +812,9 @@
 .h_X_X_X_x span:active{
    opacity: 0.5;
 }
+._2____ span:active{
+    opacity: 0.5;
+}
 .mar_ket_hhr span:active{
     opacity: 0.5;
 }
@@ -793,6 +822,10 @@
     opacity: 0.5;
 }
 .h_X_X_X_x p{
+    color: rgb(235, 232, 232);
+    font-size: larger;
+}
+._2____ p{
     color: rgb(235, 232, 232);
     font-size: larger;
 }
@@ -811,6 +844,7 @@
     align-items: center;
     flex-direction: column;
     animation: slideIn 0.5s ease;
+    position: relative;
     display: none;
     background: url('../img/3d-rendering-cryptocurency-distribution_23-2149875500.jpg');
     background-repeat: no-repeat;
@@ -919,6 +953,103 @@
     display: flex;
     padding: 5px;
     background: linear-gradient(rgba(12, 48, 70, 0.877),rgba(17, 83, 124, 0.877),rgba(27, 131, 196, 0.877));
+}
+.wrapper_Purchased{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 90px;
+    background: linear-gradient(rgba(12, 48, 70, 0.918),rgba(17, 83, 124, 0.89),rgba(27, 131, 196, 0.925));
+}
+.aElement{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    animation: slideIn 0.5s ease;
+    background: url('../img/3d-rendewring-cryptocurency-distribution-concept_23-2149901277\ \(1\).avif');
+    background-size: cover;
+}
+.imgtowrap{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+}
+.imgtowrap nav{
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.imgtowrap nav img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: 0s !important;
+}
+.tuptle{
+    animation: tuptle 0.1s infinite;
+}
+.coin_toPlus{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    left: 48%;
+    top: 33.5%;
+    position: absolute;
+    animation: sluteUp 0.5s linear;
+}
+@keyframes sluteUp{
+    0%{
+        transform: translateY(-5px);
+    }
+    100%{
+        top: 15px;
+        opacity: 0;
+    }
+}
+.coin_toPlus i{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.coin_toPlus i img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@keyframes tuptle{
+    100%{
+        transform: translateY(-6px);
+    }
+}
+.AMnutwrap{
+    height: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+}
+.AMnutwrap span{
+    color: rgb(201, 196, 196);
+    font-size: xx-large;
 }
 .task_body__X__X{
     height: calc(100% / 5);
@@ -1276,8 +1407,14 @@
     animation: fadIn 1s ease;
     padding: 5px;
     gap: 2px;
+    box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.322);
     cursor: pointer; 
+    border: none;
+    outline: none;
     font-size: small;
+}
+.wrp__arr:disabled{
+    cursor: default;
 }
 .invite_ff_X_X{
     height: auto;
@@ -1616,4 +1753,75 @@
         top: 0;
         left: 50%;
     }
+}
+.Star_pad{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: url('../img/3d-rendewring-cryptocurency-distribution-concept_23-2149901333.jpg');
+    background-size:cover ;
+    border-top-left-radius: .4em;
+    border-top-right-radius: .4em;
+    animation: slideIn 0.5s ease;
+}
+.strTogle{
+    display: flex;
+}
+.star_blur{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.486);
+    border-top-left-radius: .4em;
+    border-top-right-radius: .4em;
+}
+.target{
+    height: auto;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.target p{
+    font-size: large;
+    color:  rgb(4, 58, 109);
+    font-weight: 600;
+}
+.wrapStar{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.wrapStar span{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.wrapStar span i{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.wrapStar span i img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

@@ -13,10 +13,10 @@
     align-items: center;
     position: relative;
     display: flex;
-    background: var(--ba_general);
+    background: url('../img/3d-rendering-cryptocurency-distribution_23-2149875500.jpg');
     overflow: hidden;
     flex-direction: column;
-    background: #030926;
+    scroll-behavior: smooth;
 }
 .why_am_i_not_paid_{
     height: auto;
@@ -158,7 +158,6 @@
     background: rgb(255, 250, 250);
     position: relative;
     gap: 30px;
-    background: url('../img/3d-rendewring-cryptocurency-distribution-concept_23-2149901333.jpg');
     background-size: cover;
 }
 .all_tasking_for_user::-webkit-scrollbar{
@@ -789,8 +788,9 @@ h2{
     padding: 5px;
     position: relative;
     transition: 0s !important;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.301);
-    background: white;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.301);
+    background: #fff;
+    border-radius: .4em;
     gap: 5px;
     cursor: pointer;
 }
@@ -831,7 +831,8 @@ h2{
    align-items: center;
    display: flex;
    flex-direction: column;
-   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.301);
+   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.301);
+   border-radius: .4em;
    background: white;
    padding: 5px;
 }
@@ -1430,11 +1431,12 @@ button{
 .anoter_part{
     height: auto;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     justify-content: space-between;
     align-items: center;
     display: flex;
-    box-shadow: 0px 9px 10px 0px rgba(0, 0, 0, 0.301);
+    border-radius: .4em;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.301);
     background: white;
 }
 .anoter_part .menu{
@@ -1501,9 +1503,10 @@ button{
     cursor: pointer;
     transition: 0s !important;
     gap: 10px;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.301);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.301);
     background: white;
     padding: 10px;
+    border-radius: .4em;
 }
 .me_on_mdias:hover{
     transition: 0s !important;
@@ -1828,7 +1831,6 @@ button{
     padding: 10px;
     display: flex;
     border-radius: .4em;
-    border: 1px solid var(--bdrClr1);
 }
 .input_wrap{
     height: auto;
@@ -1954,7 +1956,6 @@ button{
     padding: 10px;
     gap: 10px;
     border-radius: .4em;
-    border: 1px solid var(--bdrClr1);
 }
 .bank_aval{
     height: auto;
@@ -2107,6 +2108,7 @@ button{
 .item_slut:hover{
     transition: 0s !important;
     color: white;
+    box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.377);
     background: linear-gradient(23deg,rgb(5, 5, 81),rgb(9, 9, 108),rgb(24, 24, 238));
 }
 .hovery:hover{
@@ -2364,9 +2366,6 @@ button{
     display: flex;
     flex-direction: column;
     background: white;
-    border-top-left-radius: .9em;
-    border-top-right-radius: .9em;
-    box-shadow: var(--shad1);
     position: relative;
     top: -20px;
 }
@@ -2409,7 +2408,11 @@ button{
     transition: 0s !important;
     border-radius: .4em;
     padding: 5px;
+    box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.479);
     background: linear-gradient(rgba(7, 82, 243, 0.938),rgba(13, 61, 164, 0.938),rgba(4, 33, 94, 0.938));
+}
+.value_s{
+    transition: 0s !important;
 }
 .fst_spn:active{
     opacity: 0.5;

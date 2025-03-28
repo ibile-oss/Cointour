@@ -414,10 +414,8 @@
 
 document.onreadystatechange = function(){
     if(this.readyState !== 'complete'){
-        // window_onload();
         Loading_ani();
     }else{
-        // remove_window_onload();
         Remove_ani();
     }
 }
