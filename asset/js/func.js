@@ -162,11 +162,23 @@ function err_FLEX(){
 
 function Wallet_first_menu(){
     var values = querySelectorAll('.value_s');
-    for (let x = 0; x < item_slut.length; x++) {
+    for (let x = 0; x < item_slut.length; x++){
         item_slut[x].onclick = () =>{
             var val = values[x];
             if(val.innerHTML == 'History'){
                 document.querySelector('.History').style.setProperty('display','flex');
+                Scrol_to_top();
+            }if(val.innerHTML == 'Withdraw'){
+                withdrawals_request.style.setProperty('display','flex');
+                Scrol_to_top();
+                setTimeout(() =>{
+                    withdrawals_request.classList.add('return');
+                },9000);
+                setTimeout(() =>{
+                    withdrawals_request.style.setProperty('display','none');
+                },10000);
+            }if(val.innerHTML == 'Transfer'){
+                transfar__cc.style.setProperty('display','flex');
                 Scrol_to_top();
             }
         }
@@ -240,6 +252,10 @@ function PupOutRewards(param){
             audio.pause();
         }
     },70);
+}
+
+function __root__2(){
+    return document.querySelector('.rrt_').getAttribute('url');
 }
 
 function PupOutRewards2(param){
@@ -322,63 +338,6 @@ function LevelUp(parameter){
     },100);
 }
 
-function PurChaseAmnt(AmPlus, AmMinus){
-    let a = createElement('div');
-            let ab = createElement('div');
-        let b = createElement('nav');
-            let c = createElement('div');
-                let e = createElement('span');
-                    let f = createElement('nav');
-                        let g = createElement('img');
-                    ab.appendChild(b);
-                b.appendChild(e);
-            ab.appendChild(c);
-        c.appendChild(f);
-    f.appendChild(g);
-            a.className = 'aElement';
-                b.className = 'AMnutwrap';
-                    let strt = 0;
-                        c.className = 'imgtowrap';
-                            let bot = 'asset/img/Bot_.png';
-                        g.setAttribute('src',bot);
-                    e.innerHTML = strt;
-            ab.className = 'wrapper_Purchased';
-            a.appendChild(ab);
-        Friend.appendChild(a);
-        g.classList.add('tuptle');
-    let set = setInterval(() =>{
-        strt++
-        AmMinus--;
-        e.innerHTML = '+' + strt;
-        balnce.innerHTML++
-        let h = createElement('span');
-            h.className = 'coin_toPlus';
-                let i = createElement('i');
-                    let img = createElement('img');
-                let src = 'asset/img/9382196.png';
-            img.setAttribute('src',src);
-        i.appendChild(img);
-            h.appendChild(i);
-                ab.appendChild(h);
-
-            let el = querySelectorAll('.coin_toPlus');
-            for (let x = 0; x < el.length; x++){
-                setTimeout(() =>{
-                    el[x].remove();
-                },400);
-            }
-        if(strt == AmPlus){
-            clearInterval(set);
-            g.classList.remove('tuptle');
-            SaveCoinB(AmPlus);
-            a.classList.add('return');
-            setTimeout(() =>{
-                a.remove();
-                a.classList.remove('return');
-            },400);
-        }
-    },20);
-}
 
 function SaveCoinB(data){
     let bal = Number(QueenYJ.Coinballance) + Number(data);
@@ -386,3 +345,19 @@ function SaveCoinB(data){
     QueenYJ.Coinballance = bal;
   localStorage.setItem('QueenyBot', JSON.stringify(QueenYJ))
 }
+
+function Success_msg(err_txt){
+    let err = querySelector('.erro_txt_msg_fetch');
+        err.style.setProperty('display','flex');
+            err.innerHTML = err_txt;
+                setTimeout(() =>{
+                    err.classList.add('goBack');
+
+                    setTimeout(() =>{
+                        err.classList.remove('goBack');
+                        err.style.setProperty('display','none','important');
+                    },400);
+                },2000);
+    err.classList.add('success');
+}
+

@@ -17,6 +17,7 @@
     background: url('../img/3d-rendewring-cryptocurency-distribution-concept_23-2149901282.jpg');
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
     background-size: cover;
 }
 .Home{
@@ -32,6 +33,70 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+.reload{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    z-index: 4000;
+    background: rgba(255, 0, 0, 0.103);
+}
+.err_txt_manual{
+    height: auto;
+    width: fit-content;
+    color: white;
+    background: linear-gradient(rgb(161, 7, 92), rgb(228, 6, 128), rgb(255, 2, 141));
+    padding: 10px;
+    animation: pupUp 0.3s linear;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    font-size: small;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.288);
+}
+@keyframes pupUp{
+    0%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+.disapear{
+    animation: disapear 0.5s ease;
+}
+@keyframes disapear{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+@keyframes apear{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.success {
+    border: 1px solid rgb(18, 156, 149) !important;
+    background: linear-gradient(23deg, rgba(12, 141, 135, 0.575), rgba(12, 206, 196, 0.575), rgba(8, 238, 226, 0.575)) !important;
+    color: white !important;
+    transition: 0.5s linear;
+    animation: apear 0.5s ease;
+    display: flex !important;
 }
 .levels___X_XX_X_X{
     height: auto;
@@ -367,6 +432,8 @@
     height: 100px;
     width: fit-content;
     justify-content: flex-start;
+    border: none;
+    outline: none;
     align-items: center;
     flex-direction: column;
     display: flex;
@@ -843,6 +910,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
     animation: slideIn 0.5s ease;
     position: relative;
     display: none;
@@ -891,6 +959,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    position: relative;
     animation: slideIn 0.5s ease;
     display: none;
     background: url('../img/3d-rendering-cryptocurency-distribution_23-2149875500.jpg');
@@ -1053,6 +1122,8 @@
 }
 .task_body__X__X{
     height: calc(100% / 5);
+    border: none;
+    outline: none;
     width: 100%;
     justify-content: space-between;
     padding: 7px;
@@ -1063,7 +1134,6 @@
     font-size: medium;
     box-shadow: 0px 2px 1px 2px rgba(0, 0, 0, 0.616);
     background: linear-gradient(rgb(43, 42, 42),rgb(37, 35, 35),rgb(53, 45, 45));
-    border-radius: .4em;
 }
 .task_body__X__X:hover{
     background: linear-gradient(rgb(14, 13, 13),rgb(61, 56, 56),rgb(73, 60, 60));
@@ -1075,6 +1145,8 @@
 .coin_claim{
     height: auto;
     width: fit-content;
+    outline: none;
+    border: none;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -1084,6 +1156,15 @@
     cursor: pointer;
     gap: 5px;
     padding: 10px;
+    color: white;
+}
+.wrap_cmbo:disabled{
+    background: linear-gradient(23deg,rgb(10, 25, 36),rgb(18, 61, 90),rgb(19, 81, 122));
+    cursor: default;
+    border-radius: .5em;
+}
+.coin_claim:disabled{
+    background: linear-gradient(23deg,rgb(10, 25, 36),rgb(18, 61, 90),rgb(19, 81, 122));
 }
 .coin_claim span{
     height: 20px;
@@ -1098,8 +1179,8 @@
     object-fit: cover;
 }
 .item_spa_x_xx{
-    height: auto;
-    width: fit-content;
+    height: 100%;
+    width: 90%;
     justify-content: flex-start;
     text-decoration: none;
     color: rgb(212, 208, 208);
@@ -1144,11 +1225,12 @@
     object-fit: contain;
 }
 .item_spa_x_xx span{
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     justify-content: center;
     align-items: center;
     display: flex;
+    box-shadow: 0px 3px 2px 0px rgba(255, 0, 76, 0.479);
 }
 .item_spa_x_xx span img{
     height: 100%;
@@ -1178,6 +1260,7 @@
     flex-direction: column;
     padding: 5px;
     gap: 5px;
+    z-index: 2;
     background: rgba(0, 0, 0, 0.219);
 }
 .wrp_item{
@@ -1345,14 +1428,16 @@
     justify-content: flex-start;
     align-items: center;
     display: flex;
+    transition: 0.5s linear !important;
     border-radius: .9em;
     background: gray;
 }
 .lvl_pro span{
     height: 100%;
-    width: 70%;
+    transition: 0.5s linear !important;
+    display: flex;
     border-radius: .9em;
-    background: linear-gradient(23deg,rgb(5, 5, 81),rgb(9, 9, 108),rgb(24, 24, 238));
+    background: linear-gradient(23deg,rgb(5, 5, 81),rgb(9, 9, 108),rgb(24, 24, 238),rgb(3, 3, 253));
 }
 .lgW--- span{
     height: 30px;
@@ -1438,7 +1523,108 @@
     align-items: center;
     display: flex;
     gap: 10px;
+    border-radius: 26px;
     width: 80%;
+}
+.chrs{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    animation: goDound 3s linear;
+    z-index: 1;
+}
+.cre1{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    background: linear-gradient(rgb(4, 109, 95),rgb(4, 109, 95),rgb(6, 150, 131));
+    padding: 15px;
+    bottom: 0;
+    position: absolute;
+    animation: xin 0.5s ease;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 2000;
+}
+.cre1 nav{
+    height: 90px;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+}
+.cre1 button{
+    width: 80%;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(rgb(7, 58, 105),rgb(7, 88, 163),rgb(7, 108, 202));
+    outline: none;
+    border: none;
+    border-radius: 26px;
+    transition: 0s !important;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.349);
+}
+.cre1 button:hover{
+    background: linear-gradient(rgb(5, 45, 82),rgb(6, 58, 107),rgb(7, 91, 170));
+}
+@keyframes float3{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform: translateY(0.4rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+.cre1 span{
+    color: rgb(224, 222, 222);
+    font-size: medium;
+}
+.cre1 button:active{
+    opacity: 0.5;
+}
+.cre1 nav img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    animation: float3 4s ease-in-out infinite;
+}
+@keyframes xin{
+    0%{
+        transform: translateX(40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.chrs img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+@keyframes goDound{
+    0%{
+        top: 0;
+        opacity: 0;
+    }
+    50%{
+       top: 50%;
+       opacity: 1;
+    }
 }
 .invite_ff_X_X button:active{
     opacity: 0.5;
@@ -1460,6 +1646,12 @@
 .wrp__arr span{
     color: rgb(182, 175, 175);
 }
+.wrp__arr:disabled .Amnt{
+    color: rgb(223, 217, 219);
+}
+.wrp__arr:disabled p{
+    color: rgb(223, 217, 219);
+}
 .wrp__arr p{
     color: rgb(228, 219, 222);
 }
@@ -1478,6 +1670,15 @@
 }
 .wrp__arr:hover{
     background: linear-gradient(rgb(53, 47, 47),rgb(24, 22, 22),rgb(7, 7, 7));
+}
+.wrp__arr:disabled{
+    background: linear-gradient(rgb(12, 133, 107),rgb(8, 185, 185),rgb(6, 196, 230));
+    border-radius: .5em;
+}
+.level_items:disabled{
+    background: linear-gradient(rgb(12, 133, 107),rgb(8, 185, 185),rgb(6, 196, 230));
+    border-radius: .5em;
+    cursor: default;
 }
 .wrap_spn--x-x-x:hover{
     background: linear-gradient(rgb(53, 47, 47),rgb(24, 22, 22),rgb(7, 7, 7));
@@ -1714,6 +1915,8 @@
 }
 .daily_wrap_f__:disabled{
     cursor: default;
+    background: linear-gradient(23deg, rgb(10, 25, 36), rgb(18, 61, 90), rgb(19, 81, 122));
+    border-radius: .5em;
 }
 @keyframes sliduu{
     100%{

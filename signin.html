@@ -1,5 +1,13 @@
 <?php
     require_once dirname(__FILE__) ."/asset/inc/function.php";
+
+    if(isset($_GET['ref'])){
+        $refLink = $_GET['ref'];
+        $readonly = 'readonly';
+    }else{
+        $refLink = '';
+        $readonly = '';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -48,25 +56,28 @@
                 <div class="lt_part">
                     <nav class="err"></nav>
                     <div class="Ctr_inpt_wrap">
-                        <span>Fist name*</span> <input class="fname" type="text" placeholder="Fist name">
+                        <input class="fname" type="text" placeholder="Fist name">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Last name*</span> <input class="lname" type="text" placeholder="Last name">
+                        <input class="lname" type="text" placeholder="Last name">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Email*</span> <input class="email" type="text" placeholder="Enter email">
+                         <input class="email" type="text" placeholder="Enter email">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Phone*</span> <input class="phone" type="text" placeholder="Enter phone">
+                         <input class="phone" type="text" placeholder="Enter phone">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Password*</span> <input class="password" type="password" placeholder="Enter password">
+                        <input class="password" type="password" placeholder="Enter password">
                         <span class="un__ passw fas fa-eye"></span>
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Confirm*</span> <input class="cnpassord" type="password" placeholder="Confirm password">
+                       <input class="cnpassord"  type="password" placeholder="Confirm password">
                     </div>
                     <div class="Ctr_inpt_wrap">
+                     <input <?php echo $readonly?> value="<?php echo $refLink?>" class="text" type="text" placeholder="Referral link">
+                    </div>
+                    <div class="Ctr_inpt_wrap signB__">
                         <button>Sign in</button>
                     </div>
                 </div>
@@ -76,19 +87,21 @@
             </div>
         </form>
 
-        <form class="sign_up_table login_">
+        <form onsubmit="Login(event)" class="sign_up_table login_">
             <nav class="sign">
                 <h2>Log in</h2>
             </nav>
             <div class="sign_up_t">
                 <div class="lt_part log__">
+                    <nav class="err___"></nav>
                     <div class="Ctr_inpt_wrap">
-                        <span>Email*</span> <input type="text" placeholder="Enter email">
+                         <input class="email___e" type="text" placeholder="Enter email">
                     </div>
                     <div class="Ctr_inpt_wrap">
-                        <span>Password*</span> <input type="password" placeholder="Enter password">
+                         <input class="passw__af__" type="password" placeholder="Enter password">
+                        <span class="un__ passww fas fa-eye"></span>
                     </div>
-                    <div class="Ctr_inpt_wrap">
+                    <div class="Ctr_inpt_wrap logB__">
                         <button>Log in</button>
                     </div>
                 </div>

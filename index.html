@@ -1,3 +1,65 @@
+<?php
+    session_start();
+    require_once dirname(__FILE__) ."/asset/inc/function.php";
+    require_once dirname(__FILE__) ."/conn.php";
+
+    $user_data = check_logins($conn);
+
+    $uid = $_SESSION['uid'];
+    $fname = $_SESSION['ufname'];
+    $lname = $_SESSION['ulname'];
+    $ufname = $_SESSION['ufulname'];
+    $uphone = $_SESSION['uphone'];
+    $uemail = $_SESSION['uemail'];
+    $uwlad = $_SESSION['walletAD'];
+    $uref = $_SESSION['relink'];
+
+    $claim = fetch_users_reff($conn,$uid);
+    if($claim){
+        $btn = '';
+    }else{
+        $btn = 'disabled';
+    }
+
+    $claim2 = fetch_users_reff2($conn,$uid);
+    if($claim2){
+        $btn2 = '';
+    }else{
+        $btn2 = 'disabled';
+    }
+
+    $claim3 = fetch_users_reff3($conn,$uid);
+    if($claim3){
+        $btn3 = '';
+    }else{
+        $btn3 = 'disabled';
+    }
+
+    $claim4 = fetch_users_reff4($conn,$uid);
+    if($claim4){
+        $btn4 = '';
+    }else{
+        $btn4 = 'disabled';
+    }
+
+    $claim5 = fetch_users_reff5($conn,$uid);
+    if($claim5){
+        $btn5 = '';
+    }else{
+        $btn5 = 'disabled';
+    }
+
+    $check = checkUpload($conn,$uid);
+    if($check){
+        $disable = '';
+        $txt = 'Upload';
+        $dis = 'style="display:flex"';
+    }else{
+        $disable = 'disabled';
+        $txt = 'Uploaded';
+        $dis = 'style="display:none"';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +78,9 @@
     <script src="asset/js/func.js"></script>
     <title>Cointour</title>
 </head>
-<body>
+<body class="rrt_" url="<?=__Root__?>">
     <div class="Ctr_Cnt_xxxxxxxxx00">
-        <header class="header">
+        <header class="header" uid="<?=$uid?>" ufnme="<?=$ufname?>">
             <nav class="profile_wrapper">
                 <img src="asset/img/ctrlogo.png" alt="">
             </nav>
@@ -83,8 +145,118 @@
                 for it's not usable. <span>Cancil</span>
             </p>
         </div>
+
+        <div class="withdrawals_request">
+            <nav class="withdri__">
+                <h1>Withdraw</h1>
+                <nav class="witherawal_place">
+                    <input type="text" placeholder="Enter Ammount">
+                    <button>Place</button>
+                </nav>
+            </nav>
+        </div>
+
+        <div class="transfar__cc">
+            <span class="close_trsnfer"><i class="fas fa-close"></i></span>
+            <nav class="trans_f">
+                <h1>Transfer</h1>
+                <nav class="transfff">
+                    <input type="text" placeholder="Enter Ammount">
+                    <input type="text" placeholder="Enter Wallet Address">
+                    <button>Pay</button>
+                </nav>
+            </nav>
+        </div>
+
         <div class="cnt_crt_another_">
+            <div class="copy_msg">Ready to paste</div>
+            <div class="err_msg"></div>
+            <!-- STARS SENT -->
+            <div class="stars_cnt">
+                <div class="wrap_cover_to_blend">
+                    <div class="head_ing">
+                        <span>Stars</span>
+                        <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
+                    </div>
+                    <div class="available__stars">
+                        <span>No Available Star</span>
+
+                        <nav class="starswrap"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- KEYS STARS SENT -->
+            <div class="keys_starts">
+                <div class="wrap_cover_to_blend">
+                    <div class="head_ing">
+                        <span>Keys Stars</span>
+                        <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
+                    </div>
+                    <div class="available_keys_stars">
+                        <span>No Available Keys Star</span>
+
+                        <nav class="keys_starswrap"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- OCTAHEDRON -->
+            <div class="octahedron_sent">
+                <div class="wrap_cover_to_blend">
+                    <div class="head_ing">
+                        <span>Octahedron</span>
+                        <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
+                    </div>
+                    <div class="available_keys_stars">
+                        <span>No Available Octahedron</span>
+
+                        <nav class="octahedronwrap"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- DELTOHEDRON -->
+            <div class="deltohedron_sent">
+                <div class="wrap_cover_to_blend">
+                    <div class="head_ing">
+                        <span>Deltohedron</span>
+                        <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
+                    </div>
+                    <div class="available_keys_stars">
+                        <span>No Available Deltohedron</span>
+
+                        <nav class="deltohegronwrap"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- JEWEL -->
+            <div class="jewel_sent">
+                <div class="wrap_cover_to_blend">
+                    <div class="head_ing">
+                        <span>Jewel</span>
+                        <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
+                    </div>
+                    <div class="available_keys_stars">
+                        <span>No Available Jewel</span>
+
+                        <nav class="jewelwrap"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- PLUTO -->
+            <div class="pluto_sent">
+                <div class="wrap_cover_to_blend">
+                    <div class="head_ing">
+                        <span>Pluto</span>
+                        <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
+                    </div>
+                    <div class="available_keys_stars">
+                        <span>No Available Pluto</span>
+
+                        <nav class="plutowrap"></nav>
+                    </div>
+                </div>
+            </div>
             <div class="task_part">
+
                 <nav class="cnt_each_">
                     <div class="avater">
                         <img src="asset/img/main_ico.webp" alt="">
@@ -323,7 +495,7 @@
                                 <p>Rapheal henry</p>
                                 <span>Amount $29 <i>3/13/2025</i></span>
                             </nav>
-                            <nav class="remove_history"><span class="fas fa-xmark"></span></nav>
+                            <nav class="remove_history"><input type="checkbox"></nav>
                         </nav>
                         <nav class="item_tf_wrap">
                             <span class="img_wrap_tf wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
@@ -331,7 +503,23 @@
                                 <p>Rapheal henry</p>
                                 <span>Amount $29 <i>3/13/2025</i></span>
                             </nav>
-                            <nav class="remove_history"><span class="fas fa-xmark"></span></nav>
+                            <nav class="remove_history"><input type="checkbox"></nav>
+                        </nav>
+                        <nav class="item_tf_wrap">
+                            <span class="img_wrap_tf wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
+                            <nav class="txt_wraper">
+                                <p>Rapheal henry</p>
+                                <span>Amount $29 <i>3/13/2025</i></span>
+                            </nav>
+                            <nav class="remove_history"><input type="checkbox"></nav>
+                        </nav>
+                        <nav class="item_tf_wrap">
+                            <span class="img_wrap_tf wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
+                            <nav class="txt_wraper">
+                                <p>Rapheal henry</p>
+                                <span>Amount $29 <i>3/13/2025</i></span>
+                            </nav>
+                            <nav class="remove_history"><input type="checkbox"></nav>
                         </nav>
                     </div>
                     <div class="wash_videos">
@@ -401,7 +589,7 @@
                             <div class="totop_inner">
                                 <nav class="item_slut">
                                     <span class="img_slut wind_load"><nav><i></i></nav><img src="asset/img/check.png" alt=""></span>
-                                    <span class="value_s">Top plan</span>
+                                    <span class="value_s">Withdraw</span>
                                 </nav>
                                 <nav class="item_slut">
                                     <span class="img_slut wind_load"><nav><i></i></nav><img src="asset/img/transf.gif" alt=""></span>
@@ -470,39 +658,39 @@
                         </div>
                         <h3>Medium Store</h3>
                         <div class="payment_list">
-                            <nav class="item_2slut">
+                            <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
                                     <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/octahedron.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Octahedron</span>
                             </nav>
-                            <nav class="item_2slut">
+                            <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
                                     <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/deltohedron.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Deltohedron</span>
                             </nav>
-                            <nav class="item_2slut">
+                            <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
                                     <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/jewel.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Jewel</span>
                             </nav>
-                            <nav class="item_2slut">
+                            <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
                                     <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/pluto.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Pluto</span>
                             </nav>
-                            <nav class="item_2slut">
+                            <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
                                     <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/star.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Stars</span>
                             </nav>
-                            <nav class="item_2slut">
+                            <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/icons8-key-64 (3).png" alt=""></span>
+                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/keystar.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Key Stars</span>
                             </nav>
@@ -952,6 +1140,241 @@
                     <div class="adds_here"><h4>Add here</h4></div>
                 </div>
 
+                <div class="medium_stock">
+                    <div class="head_m_stodk">
+                        <nav class="mgwrap_m_stock"><img src="asset/img/mds_.jpg" alt=""></nav>
+                        <div class="menu_close_m_stoc">
+                            <h2>Medium stock</h2>
+                            <span class="closD_med"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                        </div>
+                    </div>
+
+                    <div class="wrapin_img">
+                        <div class="buy_with_coins_cnt">
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/star.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="main_menu">
                     <div class="recTask">
                         <nav><img src="asset/img/bakk.jpg" alt=""></nav>
@@ -963,6 +1386,7 @@
 
                     <h4 class="fa-fade">You are not eligible for our games</h4>
 
+                 
                     <div class="authentic_wrapper">
                         <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/wallet.png" alt=""></span>
@@ -972,8 +1396,6 @@
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/avali_co.png" alt=""></span>
                             <span class="txt_opem">Available coins</span>
                         </nav>
-                    </div>
-                    <div class="authentic_wrapper">
                         <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/bak.png" alt=""></span>
                             <span class="txt_opem">Submit bank details</span>
@@ -995,6 +1417,10 @@
                             <span class="txt_opem">Users hub</span>
                         </nav>
                         <nav class="wrap_authentic">
+                            <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/icons8-gem-folder-60.png" alt=""></span>
+                            <span class="txt_opem">Medium stock</span>
+                        </nav>
+                        <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/abou.png" alt=""></span>
                             <span class="txt_opem">About us</span>
                         </nav>
@@ -1007,14 +1433,36 @@
                             <span class="txt_opem">Testimonials</span>
                         </nav>
                         <nav class="wrap_authentic">
+                            <span class="img_tap_wrap rounded_imp wind_load"><nav><i></i></nav><img src="<?php echo __upl__ . Fetch_users_data1($conn,$uid)['uprofile']?>" alt=""></span>
+                            <span class="txt_opem">Me</span>
+                        </nav>
+                        <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/terms.png" alt=""></span>
                             <span class="txt_opem">Terms and policy</span>
                         </nav>
-                        <a href="#" class="wrap_authentic">
+                        <nav class="wrap_authentic log_UT">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/logut.png" alt=""></span>
                             <span class="txt_opem">Logout</span>
-                        </a>
+                        </nav>
                     </div>
+                </div>
+
+                <div class="me_account">
+                    <div class="me_head_acc">
+                        <input type="file" onchange="profile_picture()" class="upload_profile_" accept="image/*" id="profile_acc__">
+                        <span class="clos_me_"><i class="fas fa-close"></i></span>
+                        <label for="cover__" class="wrapProfile_acc_Cover"><img src="asset/img/main_ico.webp" alt=""></label>
+                        <label for="profile_acc__" class="profile_cc_p"><img src="<?php echo __upl__ . Fetch_users_data1($conn,$uid)['uprofile']?>" alt=""></label>
+                    </div>
+                    <nav class="_name_">
+                        <h3><?=$ufname?></h3>
+                        <p class="max_ccc"><span class="friendCount"><?php echo fetch_Data_2($conn,$uid)['ref']?></span> <i>Friend</i></p>
+                        <nav class="friends_table">
+                            <nav class="scroll_tap_ff">
+                                <?=fetch_my_referrals($conn,$uref)?>
+                            </nav>
+                        </nav>
+                    </nav>
                 </div>
 
                 <div class="ref_game_earning">
@@ -1034,76 +1482,127 @@
                             <h3>Round1 7%</h3>
                             <div class="round">
                                 <span>Refer 5 friends</span>
-                                <span class="count">0/5</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/5</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 10 friends</span>
-                                <span class="count">0/10</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/10</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 15 friends</span>
-                                <span class="count">0/15</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/15</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 20 friends</span>
-                                <span class="count">0/20</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/20</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
-                            <button class="token_to_you">Take token</button>
+                            <button <?=$btn?> class="token_to_you">Take token</button>
                         </div>
 
                         <div class="round1 rtow">
                             <h3>Round2 14%</h3>
                             <div class="round">
                                 <span>Refer 25 friends</span>
-                                <span class="count">0/25</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/25</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 30 friends</span>
-                                <span class="count">0/30</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/30</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 35 friends</span>
-                                <span class="count">0/35</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/35</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 40 friends</span>
-                                <span class="count">0/40</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/40</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
-                            <button class="token_to_you">Take token</button>
+                            <button <?=$btn2?> class="token_to_you">Take token</button>
                         </div>
 
                         <div class="round1 rthree">
                             <h3>Round3 28%</h3>
                             <div class="round">
                                 <span>Refer 45 friends</span>
-                                <span class="count">0/45</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/45</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 
                                 <span>Refer 50 friends</span>
-                                <span class="count">0/50</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/50</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 55 friends</span>
-                                <span class="count">0/55</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/55</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
                             <div class="round">
                                 <span>Refer 60 friends</span>
-                                <span class="count">0/60</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/60</span>
                                 <button class="status_ fas fa-check"></button>
                             </div>
-                            <button class="token_to_you">Take token</button>
+                            <button <?=$btn3?> class="token_to_you">Take token</button>
+                        </div>
+
+                        <div class="round1 rthree">
+                            <h3>Round4 40%</h3>
+                            <div class="round">
+                                <span>Refer 65 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/65</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <div class="round">
+                                
+                                <span>Refer 70 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/70</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <div class="round">
+                                <span>Refer 75 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/75</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <div class="round">
+                                <span>Refer 80 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/80</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <button <?=$btn4?> class="token_to_you">Take token</button>
+                        </div>
+
+                        <div class="round1 rthree">
+                            <h3>Round5 80%</h3>
+                            <div class="round">
+                                <span>Refer 85 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/85</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <div class="round">
+                                <span>Refer 90 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/90</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <div class="round">
+                                <span>Refer 95 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/95</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <div class="round">
+                                <span>Refer 100 friends</span>
+                                <span class="count"><?php echo fetch_Data_2($conn,$uid)['ref']?>/100</span>
+                                <button class="status_ fas fa-check"></button>
+                            </div>
+                            <button <?=$btn5?> class="token_to_you">Take token</button>
                         </div>
                     </div>
                 </div>
@@ -1117,7 +1616,7 @@
                             <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
                         </div>
                     </div>
-                    <div class="task_body TTask">
+                    <form onsubmit="send_dir(event)" enctype="multipart/form-data" class="task_body TTask">
                        <div class="nav___">
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1127,17 +1626,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I subscribe youtube. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1147,17 +1635,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed facebook. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1167,17 +1644,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed instagram. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1187,17 +1653,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed tiktok. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1207,23 +1662,18 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed twitter. screenshot</p>
-                                </div>
                             </nav>
                        </div>
-                    </div>
+                       <div class="err_msg_upl_f"></div>
+                       <div class="div_to_upload_front">
+                            <label <?=$dis?> title="Upload Screenshot" for="file"><input accept="image/*" id="file" class="filess" multiple type="file">+</label for="">
+                            <?php echo fetch_user_confirm($conn,$uid)?>
+                        </div>
+                       <button <?=$disable?> class="upload_screenshot"><?php echo $txt?></button>
+                    </form>
                 </div>
 
-                <form class="me_de_medias">
+                <form onsubmit="Push_Link_data(event)" class="me_de_medias">
                     <div class="recTask">
                         <nav><img src="asset/img/cont.jpg" alt=""></nav>
                         <div class="space_eve">
@@ -1236,69 +1686,36 @@
                     <div class="wrap_meon">
                         Youtube <nav class="each_meon">
                             <div class="profile_">
-                                <span class="__txt_smal">Youtube profile</span>
-                                <nav class="avarter_cnt">
-                                    <input class="to_none" type="file" accept="image/*" id="chosee" name="">
-                                    <label for="chosee">+</label>
-                                    <span class="inhere"><img src="asset/img/tube.png" alt=""></span>
-                                </nav>
-                                <span class="__txt_smal">Youtube name</span>
-                                <input id="style_cheet" type="text" placeholder="Enter name">
-                                <button>post</button>
+                                <span class="">Your youtube profile link</span>
+                                <input id="style_cheet" class="youtube_l" type="text" placeholder="Paste Link">
                             </div>
                         </nav>
                         Facebook <nav class="each_meon">
                             <div class="profile_">
-                                <span class="__txt_smal">Facebook profile</span>
-                                <nav class="avarter_cnt">
-                                    <input class="to_none" type="file" accept="image/*" id="chos2" name="">
-                                    <label for="chos2">+</label>
-                                    <span class="inhere"><img src="asset/img/face.png" alt=""></span>
-                                </nav>
-                                <span class="__txt_smal">Facebook name</span>
-                                <input id="style_cheet" type="text" placeholder="Enter name">
-                                <button>post</button>
+                                <span class="">Your facebook profile link</span>
+                                <input id="style_cheet" class="facebook_" type="text" placeholder="Paste Link">
                             </div>
                        </nav>
                         Instagram <nav class="each_meon">
                             <div class="profile_">
-                                <span class="__txt_smal">Instagram profile</span>
-                                <nav class="avarter_cnt">
-                                    <input class="to_none" type="file" accept="image/*" id="chos3" name="">
-                                    <label for="chos3">+</label>
-                                    <span class="inhere"><img src="asset/img/ins.png" alt=""></span>
-                                </nav>
-                                <span class="__txt_smal">Instagram name</span>
-                                <input id="style_cheet" type="text" placeholder="Enter name">
-                                <button>post</button>
+                                <span class="">Your instagram profile link</span>
+                                <input id="style_cheet" class="instagram_l" type="text" placeholder="Paste Link">
                             </div>
                        </nav>
                         Tiktok <nav class="each_meon">
                             <div class="profile_">
-                                <span class="__txt_smal">Tiktok profile</span>
-                                <nav class="avarter_cnt">
-                                    <input class="to_none" type="file" accept="image/*" id="chos4" name="">
-                                    <label for="chos4">+</label>
-                                    <span class="inhere"><img src="asset/img/tik.png" alt=""></span>
-                                </nav>
-                                <span class="__txt_smal">Tiktok name</span>
-                                <input id="style_cheet" type="text" placeholder="Enter name">
-                                <button>post</button>
+                                <span class="">Your tiktok profile link</span>
+                                <input id="style_cheet" class="tiktok_" type="text" placeholder="Paste Link">
                             </div>
                        </nav>
                         Twitter <nav class="each_meon">
                             <div class="profile_">
-                                <span class="__txt_smal">Twitter profile</span>
-                                <nav class="avarter_cnt">
-                                    <input class="to_none" type="file" accept="image/*" id="chos5" name="">
-                                    <label for="chos5">+</label>
-                                    <span class="inhere"><img src="asset/img/icons8-twitterx-48.png" alt=""></span>
-                                </nav>
-                                <span class="__txt_smal">Twitter name</span>
-                                <input id="style_cheet" type="text" placeholder="Enter name">
-                                <button>post</button>
+                                <span class="">Your twitter profile link</span>
+                                <input id="style_cheet" class="twitter_l" type="text" placeholder="Paste Link">
                             </div>
                        </nav>
+                       <div class="erro_txt_msg_fetch"></div>
+                        <button class="push_links">Push Links</button>
                     </div>
                     <div class="notes_of_notice">
                         <p>Please fill out all the field and all the profiles before attempting
@@ -1335,17 +1752,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I subscribe youtube. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1355,17 +1761,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed facebook. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1375,17 +1770,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed instagram. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1395,17 +1779,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed tiktok. screenshot</p>
-                                </div>
                             </nav>
                             <nav class="fll_task_budy">
                                 <nav class="task_wrapp">
@@ -1415,17 +1788,6 @@
                                     </a>
                                     <span class="small_media"><img src="asset/img/not_done.png" alt=""></span>
                                 </nav>
-                                <div class="prove_task_dong">
-                                    <div class="uplo">
-                                        <div class="wrap_uploader">
-                                            <input type="file" accept="image/*" name="" id="lebel">
-                                            <label for="lebel">+</label>
-                                            <span class="img_lab"></span>
-                                        </div>
-                                        <button>Upload</button>
-                                    </div>
-                                    <p>I followed twitter. screenshot</p>
-                                </div>
                             </nav>
                        </div>
                     </div>
@@ -1442,8 +1804,8 @@
                     </div>
 
                     <nav class="copy_link">
-                        <span>htpps:/cointour/signin/</span>
-                        <span>Copy</span>
+                        <span  class="ccpy"><?=__Root__?>signin.html?ref=<?=$uref?></span>
+                        <span onclick="copyToClipBoard()">Copy</span>
                     </nav>
                     
                     <div class="referal_cnt_user_">
@@ -1489,44 +1851,8 @@
                         </div>
 
                         <div class="then_re_total">
-                            <h4>My referal</h4>
-
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
-                            <nav class="each_ref_us">
-                                <span class="img_rap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                <span>promise nelson</span>
-                            </nav>
+                            <h4>My Friends</h4>
+                            <?=get_my_friends($conn,$uref)?>
                         </div>
                     </div>
                 </div>
@@ -1616,6 +1942,8 @@
     <script src="owl/owl.animate.js"></script>
     <script src="fontawesome/js/all.min.js"></script>
     <script src="asset/js/progress.js"></script>
+    <script src="asset/js/api.js"></script>
+    <script src="asset/js/buyCoin.js"></script>
     <script src="asset/js/index.js"></script>
 </body>
 </html>

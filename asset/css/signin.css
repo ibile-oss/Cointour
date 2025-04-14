@@ -19,7 +19,6 @@
     gap: 10px;
     z-index: 20;
     background: rgb(250, 252, 253);
-    padding: 5px;
 }
 .Ctr_cnt_xxxxxxxxr::-webkit-scrollbar{
     display: none;
@@ -93,8 +92,9 @@
     display: flex;
     background: rgb(226, 225, 225);
     padding: 10px;
-    border-radius: 1rem;
     flex-direction: column;
+    border-top-left-radius: .8em;
+    border-top-right-radius: .8em;
     gap: 5px;
     box-shadow: var(--shad1);
 }
@@ -149,13 +149,13 @@
 .sign_up_t div{
     height: auto;
     width: 50%;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     display: flex;
 }
 .lt_part{
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     width: 50%;
 }
 .Ctr_inpt_wrap{
@@ -183,13 +183,21 @@
     color: rgb(7, 26, 68) !important;
     font-size: large;
 }
+.success{
+    border: 1px solid rgb(18, 156, 149) !important;
+    background: linear-gradient(23deg, rgba(12, 141, 135, 0.575), rgba(12, 206, 196, 0.575), rgba(8, 238, 226, 0.575)) !important;
+    color: white !important;
+    transition: 0.5s linear;
+    animation: slidee 0.5s ease;
+    display: flex !important;
+}
 .un__:active{
     opacity: 0.5;
     transition: 0s !important;
 }
 
 .Ctr_inpt_wrap input{
-    padding: 7px;
+    padding: 10px;
     width: 100%;
     outline: none;
     border: none;
@@ -207,14 +215,22 @@
     align-items: center;
     display: flex;
 }
-.rt_part nav{
+
+.err{
     height: auto;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: none;
+    border: 1px solid rgb(151, 56, 12);
+    background: linear-gradient(23deg, rgba(201, 135, 135, 0.774), rgba(202, 146, 146, 0.774), rgba(209, 166, 166, 0.774));
+    transition: 0.5s linear;
+    animation: slidee 0.5s ease;
+    padding: 10px;
+    border-radius: .4em;
 }
-.err{
+.err___{
     height: auto;
     width: 100%;
     flex-wrap: wrap;
@@ -238,7 +254,7 @@
         opacity: 1;
     }
 }
-.rt_part nav img{
+.rt_part img{
     height: 100%;
     width: 100%;
     object-fit: cover;

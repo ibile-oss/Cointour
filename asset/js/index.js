@@ -1,3 +1,45 @@
+function Error_msg(err_txt){
+    let err = querySelector('.erro_txt_msg_fetch');
+        err.style.setProperty('display','flex');
+            err.innerHTML = err_txt;
+                setTimeout(() =>{
+                    err.classList.add('goBack');
+
+                    setTimeout(() =>{
+                        err.classList.remove('goBack');
+                        err.style.setProperty('display','none');
+                    },400);
+                },2000);
+    err.classList.remove('success');
+}
+function success_msg_txt(txt){
+    let err = querySelector('.err_msg_upl_f');
+        err.style.setProperty('display','flex');
+        err.classList.add('success');
+        err.innerHTML = txt;
+            setTimeout(() =>{
+                err.classList.add('goBack');
+
+                setTimeout(() =>{
+                    err.classList.remove('goBack');
+                    err.style.setProperty('display','none');
+                },400);
+            },2000);
+}
+function err_msg_txt(txt){
+    let err = querySelector('.err_msg_upl_f');
+        err.style.setProperty('display','flex');
+        err.innerHTML = txt;
+            setTimeout(() =>{
+                err.classList.add('goBack');
+
+                setTimeout(() =>{
+                    err.classList.remove('goBack');
+                    err.style.setProperty('display','none');
+                },400);
+            },2000);
+    err.classList.remove('success');
+}
 var very_state = querySelector('.verified_state');
     var ssss = querySelector('.circuler');
         var cnt_wrap = querySelectorAll('.tasking_mode');
@@ -83,17 +125,270 @@ var err = querySelector('.err_txt');
 let coin_goAll = querySelectorAll('.wrapCoin');
     let coinONE = querySelector('.coinONE');
         let coin_goAllTXT =  querySelectorAll('.wrapCoin p');
+            let rrt_ = querySelector('.rrt_').getAttribute('url');
+                let msg_recent_Transfar = querySelectorAll('.item_tf_wrap');
+                    let msg_input = querySelectorAll('.item_tf_wrap .remove_history');
+                        let medium_str = querySelectorAll('.medium_str');
+                            let medium_txt = querySelectorAll('.medium_str .txt_style');
+let STR_ = querySelector('.stars_cnt');
+    let OCT_ = querySelector('.octahedron_sent');
+        let DEL_ = querySelector('.deltohedron_sent');
+            let JEW_ = querySelector('.jewel_sent');
+                    let PLU_ = querySelector('.pluto_sent');
+                            let KEYS_ = querySelector('.keys_starts');
+                                let close_dem_all = querySelectorAll('.head_ing .close__up__');
+let close_stock = querySelector('.closD_med');
+    let medium_stock = querySelector('.medium_stock');
+        let stok_img = querySelectorAll('.stok_img');
+            let withdrawals_request = querySelector('.withdrawals_request');
+                let close_trsnfer = querySelector('.close_trsnfer');
+                    let transfar__cc = querySelector('.transfar__cc');
+                        let clo_Me = querySelector('.me_head_acc .clos_me_');
+                            let fcount = querySelector('.friendCount');
+                                let count_go = querySelector('.max_ccc i');
 
 
+if(fcount.innerHTML > 1){
+    count_go.innerHTML = count_go.innerHTML + 's';
+}else{
+    count_go.innerHTML = count_go.innerHTML;
+}
 
+let ArrClassLis = ['ani1','ani3'];
+for (let x = 0; x < stok_img.length; x++) {
+    let rand = Math.floor(Math.random() * ArrClassLis.length);
+    stok_img[x].classList.add(ArrClassLis[rand])
+}
 
+close_trsnfer.onclick = () =>{
+    transfar__cc.classList.add('goBack');
+    setTimeout(() =>{
+        transfar__cc.classList.remove('goBack');
+        transfar__cc.style.setProperty('display','none');
+    },400);
+}
 
+close_stock.onclick = () =>{
+    medium_stock.classList.add('goBack');
+    setTimeout(() =>{
+        medium_stock.classList.remove('goBack');
+        medium_stock.style.setProperty('display','none');
+    },400);
+}        
 
-    for (let x = 0; x < coin_goAll.length; x++){
-        coin_goAll[x].onclick = () =>{
-            window.location.href = coin_goAllTXT[x].innerHTML.toLowerCase() + '.html';
+for (let x = 0; x < medium_str.length; x++) {
+    close_dem_all[x].onclick = () =>{
+        OCT_.classList.add('goBack');
+        DEL_.classList.add('goBack');
+        JEW_.classList.add('goBack');
+        PLU_.classList.add('goBack');
+        KEYS_.classList.add('goBack');
+        STR_.classList.add('goBack');
+        setTimeout(() =>{
+            OCT_.style.setProperty('display','none');
+            DEL_.style.setProperty('display','none');
+            JEW_.style.setProperty('display','none');
+            PLU_.style.setProperty('display','none');
+            KEYS_.style.setProperty('display','none');
+            STR_.style.setProperty('display','none');
+            OCT_.classList.remove('goBack');
+            DEL_.classList.remove('goBack');
+            JEW_.classList.remove('goBack');
+            PLU_.classList.remove('goBack');
+            KEYS_.classList.remove('goBack');
+            STR_.classList.remove('goBack');
+        },400);
+    }
+    medium_str[x].onclick = () =>{
+        if(medium_txt[x].innerHTML == 'Octahedron'){
+            OCT_.style.setProperty('display','flex');
+            DEL_.style.setProperty('display','none');
+            JEW_.style.setProperty('display','none');
+            PLU_.style.setProperty('display','none');
+            KEYS_.style.setProperty('display','none');
+            STR_.style.setProperty('display','none');
+        }
+        if(medium_txt[x].innerHTML == 'Deltohedron'){
+            OCT_.style.setProperty('display','none');
+            DEL_.style.setProperty('display','flex');
+            JEW_.style.setProperty('display','none');
+            PLU_.style.setProperty('display','none');
+            KEYS_.style.setProperty('display','none');
+            STR_.style.setProperty('display','none');
+        }
+        if(medium_txt[x].innerHTML == 'Jewel'){
+            OCT_.style.setProperty('display','none');
+            DEL_.style.setProperty('display','none');
+            JEW_.style.setProperty('display','flex');
+            PLU_.style.setProperty('display','none');
+            KEYS_.style.setProperty('display','none');
+            STR_.style.setProperty('display','none');
+        }
+        if(medium_txt[x].innerHTML == 'Pluto'){
+            OCT_.style.setProperty('display','none');
+            DEL_.style.setProperty('display','none');
+            JEW_.style.setProperty('display','none');
+            PLU_.style.setProperty('display','flex');
+            KEYS_.style.setProperty('display','none');
+            STR_.style.setProperty('display','none');
+        }
+        if(medium_txt[x].innerHTML == 'Stars'){
+            OCT_.style.setProperty('display','none');
+            DEL_.style.setProperty('display','none');
+            JEW_.style.setProperty('display','none');
+            PLU_.style.setProperty('display','none');
+            KEYS_.style.setProperty('display','none');
+            STR_.style.setProperty('display','flex');
+        }
+        if(medium_txt[x].innerHTML == 'Key Stars'){
+            OCT_.style.setProperty('display','none');
+            DEL_.style.setProperty('display','none');
+            JEW_.style.setProperty('display','none');
+            PLU_.style.setProperty('display','none');
+            KEYS_.style.setProperty('display','flex');
+            STR_.style.setProperty('display','none');
         }
     }
+    
+}
+
+                    
+Push_Link_data = (event) =>{
+    event.preventDefault();
+        let youtube_l = querySelector('.youtube_l').value;
+            let facebook_l = querySelector('.facebook_').value;
+                let instagram_l = querySelector('.instagram_l').value;
+                    let tiktok_l = querySelector('.tiktok_').value;
+                        let twitter_l = querySelector('.twitter_l').value;
+                            let uid = querySelector('.header').getAttribute('uid');
+                                let ufnme = querySelector('.header').getAttribute('ufnme');
+    if(!youtube_l){
+        Error_msg('Include Your Youtube Link');
+        return;
+    }
+    if(!facebook_l){
+        Error_msg('Include Your Facebook Link');
+        return;
+    }
+    if(!instagram_l){
+        Error_msg('Include Your Instagram Link');
+        return;
+    }
+    if(!tiktok_l){
+        Error_msg('Include Your Tiktok Link');
+        return;
+    }
+    if(!twitter_l){
+        Error_msg('Include Your Twitter Link');
+        return;
+    }
+    Push_data_to_base(youtube_l,facebook_l,instagram_l,tiktok_l,twitter_l,uid,ufnme);
+}
+
+async function profile_picture(){
+    let img = querySelector('.profile_cc_p img');
+    const tittle = querySelector('.header').getAttribute('uid');
+    const input = querySelector('.upload_profile_');
+    const err = querySelector('.err_msg');
+
+    try {
+        const formdata = new FormData();
+        const imgbj = input.files[0];
+        const imgdata = URL.createObjectURL(imgbj);
+        img.src = imgdata;
+
+        formdata.append('profile', imgbj);
+        formdata.append('tittle', tittle);
+
+        const send = await fetch(`${__root__2()}/asset/apis/profile/`,{
+            method:"POST",
+            body:formdata
+        });
+
+        const res = await send.json();
+        console.log(res);
+
+        if(res.status !== 'success'){
+            err.style.setProperty('display','flex');
+            err.innerHTML = res.message;
+            setTimeout(() =>{
+                err.style.setProperty('display','none');
+            },1000);
+            return;
+        }
+
+        err.style.setProperty('display','flex');
+        err.innerHTML = res.message;
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+        },1000);
+    } catch (error) {
+        err.style.setProperty('display','flex');
+        err.innerHTML = error;
+        console.error(error);
+    }
+}
+
+async function send_dir(event){
+    event.preventDefault();
+    const tittle = querySelector('.header').getAttribute('uid');
+
+    try {
+        const formdata = new FormData();
+        formdata.append('tittle',tittle);
+        const files = document.getElementById('file').files;
+
+        for (let x = 0; x < files.length; x++){
+            formdata.append('files[]', files[x]);
+        }
+
+        let fileLen = 5;
+        if(files.length > fileLen){
+            err_msg_txt('Pleas Select Only 5 Screenshots For Comfirmation');
+            return
+        }
+        if(files.length < fileLen){
+            err_msg_txt('Pleas Select Up To 5 Screenshots For Comfirmation');
+            return
+        }    
+
+        const request = await fetch(`${__root__2()}/asset/apis/sendUpload/`,{
+            method:"POST",
+            body:formdata
+        });
+
+        const respons = await request.json();
+        console.log(respons);
+
+        if(respons.status !== 'success'){
+            err_msg_txt(respons.message);
+            return;
+        }
+
+        success_msg_txt(respons.message);
+
+    } catch (error){
+        err_msg_txt(error);
+        console.error(error);
+    }
+
+}
+
+
+
+
+for (let i = 0; i < msg_recent_Transfar.length; i++) {
+    msg_recent_Transfar[i].onmouseenter = () =>{
+        msg_input[i].style.setProperty('display','flex');
+    }
+}
+
+
+for (let x = 0; x < coin_goAll.length; x++){
+    coin_goAll[x].onclick = () =>{
+        window.location.href = coin_goAllTXT[x].innerHTML.toLowerCase() + '.html';
+    }
+}
 
 var txtInfo_text = [`Lorem ipsum dolor, sit amet consectetur 
 adipisicing elit. Quam nemo fugit aut ut 
@@ -200,12 +495,6 @@ for (let i = 0; i < About_Infor.length; i++){
                                     nwPrntCnt.remove();
                                 }
                                 
-
-
-
-
-
-
         bdy.insertAdjacentElement('afterbegin',nwPrntCnt);
     }
     
@@ -318,7 +607,21 @@ Push_data = (event) =>{
                     },3000);
     }
 }
-
+copyToClipBoard = () =>{
+    let txt = querySelector('.copy_link .ccpy');
+    let toaap = querySelector('.copy_msg');
+    navigator.clipboard.writeText(txt.innerHTML)
+    .then(() =>{
+        toaap.style.setProperty('display','flex');
+        setTimeout(() =>{
+          toaap.style.setProperty('display','none');
+        },2000)
+    })
+    .catch((err) =>{
+      toaap.style.setProperty('display','flex');
+      toaap.innerHTML = err;
+    })
+}
 btnsGo.disabled = true;
     let nums;
         let alfa;
@@ -338,13 +641,29 @@ for (let x = 0; x < open_cnt.length; x++) {
                             }if(open_[x].innerHTML == 'Faqs'){
                                 document.querySelector('.frequently_asked_question').style.setProperty('display','flex');
         }if(open_[x].innerHTML == 'Available coins'){
-                document.querySelector('.coins_available').style.setProperty('display','flex')
+                document.querySelector('.coins_available').style.setProperty('display','flex');
                     }if(open_[x].innerHTML == 'Submit bank details'){
                          document.querySelector('.Bank_details_push').style.setProperty('display','flex');
                             }if(open_[x].innerHTML == 'About us'){
                                  document.querySelector('.PopUpcnt_for_About').style.setProperty('display','flex');
+        }if(open_[x].innerHTML == 'Logout'){
+            window.location.href=`${__root__2()}/logout.php`;
+        }if(open_[x].innerHTML == 'Medium stock'){
+            medium_stock.style.setProperty('display','flex');
+        }if(open_[x].innerHTML == 'Me'){
+            document.querySelector('.me_account').style.setProperty('display','flex');
+            Scrol_to_top();
         }
+        
     }
+}
+
+clo_Me.onclick = () =>{
+    document.querySelector('.me_account').classList.add('goBack');
+    setTimeout(() =>{
+        document.querySelector('.me_account').style.setProperty('display','none');
+        document.querySelector('.me_account').classList.remove('goBack');
+    },400);
 }
     thisdotspn.onclick = () =>{
         document.querySelector('.PopUpcnt_for_About').style.setProperty('display','none');
@@ -398,9 +717,9 @@ info_cl.onclick = () =>{
             odit quos, quibusdam sit vel in magni vero! Harum vitae 
             qui voluptatibus`
 }
-        btn_ref.forEach(btn => {
-            btn.disabled = true
-        });
+        // btn_ref.forEach(btn => {
+        //     btn.disabled = true
+        // });
                 clk_cl.onclick = () =>{
                     refplay.classList.add('goBack');
                     setTimeout(() =>{

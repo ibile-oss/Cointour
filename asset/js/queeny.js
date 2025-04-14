@@ -32,7 +32,7 @@ let opnmtk = querySelector('.sh_hhdr .opnMkt');
 let cnt_daily_rewards = querySelector('.daily_rewards .dail_iner .wrap_levels');
     let cnt_daily_iner = querySelector('.daily_rewards .dail_iner');
         let dailyAmount = querySelectorAll('.daily_wrap_f__ .img_2_');
-            let navigateNav = querySelectorAll('.navigator__ tools_bars');
+            let navigateNav = querySelectorAll('.navigator__ .tools_bars');
                 let dailyT = querySelector('.Daily_R .Dail_T');
                     let audio =  querySelector('.Qinx-x-x-x--x--x--x audio');
                         let dailyCombo = querySelectorAll('.wrap_cmbo');
@@ -54,67 +54,559 @@ let lvlOpen = querySelectorAll('.level_items .level_open');
                             let Count_len = querySelector('.Count_len');
                                 let __coin_purchase = querySelectorAll('.__coin_purchase');
 let amnt = querySelectorAll('.wrp__arr .Amnt');
+    let txtDailyRewards = querySelectorAll('.wrap_cmbo .img32__ p');
+    let txtDailycombo = querySelectorAll('.daily_wrap_f__ .img_2_ p');
+        let uid = querySelector('.bdy').getAttribute('uid');
+            let unme = querySelector('.bdy').getAttribute('unme');
+                let uwald = querySelector('.bdy').getAttribute('uwald');
+                    let ubal = querySelector('.ball_cnce').getAttribute('ubal');
+                        let claim_txt = querySelectorAll('.__coin_purchase p');
+let taskCnt = querySelectorAll('.task_body__X__X');
+    let targetTask = querySelectorAll('.task_body__X__X .item_spa_x_xx');
+        let claimTask = querySelectorAll('.task_body__X__X .coin_claim');
+            let claimTaskTxt = querySelectorAll('.task_body__X__X .coin_claim p');
+                let txtTaskTo = querySelectorAll('.item_spa_x_xx p');
 
 
-// COIN REFER PURCHASE
-let amntPur = [1000,2000,3000,4000,5000,6000,7000,8000,9000];
-for (let x = 0; x < __coin_purchase.length; x++){
-    amnt[x].setAttribute('dataPurchase',amntPur[x]);
-    const Purchase = () =>{
-        PurChaseAmnt(amnt[x].getAttribute('dataPurchase'), amnt[x].innerHTML);
-        __coin_purchase[x].disabled = true;
-    }
 
-    __coin_purchase[x].addEventListener('click',Purchase);
+let taskDone = {
+    task1:false,
+    task2:false,
+    task3:false,
+    task4:false,
+    task5:false
 }
+if(localStorage.getItem('TaskDone') == null){
+    localStorage.setItem('TaskDone', JSON.stringify(taskDone));
+}
+class taskingMode{
+    constructor(t1, t2, t3, t4, t5,){
+        this.task1 = t1;
+        this.task2 = t2;
+        this.task3 = t3;
+        this.task4 = t4;
+        this.task5 = t5;
+    }
+}
+function Awarding_Info(){
+    let cre1 = createElement('div');
+    cre1.className = 'cre1';
+    b = createElement('nav');
+    c = createElement('img');
+    c.src = 'asset/img/icons8-high-priority-94.png';
+        let txt = createElement('span');
+            txt.innerHTML = `Note That All Task Is Being Captured When Done!`;
+                let btn = createElement('button');
+                    btn.innerHTML = 'Got It';
+    let tx2 = createElement('span');
+        tx2.innerHTML = 'For Confirmation';
+            let txt3 = createElement('span');
+                txt3.innerHTML = 'Avoid Task Esc';
+
+    btn.onclick = () =>{
+        cre1.remove();
+    }
+    if(cre1){
+        document.addEventListener('click',function(e){
+            if(e.target.className == 'cre1'){
+                return;
+            }else if(e.target.className == 'coin_claim'){
+                return;
+            }else if(e.target.className == 'tG'){
+                return;
+            }else if(e.target.parentElement == 'cre1'){
+                return;
+            }else if(e.target.parentElement.parentElement == 'cre1'){
+                return;
+            }
+            cre1.remove();
+        })
+    }
+    b.appendChild(c);
+    cre1.appendChild(b)
+    cre1.appendChild(txt);
+    cre1.appendChild(tx2);
+    cre1.appendChild(txt3);
+    cre1.appendChild(btn);
+    Task.appendChild(cre1);
+}
+let tasking = JSON.parse(localStorage.getItem('TaskDone'));
+let tasKk = new taskingMode(tasking.task1, tasking.task2, 
+    tasking.task3,tasking.task4,tasking.task5);
+
+function Awarding_Task(amount,taskIn){
+    let cre1 = createElement('div');
+    cre1.className = 'cre1';
+    b = createElement('nav');
+    c = createElement('img');
+    c.src = 'asset/img/9382196.png';
+        let txt = createElement('span');
+            txt.innerHTML = `You\'ve Successfully Claimed ${amount} Coins For Joining Queeny`;
+                let btn = createElement('button');
+                    btn.innerHTML = 'Got It';
+
+    btn.onclick = () =>{
+        cre1.remove();
+    }
+    document.addEventListener('click',function(e){
+        if(e.target.className == 'cre1'){
+            return;
+        }else if(e.target.className == 'coin_claim'){
+            return;
+        }else if(e.target.className == 'tG'){
+            return;
+        }else if(e.target.parentElement.parentElement == 'cre1'){
+            return;
+        }
+        cre1.remove();
+    })
+    b.appendChild(c);
+    cre1.appendChild(b)
+    cre1.appendChild(txt);
+    cre1.appendChild(btn);
+    Task.appendChild(cre1);
+}
+
+let taskArr = [1,2,3,4,5];
+for (let x = 0; x < claimTask.length; x++){
+    claimTask[x].setAttribute('taskL',taskArr[x]);
+    const Check = () =>{
+        let Bj = JSON.parse(localStorage.getItem('TaskDone'));
+        if(Bj.task1 !== true){
+            Awarding_Info();
+            return;
+        }
+        if(Bj.task2 !== true){
+            Awarding_Info();
+            return;
+        }
+        if(Bj.task3 !== true){
+            Awarding_Info();
+            return;
+        }
+        if(Bj.task4 !== true){
+            Awarding_Info();
+            return;
+        }
+        if(Bj.task5 !== true){
+            Awarding_Info();
+            return;
+        }
+        if(!Number(claimTaskTxt[x].innerHTML)){
+            return;
+        }
+        claimTask[x].disabled = true;
+        senDtask(uid,claimTask[x].getAttribute('taskL'));
+        Awarding_Task(claimTaskTxt[x].innerHTML);
+        SaveCoinB(claimTaskTxt[x].innerHTML);
+        balnce.innerHTML = QueenyTap.UpdateBlnce();
+        claimTaskTxt[x].innerHTML = 'Claimed';
+    }
+    claimTask[x].addEventListener('click',Check);
+    Update_Balance();
+}
+async function senDtask(uid,taskNum){
+    try {
+        const fet = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
+            method:"POST",
+            headers:{'Content-type':'application/x-www-form-urlencoded'},
+            body:'taskM=' + JSON.stringify({uid,taskNum})
+        });
+    
+        const respons = await fet.text();
+        console.log(respons);
+    
+        if(respons.status !== 'success'){
+            return;
+        }
+
+    } catch (error){
+        console.error(error);
+        err_txt__(respons.message);
+    }
+
+}
+
+for (let x = 0; x < targetTask.length; x++){
+    const Add = () =>{
+        if(txtTaskTo[x].innerHTML == 'Subscribe Queeny On Youtube'){
+            taskDone.task1 = true;
+            localStorage.setItem('TaskDone', JSON.stringify(taskDone));
+
+        }else if(txtTaskTo[x].innerHTML == 'Join Queeny On Tiktok'){
+            taskDone.task2 = true;
+            localStorage.setItem('TaskDone', JSON.stringify(taskDone));
+
+        }else if(txtTaskTo[x].innerHTML == 'Join Queeny On Instagram'){
+            taskDone.task3 = true;
+            localStorage.setItem('TaskDone', JSON.stringify(taskDone));
+
+        }else if(txtTaskTo[x].innerHTML == 'Join Queeny On Twitter'){
+            taskDone.task4 = true;
+            localStorage.setItem('TaskDone', JSON.stringify(taskDone));
+
+        }else if(txtTaskTo[x].innerHTML == 'Join Queeny On Facebook'){
+            taskDone.task5 = true;
+            localStorage.setItem('TaskDone', JSON.stringify(taskDone));
+        }
+    }
+    targetTask[x].addEventListener('click',Add);
+}
+
+let Obj = {
+    Tap: 1,
+    DailyCombo: 100,
+    DailyReward: 100,
+    Coinballance: ubal,
+    TapCount: 1,
+}
+
+window.onload = () =>{
+    balnce.innerHTML = ubal;
+}
+
+class Quenny{
+    constructor(tap, bal, combo, reward, coinB, tpcnt){
+        this.Tap = tap;
+        this.Ballance = bal;
+        this.DailyCombo = combo;
+        this.DailyReward = reward;
+        this.Coinballance = coinB;
+        this.TapCount = tpcnt;
+    }
+    // SaveCoinBlnce(b){
+    //     let StoreCoin = JSON.parse(localStorage.getItem('QueenyBot'));
+    //     let bal = Number(StoreCoin.coinB) + Number(b);
+    //     StoreCoin.Coinballance = bal;
+    //     localStorage.setItem('QueenyBot', JSON.stringify(StoreCoin));
+    // }
+    UpdateBlnce(){
+        let data = JSON.parse(localStorage.getItem('QueenyBot'));
+        return data.Coinballance;
+    }
+}
+
+
+if(localStorage.getItem('QueenyBot') == null){
+    localStorage.setItem('QueenyBot', JSON.stringify(Obj));
+}
+
+
+
+function err_txt__(txt){
+    let err = querySelector('.err_txt_manual');
+        err.style.setProperty('display','flex');
+            err.classList.remove('success');
+                err.innerHTML = txt;
+    setTimeout(() =>{
+        err.classList.add('disapear');
+
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+            err.classList.remove('disapear');
+        })
+    },1000);
+}
+
+function success_txt__(txt){
+    let err = querySelector('.err_txt_manual');
+        err.style.setProperty('display','flex');
+            err.classList.add('success');
+                err.innerHTML = txt;
+    setTimeout(() =>{
+        err.classList.add('disapear');
+
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+            err.classList.remove('disapear');
+        })
+    },1000);
+}
+
+let QueenYJ = JSON.parse(localStorage.getItem('QueenyBot'));
+let QueenyTap = new Quenny(QueenYJ.Tap, QueenYJ.Ballance, 
+    QueenYJ.TapCount,QueenYJ.DailyCombo,QueenYJ.DailyReward);
+    function __RUT__(){
+        return document.querySelector('.Home').getAttribute('url');
+    }
+
+
+async function Update_Balance(){
+    try {
+        const data = JSON.parse(localStorage.getItem('QueenyBot'));
+        const dataIns = data.Coinballance;
+        const fet = await fetch(`${__RUT__()}/asset/apis/queeny/`,{
+            method:"Post",
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify({uid,unme,dataIns})
+        });
+    
+        const respy = await fet.json();
+        // console.log(respy);
+    
+        if(respy.status !== 'success'){
+            err_txt__(respy.message);
+            return;
+        }
+
+
+        let storeBal = JSON.parse(localStorage.getItem('QueenyBot'));
+        let bala  = respy.message
+        storeBal.Coinballance = bala;
+        balnce.innerHTML = storeBal.Coinballance;
+        localStorage.setItem('QueenyBot', JSON.stringify(storeBal));
+        balnce.innerHTML = QueenyTap.UpdateBlnce();
+    
+        // console.log(error);
+        // success_txt__(respy.message);
+    
+    } catch (error){
+        console.error(error);
+        err_txt__(error);
+    }
+}
+
+Update_Balance();
+
+window.onload = () =>{
+    Update_Balance();
+}
+
+
+
+async function sendAATA(params,uid){
+    try {
+       const send = await fetch(`${__RUT__()}/asset/apis/genSend/`,{
+            method:"POST",
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify({params,uid})
+        });
+
+        const res = await send.text();
+        // console.log(res);
+
+        if(res.status !== 'success'){
+            // console.log(res.message);
+            return;
+        }
+
+    }catch (error){
+        console.error(error);
+        // console.log(res.message);
+    }
+}
+
+// COIN REFER PURCHASE
+let for5 = 6000;
+    let for10 = for5 + for5;
+        let for15 = for10 + for10;
+            let for20 = for15 + for15;
+                    let for25 = for20 + for20;
+                        let for30 = for25 + for25;
+                            let for35 = for30 + for30;
+    let for40 = for35 + for35;
+        let for45 = for40 + for40;
+let amntPur = [for5,for10,for15,for20,for25,for30,for35,for40,for45];
+let amnt_A = [5,10,15,20,25,30,35,40,45];
+let class_purchase = ['ref5','ref10','ref15','ref20','ref25','ref30','ref35','ref40','ref45'];
+
 // COIN REFER PURCHASE
 
+Check_leves();
 
+async function Check_leves(){
+    const uid = querySelector('.bdy').getAttribute('uid');
+    const __coin_ = querySelectorAll('.__coin_purchase');
+   try {
+        for (let x = 0; x < __coin_.length; x++) {
+            
+            const request = await fetch(`${__RUT__()}/asset/apis/`,{
+                method:"POST",
+                headers:{'Content-type':'application/json'},
+                body:JSON.stringify({uid})
+            });
 
-// LEVEL UP CODE HEREEEEEEEEEEEEEEEEEEEE
-    let lvl_1 = 5000000;
-        let lvl_2 = lvl_1 * 2;
-            let lvl_3 = lvl_2 * 2;
-                let lvl_4 = lvl_3 * 2;
-                    let lvl_5 = lvl_4 * 2;
-                let lvl_6 = lvl_5 * 2;
-            let lvl_7 = lvl_6 * 2;
-        let lvl_8 = lvl_7 * 2;
-            let lvl_9 = lvl_8 * 2;
-                let lvl_10 = lvl_9 * 2;
-                    let l_1tru = balnce.innerHTML >= lvl_1;
-                        let l_2tru = balnce.innerHTML >= lvl_2;
-                            let l_3tru = balnce.innerHTML >= lvl_3;
-                        let l_4tru = balnce.innerHTML >= lvl_4;
-                    let l_5tru = balnce.innerHTML >= lvl_5;
-                let l_6tru = balnce.innerHTML >= lvl_6;
-            let l_7tru = balnce.innerHTML >= lvl_7;
-        let l_8tru = balnce.innerHTML >= lvl_8;
-            let l_9tru = balnce.innerHTML >= lvl_9;
-                let l_10 = balnce.innerHTML >= lvl_10;
-    let StrCnt = [1,1,1,1,1,2,2,2,2,3];
-    let lenCount = strCNT.children.length;
-    for (let x = 0; x < levelStar.length; x++){
-        Count_len.innerHTML = `${lenCount} Own Stars`;
-        if(lenCount == 16){
-            Count_len.innerHTML = `Stars Completed`;
-        }
-        levelC[x].setAttribute('dataInt',StrCnt[x]);
-        if(l_1tru){
-            lvlLock[x].style.setProperty('display','none');
-            lvlOpen[x].style.setProperty('display','flex');
-        }
-        const Star = () =>{
-            if(LvL_s[x].textContent == 'Level 1'){
-                if(!l_1tru){
-                    return
-                }
+            const respons = await request.json();
+            // console.log(respons);
+
+            if(respons.status !== 'success'){
+                console.log(respons.message);
+                return;
             }
-            LevelUp(levelC[x].getAttribute('dataInt'));
-        }
 
-        levelStar[x].addEventListener('click', Star);
+            amnt[x].setAttribute('dataPurchase',amntPur[x]);
+            amnt[x].setAttribute('nmt',amnt_A[x]);
+            __coin_[x].setAttribute('id',class_purchase[x]);
+
+            amnt[x].innerHTML = amntPur[x];
+
+            const Purchase = () =>{
+                if(respons.Referrals !== amnt[x].getAttribute('nmt')){
+                    err_txt__(`Sorry You Have Not Gotten To ${amnt[x].getAttribute('nmt')}
+                    Referrals Yet, Your Ref Is ${respons.Referrals}`);
+                    return;
+                }
+                __coin_[x].disabled = true;
+                sendAATA(amnt[x].getAttribute('nmt'),uid);
+                SaveCoinB(amnt[x].getAttribute('dataPurchase'));
+                balnce.innerHTML = QueenyTap.UpdateBlnce();
+                Awarding_chairs(amnt[x].getAttribute('dataPurchase'),respons.Referrals);
+            }
+
+            __coin_[x].addEventListener('click',Purchase);
+
+        }        
+        
+    } catch (error){
+        console.error(error);
+        err_txt__(error);
     }
+}
+check_L();
+async function check_L(){
+    let StrCnt = [1,1,1,1,1,2,2,2,2,3];
+    let levleStar = [5,10,15,20,25,30,35,40,45,50];
+    let lvl_ = [1,2,3,4,5,6,7,8,9,10];    
+    let lenCount = strCNT.children.length;
+    const uid = querySelector('.bdy').getAttribute('uid');
+    const progress = querySelector('.lvl_pro span');
+    const lvlTXT = querySelector('.lgW--- p');
+
+    try {
+        for (let x = 0; x < levelStar.length; x++){
+            Count_len.innerHTML = `${lenCount} Own Stars`;
+            levelStar[x].setAttribute('lvlStr',levleStar[x]);
+            levelStar[x].setAttribute('level',lvl_[x]);
+            if(lenCount == 16){
+                Count_len.innerHTML = `Stars Completed`;
+            }
+            levelC[x].setAttribute('dataInt',StrCnt[x]);
+
+            const ft = await fetch(`${__RUT__()}/asset/apis/data/`,{
+                method:"POST",
+                headers:{'Content-type':'application/json'},
+                body:JSON.stringify({uid})
+            });
+
+            const resPons = await ft.json();
+            // console.log(resPons)
+
+            if(resPons.status !== 'success'){
+                console.log(resPons.message);
+                return;
+            }
+
+            if(resPons.Referrals < 5){
+                progress.style.setProperty('width','1px');
+                lvlTXT.innerHTML = 'Level 0/10';
+            }else if(resPons.Referrals == 5){
+                progress.style.setProperty('width','10%');
+                lvlTXT.innerHTML = 'Level 1/10';
+            }else if(resPons.Referrals == 10){
+                progress.style.setProperty('width','20%');
+                lvlTXT.innerHTML = 'Level 2/10';
+            }else if(resPons.Referrals == 15){
+                progress.style.setProperty('width','30%');
+                lvlTXT.innerHTML = 'Level 3/10';
+            }else if(resPons.Referrals == 20){
+                progress.style.setProperty('width','40%');
+                lvlTXT.innerHTML = 'Level 4/10';
+            }else if(resPons.Referrals == 25){
+                progress.style.setProperty('width','50%');
+                lvlTXT.innerHTML = 'Level 5/10';
+            }else if(resPons.Referrals == 30){
+                progress.style.setProperty('width','60%');
+                lvlTXT.innerHTML = 'Level 6/10';
+            }else if(resPons.Referrals == 35){
+                progress.style.setProperty('width','70%');
+                lvlTXT.innerHTML = 'Level 7/10';
+            }else if(resPons.Referrals == 40){
+                progress.style.setProperty('width','80%');
+                lvlTXT.innerHTML = 'Level 8/10';
+            }else if(resPons.Referrals == 45){
+                progress.style.setProperty('width','90%');
+                lvlTXT.innerHTML = 'Level 9/10';
+            }else if(resPons.Referrals == 50){
+                progress.style.setProperty('width','100%');
+                lvlTXT.innerHTML = 'Level Completed';
+            }
+            
+            
+            const Star = () =>{
+                if(resPons.Referrals !== levelStar[x].getAttribute('lvlStr')){
+                    err_txt__(`Sorry You Have Not Gotten To Level ${levelStar[x].getAttribute('level')} Yet`);
+                   return;
+                }
+                levelStar[x].disabled = true;
+                sendLVL(levelStar[x].getAttribute('level'),uid,levelC[x].getAttribute('dataInt'));
+                LevelUp(levelC[x].getAttribute('dataInt'));
+            }
+    
+            levelStar[x].addEventListener('click', Star);
+        }
+    }catch(error){
+        console.error(error);
+        err_txt__(error);
+    }
+}
+async function sendLVL(lvl,id,str){
+    try{
+        const sendR = await fetch(`${__RUT__()}/asset/apis/lvl/`,{
+            method:"POST",
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify({lvl,id,str})
+        });
+
+        const iboro = await sendR.text();
+        console.log(iboro);
+
+        if(iboro.status !== 'success'){
+            console.log(iboro.message);
+            return;
+        }
+    }catch (error) {
+        console.error(error);
+        err_txt__(error);
+    }
+}
+function Awarding_chairs(amount,ref){
+    let PY = Friend.clientWidth;
+    let cre1 = createElement('div');
+    cre1.className = 'cre1';
+    b = createElement('nav');
+    c = createElement('img');
+    c.src = 'asset/img/9382196.png';
+        let txt = createElement('span');
+            txt.innerHTML = `You\'ve Successfully Claimed ${amount} Coins For ${ref} Friends`;
+                let btn = createElement('button');
+                    btn.innerHTML = 'Got It';
+
+    let set = setInterval(() =>{
+        let chrs = createElement('span');
+        let img = createElement('img');
+        img.src = 'asset/img/9382196.png'
+        chrs.className = 'chrs'
+        chrs.appendChild(img);
+        let chl = PY - chrs.clientWidth;
+        let rand = Math.floor(Math.random() * chl);
+        chrs.style.setProperty('left', rand + 'px');
+
+        setTimeout(() =>{
+            chrs.remove();
+        },1500);
+        Friend.appendChild(chrs);
+    },2000);
+    btn.onclick = () =>{
+        clearInterval(set);
+        cre1.remove();
+    }
+    b.appendChild(c);
+    cre1.appendChild(b)
+    cre1.appendChild(txt);
+    cre1.appendChild(btn)
+    Friend.appendChild(cre1);
+}
+
 // COUNTDOWN TIMER CODE HEREEEEEEEEEEEEEEE
     function CountDownTimer(){
         const Endtime = new Date().setHours(24, 0, 0, 0);
@@ -125,6 +617,7 @@ for (let x = 0; x < __coin_purchase.length; x++){
 
             if(Timleft <= 0){
                 clearInterval(Timer);
+                Clear_Rewards(uid);
                 CountDownTimer();
             }else{
                 const hours = Math.floor((Timleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -142,9 +635,9 @@ for (let x = 0; x < __coin_purchase.length; x++){
     CountDownTimer();
 // DAILY REWARDS CODE HEREEEEEEEEEEEEEEEEEEEEEEEEE
     let dayCount = 0
-    let Amount = [100,90,150,110,50,100,900];
     for (let x = 0; x < dailyReward_wrap.length; x++){
-        dailyAmount[x].setAttribute('data',Amount[x]);
+        dailyAmount[x].setAttribute('data',QueenYJ.DailyCombo);
+        txtDailycombo[x].innerHTML = '+' + QueenYJ.DailyCombo;
         dayCount++
         dailyReward_wrap[x].setAttribute('day',dayCount);
         let day = new Date().getDay();
@@ -162,24 +655,62 @@ for (let x = 0; x < __coin_purchase.length; x++){
         
         dailyReward_wrap[x].onclick = () =>{
             if(!Istoday){
-                dailyReward_wrap[x].disabled = true;
+                dailyReward_wrap[x].disabled = true;    
                 RewardLocked();
-                return
+                return;
             }
+            check_Daily_reward(dailyReward_wrap[x].getAttribute('day'),uid);
             PupOutRewards(dailyAmount[x].getAttribute('data'));
             dailyReward_wrap[x].disabled = true;
             daily_lock[x].style.setProperty('display','flex');
             daily_open[x].style.setProperty('display','none');
             daily_open[x].classList.remove('fa-shake');
         }
+        Update_Balance();
     }
-// DAILY COMBO CODE HEREEEEEEEEEEEEEEEEEEEEEEEEEEEE
-let AmountCombo = [371,110,151,111,59,103,1000];
+// DAILY COMBO CODE HEREEEEEEEEEEEEEEEEEEEEEEEEEEE
+async function Clear_Rewards(uid){
+    const fft = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
+        method:"POST",
+        headers:{'Content-type':'application/x-www-form-urlencoded'},
+        body:'check=' + JSON.stringify({uid})
+    });
+
+    const rest = await fft.text();
+    console.log(rest);
+
+    if(rest.status !== 'success'){
+        return;
+    }
+}
+
+async function check_Daily_reward(day,uid){
+    try {
+        let data = JSON.stringify({day,uid})
+        const fet = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
+            method:"POST",
+            headers:{'Content-type':'application/x-www-form-urlencoded'},
+            body:'docu=' + data
+        });
+
+        const resp = await fet.text();
+        console.log(resp);
+
+        if(resp.status !== 'success'){
+            // console.log(resp.message);
+            return;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+} 
+
 let Count = 0
 for (let x = 0; x < dailyCombo.length; x++) {
     Count++;
     dailyCombo[x].setAttribute('day',Count);
-    comboClaim[x].setAttribute('data',AmountCombo[x]);
+    comboClaim[x].setAttribute('data',QueenYJ.DailyReward);
+    txtDailyRewards[x].innerHTML = '+' + QueenYJ.DailyReward;
 
     let day = new Date().getDay();
     let Istoday = day == dailyCombo[x].getAttribute('day');
@@ -197,21 +728,41 @@ for (let x = 0; x < dailyCombo.length; x++) {
     const Shop = () =>{
         if(!Istoday){
             dailyCombo[x].disabled = true;
-            return
+            return;
         }
-
+        check_daily_combo(uid,dailyCombo[x].getAttribute('day'));
         PupOutRewards2(comboClaim[x].getAttribute('data'));
         dailyCombo[x].disabled = true;
         comboLock[x].style.setProperty('display','flex');
         comboOpen[x].style.setProperty('display','none');
         comboOpen[x].classList.remove('fa-shake');
     }
-
+    Update_Balance();
     dailyCombo[x].addEventListener('click', Shop)
 }
+async function check_daily_combo(uid,day){
+    try {
+        const send = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
+            method:"POST",
+            headers:{'Content-type':'application/x-www-form-urlencoded'},
+            body:'dataSet=' + JSON.stringify({uid,day})
+        });
+    
+        const respon = await send.text();
+        console.log(respon);
+    
+        if(respon.status !== 'success'){
+            console.log(respon.message);
+            return;
+        }
 
-let QueenYJ = JSON.parse(localStorage.getItem('QueenyBot'));
-let QueenyTap = new Quenny(QueenYJ.Tap, QueenYJ.Ballance, QueenYJ.TapCount);
+    }catch(error){
+        console.error(error);
+        err_txt__(respon.message);   
+    }
+}
+
+
 // TAPPING BOT
 
 let TapFromStorage = JSON.parse(localStorage.getItem('QueenyBot'));
@@ -249,6 +800,7 @@ const tap = (e) =>{
         SaveCoinB(TapFromStorage.Tap);
         balnce.innerHTML = QueenyTap.UpdateBlnce();
     }
+    Update_Balance();
 }
 
 bot.addEventListener('click',tap);

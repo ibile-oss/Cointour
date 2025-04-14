@@ -9,10 +9,21 @@ var ctrCnt = querySelector('.Ctr_cnt_xxxxxxxxr');
         let passw = querySelector('.passw');
                     let password = querySelector('.password');
                         let cnpassword = querySelector('.cnpassord');
+let passww = querySelector('.passww');
+    let passw__af__ = querySelector('.passw__af__');
 
 
-
-
+passww.onclick = () =>{
+    if(passww.classList.contains('fa-eye')){
+      passww.classList.remove('fa-eye');
+      passww.classList.add('fa-eye-slash');
+      passw__af__.type = 'text';
+    }else{
+      passww.classList.add('fa-eye');
+      passww.classList.remove('fa-eye-slash');
+      passw__af__.type = 'password';
+    }
+}
 passw.onclick = () =>{
   if(passw.classList.contains('fa-eye')){
     passw.classList.remove('fa-eye');
@@ -39,83 +50,100 @@ SignUp = (event) =>{
                         let password = querySelector('.password');
                             let cnpassword = querySelector('.cnpassord');
                                 let err = querySelector('.err');
+    const ref = querySelector('.text').value;
                                     
-    // if(!fn.value){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'First name can\'t be empty';
-    //     return
-    // }
-    // if(!ln.value){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Last name can\'t be empty';
-    //     return
-    // }
-    // if(!email.value){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Email name can\'t be empty';
-    //     return
-    // }
-    // if(!phone.value){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Phone name can\'t be empty';
-    //     return
-    // }
-    // if(!password.value){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Password name can\'t be empty';
-    //     return
-    // }
-    // if(!cnpassword.value){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Please your confirm password';
-    //     return
-    // }
-    // if(Number(fn.value)){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Name can\'t be a number';
-    //     return
-    // }
-    // if(Number(ln.value)){
-    //     err.style.setProperty('display','flex');
-    //     err.innerHTML = 'Name can\'t be a number';
-    //     return
-    // }
-    // if(phone.value.search(/[^0-9]/) != -1){
-    //     err.innerHTML = 'Invalid phone';
-    //     return;
-    // }
-    // if(email.value.search(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
-    //     err.innerHTML = 'Invalid email address';
-    //     return;
-    // }
-    // if(password.value !== cnpassword.value){
-    //     err.innerHTML = 'Incorrect password';
-    //     return;
-    // }
-    // if(password.value.length < 8){
-    //     err.innerHTML = 'Password lenght too short';
-    //     return
-    // }else{
-    //     err.innerHTML = '';
-    //     err.style.setProperty('display','none');
-    // }
+    if(!fn.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'First Name Can\'t Be Empty';
+        return
+    }
+    if(!ln.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Last Name Can\'t Be Empty';
+        return
+    }
+    if(!email.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Email Can\'t Be Empty';
+        return
+    }
+    if(!phone.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Phone Can\'t Be Empty';
+        return
+    }
+    if(!password.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Password Can\'t Be Empty';
+        return
+    }
+    if(!cnpassword.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Please Your Confirm Password';
+        return
+    }
+    if(Number(fn.value)){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Name Can\'t Be a Number';
+        return
+    }
+    if(Number(ln.value)){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Name Can\'t Be a Number';
+        return
+    }
+    if(phone.value.search(/[^0-9]/) != -1){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Invalid Phone';
+        return;
+    }
+    if(email.value.search(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        err.innerHTML = 'Invalid Email Address';
+        return;
+    }
+    if(password.value !== cnpassword.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Incorrect Password';
+        return;
+    }
+    if(password.value.length < 8){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'Password Lenght Too Short';
+        return
+    }else{
+        err.innerHTML = '';
+        err.style.setProperty('display','none');
+    }
 
-    Sing_Up(fn.value,ln.value,email.value,phone.value,password.value,cnpassword.value);
+    Sing_Up(fn.value,ln.value,email.value,phone.value,password.value,cnpassword.value,ref);
 }
 
-// for (let x = 0; x < buttonGo.length; x++) {
-//     buttonGo[x].onclick = () =>{
+Login = (event) =>{
+    event.preventDefault();
+        let email___e = querySelector('.email___e');
+            let passw__af_ = querySelector('.passw__af__');
+                let err = querySelector('.err___');
 
-//         if(buttonGo[x].innerHTML == 'Sign in'){
-//             buttonGo[x].innerHTML = 'Signing in..';
-//         }else{
-//             buttonGo[x].innerHTML = 'Logging in..';
-//         }
-//         var loadingIcon = createElement('i');
-//         loadingIcon.className = 'fas fa-spinner fa-spin';
-//         buttonGo[x].append(loadingIcon);
-//     }
-// }
+    
+    if(!email___e.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'All Input Are Required';
+        return;
+    }
+    if(email___e.value.search(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        err.innerHTML = 'Invalid Email Address';
+        return;
+    }
+    if(!passw__af_.value){
+        err.style.setProperty('display','flex');
+        err.innerHTML = 'All Input Are Required';
+        return;
+    }
+
+    Log_In(email___e.value, passw__af_.value);
+}
+
+
 
 var parentPosiW = ctrCnt.clientWidth;
 var parentPosiH = ctrCnt.clientHeight;

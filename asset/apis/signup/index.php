@@ -1,5 +1,6 @@
 <?php
-    require_once dirname(__DIR__, 2) . "/inc/pdo.php";
+    session_start();
+    require_once dirname(__DIR__, 3) ."/conn.php";
     if($_SERVER['REQUEST_METHOD'] !== 'POST'){
         http_response_code(401);
         echo json_encode([
@@ -15,6 +16,9 @@
     $phone = $_POST['phone'] ?? null;
     $password = $_POST['password'] ?? null;
     $cnpassword = $_POST['cnpassword'] ?? null;
+    $ref = $_POST['ref'];
+    $referrals = 0;
+    $profile = 'avartar1.png';
 
     if(!$firstName || !$lastName || !$email || !$phone || !$password || !$cnpassword){
         http_response_code(401);
@@ -108,47 +112,87 @@
             die;
         }
 
-        // // $sql = "SELECT COUNT(*) FROM register WHERE phone= :phone";
-        // // $stmt = $pdo->prepare($sql);
-        // // $stmt->$sql->bindParam(':phone', $phone);
-        // // $stmt = $stmt->execute();
-        // // $user = $stmt->fetchColumn();
-        // // $sql = "SELECT COUNT(*) FROM register WHERE phone= ?";
-        // // $stmt = mysqli_init($pdo);
-        // // mysqli_stmt_prepare($sql);
-        // // mysqli_stmt_bind_params($stmt, 's', $phone);
-        // // $ex = mysqli_stmt_execute($stmt);
+        $sql = "SELECT * FROM register WHERE phone= '$phone'";
+        $stmt = $conn->query($sql);
+        if($stmt->num_rows >0){
+            http_response_code(402);
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Phone Already Exist'
+            ]);
+            die;
+        }
 
-        // if($user >0){
-        //     http_response_code(403);
-        //     echo json_encode([
-        //         'status' => 'error', 
-        //         'message' => 'Phone Already Exist'
-        //     ]);
-        //     die;
-        // }
-        // echo $sql;
+        $sql = "SELECT * FROM register WHERE email='$email'";
+        $stmt = $conn->query($sql);
+        if($stmt->num_rows > 0){
+            http_response_code(402);
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Email Already Exist'
+            ]);
+            die;
+        }
+
+        require dirname(__DIR__, 2) .'/inc/function.php';
+        $usid = random_nums(20);
+        $walletAd = generateWalletAddress();
+        $reflink = uniqid('ref', true);
+        $date = date('Y-m-d');
+
 
         $encryptpwd = password_hash($password, PASSWORD_DEFAULT);
-        require dirname(__DIR__) .'/inc/function.php';
-        $usid = random_nums(20);
+        $ins = "INSERT INTO register (userid, fname, lname, email, phone, password, registered_at, bot_av)
+        VALUES('$usid','$firstName','$lastName','$email','$phone','$encryptpwd','$date','$profile')";
+        mysqli_query($conn,$ins);
 
-        $sql = $pdo->prepare("INSERT INTO register(userid,fname,lname,email,
-        phone,password,registered_at,bot_av)
-        VALUE(:usn, :fn, :ln, :em, :pn, :pwd, NOW()");
+        $ins1 = "INSERT INTO user_dentials (userid, email, wallet_address, refLink, referrals)
+        VALUES('$usid', '$email', '$walletAd','$reflink', '$referrals')";
+        mysqli_query($conn,$ins1);
 
-        $sql->execute([
-            ':usn' => $usid,
-            ':fn' => $firstName,
-            ':ln' => $lastName,
-            ':em' => $email,
-            ':pn' => $phone,
-            ':pwd' => $password,
-        ]);
+        $i = "INSERT INTO claimclick(userid)VALUES('$usid')";
+        mysqli_query($conn,$i);
+
+        $w = "INSERT INTO lvlclick(userid)VALUES('$usid')";
+        mysqli_query($conn,$w);
+
+        $dalyReward = "INSERT INTO daily_reward(userid)VALUES('$usid')";
+        mysqli_query($conn,$dalyReward);
+
+        $dalyCombo = "INSERT INTO daly_combo(userid)VALUES('$usid')";
+        mysqli_query($conn,$dalyCombo);
+
+        $taskDon = "INSERT INTO taskclaim(userid)VALUES('$usid')";
+        mysqli_query($conn,$taskDon);
+
+        if($ref !== ''){
+            $sel = "SELECT * FROM user_dentials WHERE refLink='$ref'";
+            $q = mysqli_query($conn,$sel);
+    
+            if(mysqli_num_rows($q) >0){
+                $fetch = mysqli_fetch_assoc($q);
+                $refid = $fetch['userid'];
+    
+    
+                $totalRef = $fetch['referrals'] + 1;
+                $update = "UPDATE user_dentials SET referrals='$totalRef' WHERE userid='$refid'";
+                mysqli_query($conn,$update);
+    
+                $hisallname = $firstName.' '.$lastName;
+                $select = "INSERT INTO fetch_refer_users (referralink, person_refered_id, person_refered, profile_refered)
+                VALUES('$ref','$usid','$hisallname','$profile')";
+                $q = mysqli_query($conn,$select);
+            }
+        }
+
+
+       
         
+
+        echo mysqli_error($conn);
         http_response_code(200);
         echo json_encode([
-            'status' => 'success',
+            'status' => true,
             'message' => 'Registration successfully'
         ]);
         die;

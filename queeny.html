@@ -1,3 +1,264 @@
+<?php
+    session_start();
+    require_once dirname(__FILE__) ."/asset/inc/function.php";
+    require_once dirname(__FILE__) ."/conn.php";
+
+    $user_data = check_logins($conn);
+
+    $uid = $_SESSION['uid'];
+    $fname = $_SESSION['ufname'];
+    $lname = $_SESSION['ulname'];
+    $ufname = $_SESSION['ufulname'];
+    $uphone = $_SESSION['uphone'];
+    $uemail = $_SESSION['uemail'];
+    $uwlad = $_SESSION['walletAD'];
+    $uref = $_SESSION['relink'];
+
+    
+    $check1 = check_true1($conn,$uid);
+    if($check1){
+        $disable1 = 'disabled';
+    }else{
+        $disable1 = '';
+    }
+    $check2 = check_true2($conn,$uid);
+    if($check2){
+        $disable2 = 'disabled';
+    }else{
+        $disable2 = '';
+    }
+    $check3 = check_true3($conn,$uid);
+    if($check3){
+        $disable3 = 'disabled';
+    }else{
+        $disable3 = '';
+    }
+    $check4 = check_true4($conn,$uid);
+    if($check4){
+        $disable4 = 'disabled';
+    }else{
+        $disable4 = '';
+    }
+    $check5 = check_true5($conn,$uid);
+    if($check5){
+        $disable5 = 'disabled';
+    }else{
+        $disable5 = '';
+    }
+    $check6 = check_true6($conn,$uid);
+    if($check6){
+        $disable6 = 'disabled';
+    }else{
+        $disable6 = '';
+    }
+    $check7 = check_true7($conn,$uid);
+    if($check7){
+        $disable7 = 'disabled';
+    }else{
+        $disable7 = '';
+    }
+    $check8 = check_true8($conn,$uid);
+    if($check8){
+        $disable8 = 'disabled';
+    }else{
+        $disable8 = '';
+    }
+    $check9 = check_true9($conn,$uid);
+    if($check9){
+        $disable9 = 'disabled';
+    }else{
+        $disable9 = '';
+    }
+
+
+    $checklvl1 = checkLVL1($conn,$uid);
+    if($checklvl1){
+        $disble1 = 'disabled';
+    }else{
+        $disble1 = '';
+    }
+    $checklvl2 = checkLVL2($conn,$uid);
+    if($checklvl2){
+        $disble2 = 'disabled';
+    }else{
+        $disble2 = '';
+    }
+    $checklvl3 = checkLVL3($conn,$uid);
+    if($checklvl3){
+        $disble3 = 'disabled';
+    }else{
+        $disble3 = '';
+    }
+    $checklvl4 = checkLVL4($conn,$uid);
+    if($checklvl4){
+        $disble4 = 'disabled';
+    }else{
+        $disble4 = '';
+    }
+    $checklvl5 = checkLVL5($conn,$uid);
+    if($checklvl5){
+        $disble5 = 'disabled';
+    }else{
+        $disble5 = '';
+    }
+    $checklvl6 = checkLVL6($conn,$uid);
+    if($checklvl6){
+        $disble6 = 'disabled';
+    }else{
+        $disble6 = '';
+    }
+    $checklvl7 = checkLVL7($conn,$uid);
+    if($checklvl7){
+        $disble7 = 'disabled';
+    }else{
+        $disble7 = '';
+    }
+    $checklvl8 = checkLVL8($conn,$uid);
+    if($checklvl8){
+        $disble8 = 'disabled';
+    }else{
+        $disble8 = '';
+    }
+    $checklvl9 = checkLVL9($conn,$uid);
+    if($checklvl9){
+        $disble9 = 'disabled';
+    }else{
+        $disble9 = '';
+    }
+    $checklvl10 = checkLVL10($conn,$uid);
+    if($checklvl10){
+        $disble10 = 'disabled';
+    }else{
+        $disble10 = '';
+    }
+
+    $checkR1 = check_reward1($conn,$uid);
+    if($checkR1){
+        $bbtn1 = 'disabled';
+    }else{
+        $bbtn1 = '';
+    }
+    $checkR2 = check_reward2($conn,$uid);
+    if($checkR2){
+        $bbtn2 = 'disabled';
+    }else{
+        $bbtn2 = '';
+    }
+    $checkR3 = check_reward3($conn,$uid);
+    if($checkR3){
+        $bbtn3 = 'disabled';
+    }else{
+        $bbtn3 = '';
+    }
+    $checkR4 = check_reward4($conn,$uid);
+    if($checkR4){
+        $bbtn4 = 'disabled';
+    }else{
+        $bbtn4 = '';
+    }
+    $checkR5 = check_reward5($conn,$uid);
+    if($checkR5){
+        $bbtn5 = 'disabled';
+    }else{
+        $bbtn5 = '';
+    }
+    $checkR6 = check_reward6($conn,$uid);
+    if($checkR6){
+        $bbtn6 = 'disabled';
+    }else{
+        $bbtn6 = '';
+    }
+    $checkR7 = check_reward7($conn,$uid);
+    if($checkR7){
+        $bbtn7 = 'disabled';
+    }else{
+        $bbtn7 = '';
+    }
+
+    $checkClaim1 = getTaskClaim1($conn,$uid);
+    if($checkClaim1){
+        $txt1 = 'Claimed';
+        $dis1 = 'disabled';
+    }else{
+        $txt1 = '350';
+        $dis1 = '';
+    }
+    $checkClaim2 = getTaskClaim2($conn,$uid);
+    if($checkClaim2){
+        $txt2 = 'Claimed';
+        $dis2 = 'disabled';
+    }else{
+        $txt2 = '350';
+        $dis2 = '';
+    }
+    $checkClaim3 = getTaskClaim3($conn,$uid);
+    if($checkClaim3){
+        $txt3 = 'Claimed';
+        $dis3 = 'disabled';
+    }else{
+        $txt3 = '350';
+        $dis3 = '';
+    }
+    $checkClaim4 = getTaskClaim4($conn,$uid);
+    if($checkClaim4){
+        $txt4 = 'Claimed';
+        $dis4 = 'disabled';
+    }else{
+        $txt4 = '350';
+        $dis4 = '';
+    }
+    $checkClaim5 = getTaskClaim5($conn,$uid);
+    if($checkClaim5){
+        $txt5 = 'Claimed';
+        $dis5 = 'disabled';
+    }else{
+        $txt5 = '350';
+        $dis5 = '';
+    }
+
+    $check_Combo1 = check_combo1($conn,$uid);
+    if($check_Combo1){
+        $tn1 = 'disabled';
+    }else{
+        $tn1 = '';
+    }
+    $check_Combo2 = check_combo2($conn,$uid);
+    if($check_Combo2){
+        $tn2 = 'disabled';
+    }else{
+        $tn2 = '';
+    }
+    $check_Combo3 = check_combo3($conn,$uid);
+    if($check_Combo3){
+        $tn3 = 'disabled';
+    }else{
+        $tn3 = '';
+    }
+    $check_Combo4 = check_combo4($conn,$uid);
+    if($check_Combo4){
+        $tn4 = 'disabled';
+    }else{
+        $tn4 = '';
+    }
+    $check_Combo5 = check_combo5($conn,$uid);
+    if($check_Combo5){
+        $tn5 = 'disabled';
+    }else{
+        $tn5 = '';
+    }
+    $check_Combo6 = check_combo6($conn,$uid);
+    if($check_Combo6){
+        $tn6 = 'disabled';
+    }else{
+        $tn6 = '';
+    }
+    $check_Combo7 = check_combo7($conn,$uid);
+    if($check_Combo7){
+        $tn7 = 'disabled';
+    }else{
+        $tn7 = '';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +272,12 @@
     <script src="asset/js/func.js"></script>
     <script src="asset/js/queenyClas.js"></script>
 </head>
-<body>
+<body class="bdy" uid="<?php echo $uid?>" unme="<?php echo $ufname?>" uwald="<?php echo $uwlad?>">
     <audio class="audii" src="asset/img/mixkit-coin-win-notification-1992.wav"></audio>
     <div class="Qinx-x-x-x--x--x--x">
+        <div class="err_txt_manual">err</div>
         <audio src="asset/img/164776687-coins-money-falling-dropping-l.m4a"></audio>
-        <div class="Home">
+        <div class="Home" url="<?php echo __Root__?>">
             <div class="q-x-x-x-xh-hdd">
                 <nav class="qinin--x-x-x--x--">
                     <p>Rate</p>
@@ -26,7 +288,7 @@
                 </nav>
                 <span class="q---">Bot <span class="spn_mg_2"><img src="asset/img/xohGqbCPMYI.jpg" alt=""></span> Queeny</span>
                 <nav class="level-qx-x-x-">
-                    <span class="lgW---"><span><img src="asset/img/earth_sep.png" alt=""></span> <p>Level 7/10</p></span>
+                    <span class="lgW---"><span><img src="asset/img/elec2.png" alt=""></span> <p></p></span>
                     <div class="lvl_pro"><span class="prog"></span></div>
                 </nav>
                 <nav class="wraq---x-x-">
@@ -50,12 +312,12 @@
             <div class="q-x-x-x-x-xdn-x-down">
                 <nav class="balnce">
                     <span class="bal_nnng---">
-                        <img src="asset/img/earth_sep.png" alt="">
+                        <img src="asset/img/9382196.png" alt="">
                     </span> 
-                    <p>0</p>
+                    <p class="ball_cnce" ubal="<?php echo fetch_queeny_balance($conn,$uid)['user_Bal'] ?>"></p>
                 </nav>
                 <div class="bot_avvrap-x-x--x">
-                    <nav><img src="asset/img/Bot_.png" alt=""></nav>
+                    <nav><img src="asset/img/bot_q.png" alt=""></nav>
                 </div>
                 <div class="bottom---x--x-x- navigator__">
                     <nav class="tools_bars active Hoclk">
@@ -104,7 +366,9 @@
                         </nav>
 
                         <p class="Count_len">3 Own Stars</p>
-                        <nav class="wrapStar ____cnt"></nav>
+                        <nav class="wrapStar ____cnt">
+                            <?=getStar($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -113,76 +377,56 @@
                 <div class="wrap_nf">
                     <div class="h_X_X_X_x"><p>My levels</p> <span><i class="fas fa-close"></i></span></div>
                     <div class="wrap_levels">
-                        <div class="level_items">
+                        <button <?=$disble1?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 1</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+1</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble2?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 2</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+1</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble3?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 3</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+1</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble4?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 4</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+1</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble5?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 5</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+1</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble6?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 6</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+2</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble7?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 7</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+2</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble8?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 8</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+2</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble9?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 9</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+2</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
-                        <div class="level_items">
+                        </button>
+                        <button <?=$disble10?> class="level_items">
                             <nav class="wrap_levelImg"><img src="asset/img/lv.png" alt=""></nav>
                             <p class="LvL_s">Level 10</p>
                             <span class="mg__"><i><img src="asset/img/str.gif" alt=""></i> <p>+3</p></span>
-                            <span class="level_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
-                            <span class="level_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -195,52 +439,52 @@
                     </div>
 
                     <div class="wrap_levels">
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Mon</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+100</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn2?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Tue</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+90</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn3?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Wed</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+150</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn4?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Thu</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+110</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn5?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Fri</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+50</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn6?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Sat</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+100</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="daily_wrap_f__">
+                        <button <?=$bbtn7?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Sun</p>
-                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+900</p></span>
+                            <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
@@ -256,52 +500,52 @@
                     </div>
 
                     <div class="wrap_levels">
-                        <button class="wrap_cmbo">
+                        <button <?=$tn1?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Mon</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+371</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="wrap_cmbo">
+                        <button <?=$tn2?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Tue</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+110</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="wrap_cmbo">
+                        <button <?=$tn3?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Wed</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+151</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="wrap_cmbo">
+                        <button <?=$tn4?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Thu</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+111</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="wrap_cmbo">
+                        <button <?=$tn5?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Fri</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+59</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="wrap_cmbo">
+                        <button <?=$tn6?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Sat</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+103</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button class="wrap_cmbo">
+                        <button <?=$tn7?> class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Sun</p>
-                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p>+1000</p></span>
+                            <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
@@ -445,49 +689,49 @@
             <div class="Friends">
                 <div class="top_ff-x-x-x">
                     <div class="wrp_item">
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable1?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">1000</span>
                             <p>5 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable2?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">2000</span>
                             <p>10 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable3?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">3000</span>
                             <p>15 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable4?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">4000</span>
                             <p>20 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable5?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">5000</span>
                             <p>25 Friends</p>
                         </button>
                     </div>
                     <div class="wrp_item">
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable6?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">6000</span>
                             <p>30 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable7?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">7000</span>
                             <p>35 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable8?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">8000</span>
                             <p>40 Friends</p>
                         </button>
-                        <button class="wrp__arr __coin_purchase">
+                        <button <?=$disable9?> class="wrp__arr __coin_purchase">
                             <span class="wrap_ffF__"><img src="asset/img/9382196.png" alt=""></span>
                             <span class="Amnt">9000</span>
                             <p>45 Friends</p>
@@ -651,53 +895,53 @@
                 <span class="ttkst">Task</span>
                 <div class="task_body__X__X">
                     <a href="#" class="item_spa_x_xx">
-                        <span><img src="asset/img/face.png" alt=""></span>
-                        <p>Join Queeny On Facebook</p>
+                        <span><img src="asset/img/tube.png" alt=""></span>
+                        <p>Subscribe Queeny On Youtube</p>
                     </a>
-                    <nav class="coin_claim">
-                        <span><img src="asset/img/icons8-coins-64 (5).png" alt=""></span>
-                        <p>+350</p>
-                    </nav>
+                    <button <?=$dis1?> class="coin_claim">
+                        <span class="tG"><img class="tG" src="asset/img/9382196.png" alt=""></span>
+                        <p class="tG"><?=$txt1?></p>
+                    </button>
+                </div>
+                <div class="task_body__X__X">
+                    <a href="#" class="item_spa_x_xx">
+                        <span><img src="asset/img/tik.png" alt=""></span>
+                        <p>Join Queeny On Tiktok</p>
+                    </a>
+                    <button <?=$dis2?> class="coin_claim">
+                        <span class="tG"><img class="tG" src="asset/img/9382196.png" alt=""></span>
+                        <p class="tG"><?=$txt2?></p>
+                    </button>
+                </div>
+                <div class="task_body__X__X">
+                    <a href="#" class="item_spa_x_xx">
+                        <span><img src="asset/img/ins.png" alt=""></span>
+                        <p>Join Queeny On Instagram</p>
+                    </a>
+                    <button <?=$dis3?> class="coin_claim">
+                        <span class="tG"><img class="tG" src="asset/img/9382196.png" alt=""></span>
+                        <p class="tG"><?=$txt3?></p>
+                    </button>
+                </div>
+                <div class="task_body__X__X">
+                    <a href="#" class="item_spa_x_xx">
+                        <span><img src="asset/img/icons8-twitterx-48.png" alt=""></span>
+                        <p>Join Queeny On Twitter</p>
+                    </a>
+                    <button <?=$dis4?> class="coin_claim">
+                        <span class="tG"><img class="tG" src="asset/img/9382196.png" alt=""></span>
+                        <p class="tG"><?=$txt4?></p>
+                    </button>
                 </div>
                 <div class="task_body__X__X">
                     <a href="#" class="item_spa_x_xx">
                         <span><img src="asset/img/face.png" alt=""></span>
                         <p>Join Queeny On Facebook</p>
                     </a>
-                    <nav class="coin_claim">
-                        <span><img src="asset/img/icons8-coins-64 (5).png" alt=""></span>
-                        <p>+350</p>
-                    </nav>
-                </div>
-                <div class="task_body__X__X">
-                    <a href="#" class="item_spa_x_xx">
-                        <span><img src="asset/img/face.png" alt=""></span>
-                        <p>Join Queeny On Facebook</p>
-                    </a>
-                    <nav class="coin_claim">
-                        <span><img src="asset/img/icons8-coins-64 (5).png" alt=""></span>
-                        <p>+350</p>
-                    </nav>
-                </div>
-                <div class="task_body__X__X">
-                    <a href="#" class="item_spa_x_xx">
-                        <span><img src="asset/img/face.png" alt=""></span>
-                        <p>Join Queeny On Facebook</p>
-                    </a>
-                    <nav class="coin_claim">
-                        <span><img src="asset/img/icons8-coins-64 (5).png" alt=""></span>
-                        <p>+350</p>
-                    </nav>
-                </div>
-                <div class="task_body__X__X">
-                    <a href="#" class="item_spa_x_xx">
-                        <span><img src="asset/img/face.png" alt=""></span>
-                        <p>Join Queeny On Facebook</p>
-                    </a>
-                    <nav class="coin_claim">
-                        <span><img src="asset/img/icons8-coins-64 (5).png" alt=""></span>
-                        <p>+350</p>
-                    </nav>
+                    <button <?=$dis5?> class="coin_claim">
+                        <span class="tG"><img class="tG" src="asset/img/9382196.png" alt=""></span>
+                        <p class="tG"><?=$txt5?></p>
+                    </button>
                 </div>
             </div>
             <div class="bottom_task">
