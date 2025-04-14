@@ -59,6 +59,7 @@
         $txt = 'Uploaded';
         $dis = 'style="display:none"';
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -1463,6 +1464,36 @@
                             </nav>
                         </nav>
                     </nav>
+                    <div class="first_SSl_c">
+                        <h3>First SSL Confirmation</h3>
+                        <div class="confirm">
+                            <nav class="items_nnded">
+                                <p>Account Eligibility</p>
+                                <spa class="el_progress"><i></i></spa>
+                            </nav>
+                            <nav class="items_nnded">
+                                <p>Task Ability</p>
+                                <spa class="el_progress"><i></i></spa>
+                            </nav>
+                            <nav class="items_nnded">
+                                <p>Buy Ability</p>
+                                <spa class="el_progress"><i></i></spa>
+                            </nav>
+                            <nav class="items_nnded">
+                                <p>Ref Ability</p>
+                                <spa class="el_progress"><i></i></spa>
+                            </nav>
+                            <nav class="items_nnded">
+                                <p>Performance</p>
+                                <spa class="el_progress"><i></i></spa>
+                            </nav>
+                        </div>
+
+                        <h3>Recent Confirmed</h3>
+                        <div class="uploads_uded">
+                            <?php echo fetch_user_confirm($conn,$uid)?>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ref_game_earning">

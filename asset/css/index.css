@@ -2184,7 +2184,7 @@ button{
     object-fit: cover;
 }
 .me_account{
-    height: 100%;
+    height: auto;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -2294,12 +2294,127 @@ button{
     display: none;
 }
 .wrapProfile_acc_Cover{
-    height: 100%;
+    height: 200px;
     width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
     position: relative;
+}
+.first_SSl_c{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    padding: 5px;
+    gap: 10px;
+    flex-direction: column;
+}
+.confirm{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.items_nnded{
+    height: auto;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+.uploads_uded{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+.uploads_uded nav{
+    height: 200px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: .5em;
+    border: 1px solid var(--bdrClr1);
+}
+.toAbbb{
+    position: relative;
+}
+.uploads_uded nav img{
+    height: 100%;
+    width: 100%;
+    border-radius: .5em;
+    object-fit: cover;
+}
+.ele_loader{
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90000;
+}
+.loader__rrrd{
+    position: relative;
+    height: 60px;
+    width: 60px ;
+}
+.el_progress{
+    height: 10px;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    border-radius: .5em;
+    background: gray;
+}
+.el_progress i{
+    height: 100%;
+    width: 5px;
+    border-radius: .5em;
+    background: linear-gradient(rgb(0, 128, 90),rgb(5, 192, 136),rgb(8, 233, 165));
+}
+.loader__rrrd span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+.loader__rrrd span::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(rgb(0, 128, 107),rgb(4, 202, 169),rgb(6, 243, 204));
+    animation: loadd 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes loadd{
+    0%{
+        transform: scale(1);
+    }
+    80%,100%{
+        transform: scale(0);
+    }
 }
 .clos_me_{
     height: 40px;

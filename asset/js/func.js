@@ -361,3 +361,36 @@ function Success_msg(err_txt){
     err.classList.add('success');
 }
 
+function loader__R(){
+    let style = ['--i:1;','--i:2;','--i:3;',
+                    '--i:4;','--i:5;','--i:6;',
+                    '--i:7;','--i:8;','--i:9;',
+                    '--i:10;','--i:11;','--i:12;',
+                    '--i:13;','--i:14','--i:15;',
+                    '--i:16;','--i:17;','--i:18;','--i:19;','--i:20;'
+    ];
+    let cnt = document.body;
+    let ele = createElement('DIV');
+    ele.className = 'ele_loader';
+    let loader = createElement('div');
+    loader.className = 'loader__rrrd';
+    cnt.classList.add('toAbbb');
+
+    let count = 20;
+    for (let x = 0; x < count; x++) {
+       let spn = createElement('SPAN');
+        spn.setAttribute('style',style[x]);
+        loader.appendChild(spn);
+    }
+    ele.appendChild(loader);
+    cnt.insertAdjacentElement('afterbegin',ele);
+}
+function remove_ll(){
+    let ele = document.querySelector('.ele_loader');
+    let cnt = document.body;
+   setTimeout(() =>{
+        ele.remove();
+        cnt.classList.remove('toAbbb');
+   },2000)
+}
+

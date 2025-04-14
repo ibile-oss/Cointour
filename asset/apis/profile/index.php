@@ -83,7 +83,7 @@
 
         echo json_encode([
             'status' => 'success',
-            'message' => 'File Upload Successfully'
+            'message' => 'Profile Uploaded Successfully'
         ]);
         die;
 

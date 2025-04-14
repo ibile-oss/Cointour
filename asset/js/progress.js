@@ -415,7 +415,9 @@
 document.onreadystatechange = function(){
     if(this.readyState !== 'complete'){
         Loading_ani();
+        loader__R();
     }else{
         Remove_ani();
+        remove_ll();
     }
 }

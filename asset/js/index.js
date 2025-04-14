@@ -154,6 +154,7 @@ if(fcount.innerHTML > 1){
     count_go.innerHTML = count_go.innerHTML;
 }
 
+
 let ArrClassLis = ['ani1','ani3'];
 for (let x = 0; x < stok_img.length; x++) {
     let rand = Math.floor(Math.random() * ArrClassLis.length);
