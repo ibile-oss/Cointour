@@ -98,7 +98,7 @@
         <div class="PopUpcnt_for_About">
             <div class="ABout_tools abcdefg">
                 <div class="img_ing_in">
-                    <img src="asset/img/sapp.webp" alt="">
+                    <img src="asset/img/levels.jpg" alt="">
                     <div class="aps_so_ll">
                         <div class="head_tag_rap">
                             <div class="about_pic_cc">
@@ -1004,18 +1004,18 @@
 
                 <div class="testimonials">
                     <div class="recTask">
-                        <nav><img src="asset/img/testimo.jpeg" alt=""></nav>
+                        <!-- <nav><img src="asset/img/testimo.jpeg" alt=""></nav> -->
                         <div class="space_eve">
                             <h2>Testimonials</h2>
                             <span class="close_test close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
                         </div>
                     </div>
+                    <nav class="moveToTop">Jump To Top</nav>
 
                     <div class="testi_monials_cnts_add">
                         <h3>Testify app</h3>
                         <div class="div_input_test">
-                            <h5>Add testimony heading</h5>
-                            <select name="" id="">
+                            <select class="Selec__" name="" id="">
                                 <option value="">I was paid imidately i placed my withdrawal</option>
                                 <option value="">When i started minning</option>
                                 <option value="">How i got paid</option>
@@ -1024,73 +1024,12 @@
                                 <option value="">Withdrawal successfully</option>
                             </select>
 
-                            <h5>Add testimony here</h5>
-                            <nav class="pos_"><span class="img_cin"><img src="asset/img/emo.png" alt=""></span><span class="txtArea" contenteditable="true" id=""></span></nav>
-                            <div class="emoji_wraper"></div>
-                            <button class="add_test">Add testimonial</button>
+                            <textarea class="txt_post__" name="" id="" placeholder="Enter Text"></textarea>
+                            <button onclick="Post()" class="add_test">Add testimonial</button>
 
 
                             <div class="testiItself">
-                                <nav class="wrap_tes_ti">
-                                    <span class="ig_wrap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                    <span>Rapheal henry</span>
-                                    <h3>How i got paid</h3>
-                                    <nav class="txtrappr">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, natus? Ex neque eaque nesciunt fugiat voluptates quia, nobis totam, soluta, libero placeat quos vel
-                                             perferendis earum. Quia, eligendi ullam. Assumenda corporis at provident architecto labore ut libero. Maiores quaerat ducimus ullam sed veritatis excepturi, aliquid, 
-                                            <span class="time_stamp">wed/6/2021</span>
-                                        </p>
-                                    </nav>
-                                </nav>
-                                <nav class="wrap_tes_ti">
-                                    <span class="ig_wrap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                    <span>Rapheal henry</span>
-                                    <h3>How i got paid</h3>
-                                    <nav class="txtrappr">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, natus? Ex neque eaque nesciunt fugiat voluptates quia, nobis totam, soluta, libero placeat quos vel
-                                             perferendis earum. Quia, eligendi ullam. Assumenda corporis at provident architecto labore ut libero. Maiores quaerat ducimus ullam sed veritatis excepturi, aliquid, 
-                                            <span class="time_stamp">wed/6/2021</span>
-                                        </p>
-                                    </nav>
-                                </nav>
-                                <nav class="wrap_tes_ti">
-                                    <span class="ig_wrap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                    <span>Rapheal henry</span>
-                                    <h3>How i got paid</h3>
-                                    <nav class="txtrappr">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, natus? Ex neque eaque nesciunt fugiat voluptates quia, nobis totam, soluta, libero placeat quos vel
-                                             perferendis earum. Quia, eligendi ullam. Assumenda corporis at provident architecto labore ut libero. Maiores quaerat ducimus ullam sed veritatis excepturi, aliquid, 
-                                            <span class="time_stamp">wed/6/2021</span>
-                                        </p>
-                                    </nav>
-                                </nav>
-                                <nav class="wrap_tes_ti">
-                                    <span class="ig_wrap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                    <span>Rapheal henry</span>
-                                    <h3>How i got paid</h3>
-                                    <nav class="txtrappr">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, natus? Ex neque eaque nesciunt fugiat voluptates quia, nobis totam, soluta, libero placeat quos vel
-                                             perferendis earum. Quia, eligendi ullam. Assumenda corporis at provident architecto labore ut libero. Maiores quaerat ducimus ullam sed veritatis excepturi, aliquid, 
-                                            <span class="time_stamp">wed/6/2021</span>
-                                        </p>
-                                    </nav>
-                                </nav>
-                                <nav class="wrap_tes_ti">
-                                    <span class="ig_wrap wind_load"><nav><i></i></nav><img src="asset/img/persin.jpg" alt=""></span>
-                                    <span>Rapheal henry</span>
-                                    <h3>How i got paid</h3>
-                                    <nav class="txtrappr">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, natus? Ex neque eaque nesciunt fugiat voluptates quia, nobis totam, soluta, libero placeat quos vel
-                                             perferendis earum. Quia, eligendi ullam. Assumenda corporis at provident architecto labore ut libero. Maiores quaerat ducimus ullam sed veritatis excepturi, aliquid, 
-                                            <span class="time_stamp">wed/6/2021</span>
-                                        </p>
-                                    </nav>
-                                </nav>
+                                <?=fetch_testimonials($conn)?>
                             </div>
                         </div>
                     </div>
@@ -1143,7 +1082,7 @@
 
                 <div class="medium_stock">
                     <div class="head_m_stodk">
-                        <nav class="mgwrap_m_stock"><img src="asset/img/mds_.jpg" alt=""></nav>
+                        <nav class="mgwrap_m_stock"><img src="asset/img/giftss.avif" alt=""></nav>
                         <div class="menu_close_m_stoc">
                             <h2>Medium stock</h2>
                             <span class="closD_med"><img src="asset/img/icons8-close-188.png" alt=""></span>
@@ -1453,7 +1392,7 @@
                         <input type="file" onchange="profile_picture()" class="upload_profile_" accept="image/*" id="profile_acc__">
                         <span class="clos_me_"><i class="fas fa-close"></i></span>
                         <label for="cover__" class="wrapProfile_acc_Cover"><img src="asset/img/main_ico.webp" alt=""></label>
-                        <label for="profile_acc__" class="profile_cc_p"><img src="<?php echo __upl__ . Fetch_users_data1($conn,$uid)['uprofile']?>" alt=""></label>
+                        <label user_pr="<?php echo __upl__ . Fetch_users_data1($conn,$uid)['uprofile']?>" for="profile_acc__" class="profile_cc_p"><img src="<?php echo __upl__ . Fetch_users_data1($conn,$uid)['uprofile']?>" alt=""></label>
                     </div>
                     <nav class="_name_">
                         <h3><?=$ufname?></h3>

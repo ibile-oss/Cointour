@@ -12,6 +12,14 @@ function Error_msg(err_txt){
                 },2000);
     err.classList.remove('success');
 }
+function ERROR(txt){
+    const err = querySelector('.copy_msg');
+        err.style.setProperty('display','flex');
+            err.innerHTML = txt;
+    setTimeout(() =>{
+       err.style.setProperty('display','none'); 
+    },3000);
+}
 function success_msg_txt(txt){
     let err = querySelector('.err_msg_upl_f');
         err.style.setProperty('display','flex');
@@ -103,7 +111,7 @@ var notice = querySelectorAll('.wrap_to_ifro');
                                             var change_cnt = querySelector('.change_cnt');
 var tonone = querySelectorAll('.tonone_');
     var clostes = querySelector('.close_test');
-        var testimonials = querySelector('.testimonials');
+        let testimonials = querySelector('.testimonials');
             var emojiw = querySelector('.emoji_wraper');
                 var cncl = querySelector('.cansil');
                     var toUper = querySelector('.toUper');
@@ -146,7 +154,62 @@ let close_stock = querySelector('.closD_med');
                         let clo_Me = querySelector('.me_head_acc .clos_me_');
                             let fcount = querySelector('.friendCount');
                                 let count_go = querySelector('.max_ccc i');
+                                    let txtArea = querySelector('.txt_post__');
+let deltCnt = querySelectorAll('.wrap_tes_ti');
+    let delt = querySelectorAll('.wrap_tes_ti .delete__');
+        let tosend = querySelectorAll('.wrap_tes_ti p');
+            const uid = querySelector('.header').getAttribute('uid');
+                const unik = querySelectorAll('.txtrappr');
 
+
+
+
+for (let x = 0; x < deltCnt.length; x++){
+    let uni = deltCnt[x].getAttribute('un');
+    delt[x].onclick = () =>{
+        delt[x].classList.add('tranX');
+
+        setTimeout(() =>{
+            delt[x].classList.remove('tranX');
+            delt[x].style.setProperty('display','none');
+
+            let cre = createElement('button');
+            cre.className = 'SureDelt';
+            cre.innerHTML = 'Recycle Me';
+            cre.onclick = () =>{
+                cre.remove();
+                try {
+                    fetch(`${__root__2()}/asset/apis/general_req/`,{
+                        method:"POST",
+                        headers:{'Content-type':'application/x-www-form-urlencoded'},
+                        body:'txt_testi=' + JSON.stringify({uid,uni})
+                    })
+                    .then(respons => respons.json())
+                    .then(result =>{
+                        console.log(result);
+                        if(result.status !== 'success'){
+                            ERROR(result.message);
+                            return;
+                        }
+
+                        ERROR(result.message);
+                        deltCnt[x].classList.add('Rmuve');
+                        setTimeout(() =>{
+                            deltCnt[x].style.setProperty('display','none');
+                        },400);
+                    })   
+                
+                }catch(error){
+                    console.error(error);
+                    ERROR(result.message);
+                }
+                            
+                delt[x].style.setProperty('display','flex');
+            }
+            deltCnt[x].appendChild(cre);
+        },500);
+    } 
+}
 
 if(fcount.innerHTML > 1){
     count_go.innerHTML = count_go.innerHTML + 's';
@@ -509,9 +572,6 @@ for (let x = 0; x < Available_Bnk.length; x++) {
 }
 
 Wallet_first_menu();
-document.querySelector('.img_cin').onclick = () =>{
-    emojiw.classList.toggle('togleHnd');
-}
 closHis.onclick = () =>{
     History_.classList.add('goBack');
         setTimeout(() =>{
@@ -543,6 +603,157 @@ for (let x = 0; x < clo2_p.length; x++) {
         },400)
     }
 }
+
+testimonials.addEventListener('scroll', ()=>{
+    const totup = querySelector(".moveToTop");
+    if(testimonials.scrollTop >20){
+        totup.style.setProperty('display','flex');
+    }else{
+        totup.style.setProperty('display','none');
+    }
+})
+const totup = querySelector(".moveToTop");
+totup.onclick = () =>{
+    Scrol_to_top();
+    testimonials.scrollTo(0, 0);
+}
+
+function err_mgg(txt){
+    let toaap = querySelector('.copy_msg');
+    toaap.style.setProperty('display','flex');
+    toaap.innerHTML = txt;
+    setTimeout(() =>{
+        toaap.style.setProperty('display','none');
+    },1000);
+}
+async function Post(){
+    const uid = querySelector('.header').getAttribute('uid');
+    const buton = querySelector('.add_test');
+    if(txtArea.value == ''){
+        err_mgg('Enter Testimonial Text!');
+        return;
+    }
+    if(txtArea.value.search(/[@#$-%)^&*(+_"]/) !== -1){
+        err_mgg('Unwanted Character Detected!');
+        return;
+    }
+    if(txtArea.value.length < 50){
+        err_mgg('Min Text Length!');
+        return;
+    }
+    if(txtArea.value.length > 400){
+        err_mgg('Max Text Length!');
+        return;
+    }
+    buton.innerHTML = '';
+    const loader = createElement('span');
+    loader.className = 'loadButon';
+
+    buton.appendChild(loader);
+    let MonthArr = ['January','Febuary','March','April','May','June','July','August',
+        'September','October','November','December'
+    ];
+    let DayArr = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+    
+    let today = new Date();
+        let day = today.getDay();
+            let month = today.getMonth();
+                let year = today.getFullYear();
+
+    let fullDay = `${String(DayArr[day - 1]).padStart(2, '0')}/${String(MonthArr[month]).padStart(2, '0')}/${String(year).padStart(2, '0')}`;
+    
+
+   let user_name = querySelector('.header').getAttribute('ufnme');
+        let user_profile = querySelector('.profile_cc_p').getAttribute('user_pr');
+            let cnt = querySelector('.testiItself');
+                let select = querySelector('.Selec__');
+                    let options = querySelectorAll('.Selec__ option');
+                    for (let x = 0; x < options.length; x++) {
+                        options[x].setAttribute('value',options[x].innerHTML);
+                    }
+
+                let testify_cnt = createElement('NAV');
+                    testify_cnt.className = 'wrap_tes_ti';
+                        let testify_spn = createElement('SPAN');
+                            let us_pro = createElement('img');
+                                let spn2 = createElement('span');
+                let h3 = createElement('h3');
+                    let nav = createElement('nav');
+                        nav.className = 'txtrappr';
+                let txt_testify = createElement('p');
+                    let dte = createElement('span');
+                        testify_spn.className = 'ig_wrap';
+                            spn2.innerHTML = user_name;
+                                h3.innerHTML = select.value;
+                                txt_testify.innerHTML = txtArea.value;
+         dte.className = 'time_stamp';
+        dte.innerHTML = fullDay;
+        let delet = createElement('span');
+            let delIcon = createElement('i');
+                delIcon.className = 'fas fa-recycle';
+                    delet.appendChild(delIcon);
+                        delet.className = 'delete__';
+
+            delet.onclick = () =>{
+                delet.classList.add('tranX');
+                setTimeout(() =>{
+                    delet.classList.remove('tranX');
+                    delet.style.setProperty('display','none');
+        
+                    let cre = createElement('button');
+                        cre.className = 'SureDelt';
+                            cre.innerHTML = 'Recycle Me';
+                        cre.onclick = () =>{
+                            cre.remove();
+                            delet.style.setProperty('display','flex');
+                            testify_cnt.classList.add('Rmuve');
+                            setTimeout(() =>{
+                                testify_cnt.remove();
+                            },400);
+                        }
+                    testify_cnt.appendChild(cre);
+                },500);
+            }
+            let txt = txtArea.value;
+            let heading = select.value;
+            let dteday = fullDay;
+
+            try {
+                const sen = await fetch(`${__root__2()}/asset/apis/general_req/`,{
+                    method:"POST",
+                    headers:{'Content-type':'application/x-www-form-urlencoded'},
+                    body:'test=' + JSON.stringify({user_name,txt,heading,uid,dteday})
+                });
+            
+                const respons = await sen.json();
+                console.log(respons);
+            
+                if(respons.status !== 'success'){
+                    // console.log(respons.message);
+                    return;
+                }
+        
+                txtArea.value = '';
+                err_mgg('Testimonial Added Successfully');
+                loader.remove();
+                buton.innerHTML = 'Add Testimonial';
+
+            }catch(error){
+                console.error(error);
+            }
+                                    
+    testify_cnt.appendChild(testify_spn);
+        testify_spn.appendChild(us_pro);
+            us_pro.src = user_profile; 
+                testify_cnt.appendChild(spn2); 
+                    testify_cnt.appendChild(h3)
+                        testify_cnt.appendChild(nav);
+                                testify_cnt.appendChild(delet);
+                                    nav.appendChild(txt_testify); 
+                            nav.appendChild(dte);
+    cnt.insertAdjacentElement('afterbegin',testify_cnt);
+}
+
 
 Push_data = (event) =>{
     event.preventDefault();

@@ -1,5 +1,18 @@
 <?php
     require_once dirname(__DIR__, 3) ."/conn.php";
+    function random_nums($length){
+        $text = "";
+        if($length < 5){
+            $length = 5;
+        }
+    
+        $len = rand(4,$length);
+        for ($i=0; $i < $len; $i++){ 
+           $text .= rand(0,9);
+        }
+    
+        return $text;
+    }
     if($_SERVER['REQUEST_METHOD'] !== 'POST'){
         http_response_code(401);
         echo json_encode([
@@ -144,6 +157,88 @@
 
         //echo mysqli_error($conn);
 
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['test']) && !empty($_POST['test'])){
+            $postContent = json_decode($_POST['test']);
+
+           $user_name = $postContent->user_name;
+           $txt = $postContent->txt;
+           $heading = $postContent->heading;
+           $uid = $postContent->uid;
+           $dte = $postContent->dteday;
+           $uik = random_nums(20);
+
+           $rep = str_replace('\'', '', $txt);
+           
+           $select = "SELECT * FROM register WHERE userid='$uid'";
+           $query = mysqli_query($conn,$select);
+
+           $fetch = mysqli_fetch_assoc($query);
+           $user_profile = $fetch['bot_av'];
+
+           $ins = "INSERT INTO testymonial (userid,profile,name,heading,testy,dte,unik)
+           VALUES('$uid','$user_profile','$user_name','$heading','$rep','$dte','$uik')";
+           $q = mysqli_query($conn,$ins);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Added'
+            ]);
+            die;
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['txt_testi']) && !empty($_POST['txt_testi'])){
+            $txt = json_decode($_POST['txt_testi']);
+
+            $unik = $txt->uni;
+            $uid = $txt->uid;
+
+            $select = "SELECT * FROM testymonial WHERE unik='$unik'";
+            $query = mysqli_query($conn,$select);
+
+            $fetch = mysqli_fetch_assoc($query);
+            $unikID = $fetch['userid'];
+
+            if($uid !== $unikID){
+
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Can Only Recycle Your Testimonial!'
+                ]);
+                die;
+
+            }else{
+
+                $delet = "DELETE FROM testymonial WHERE unik='$unik'";
+                mysqli_query($conn,$delet);
+
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => 'Recycle Successfully'
+                ]);
+                die;
+            }
+
+        }
     }catch(Exeption $th){
         http_response_code(500);
         echo json_encode([

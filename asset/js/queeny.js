@@ -632,6 +632,8 @@ function Awarding_chairs(amount,ref){
             }
         })
     }
+
+
     CountDownTimer();
 // DAILY REWARDS CODE HEREEEEEEEEEEEEEEEEEEEEEEEEE
     let dayCount = 0
@@ -668,6 +670,7 @@ function Awarding_chairs(amount,ref){
         }
         Update_Balance();
     }
+    
 // DAILY COMBO CODE HEREEEEEEEEEEEEEEEEEEEEEEEEEEE
 async function Clear_Rewards(uid){
     const fft = await fetch(`${__RUT__()}/asset/apis/general_req/`,{

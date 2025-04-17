@@ -2478,7 +2478,7 @@ button{
     border-radius: .4rem;
 }
 .testimonials{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -2487,15 +2487,41 @@ button{
     position: absolute;
     top: 0;
     z-index: 106;
-    scroll-behavior: smooth;
     gap: 7px;
-    background: white;
+    background: url('../img/cbo.jpg');
     flex-direction: column;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
-    border: 1px solid var(--bdrClr1);
+}
+.moveToTop{
+    height: auto;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    padding: 10px;
+    background: linear-gradient(rgb(6, 70, 95),rgb(9, 124, 170),rgb(5, 171, 236));
+    color: white;
+    font-size: normal;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    z-index: 20;
+    transition: 0s !important;
+    animation: stickUp 0.5s ease;
+}
+.moveToTop:active{
+    opacity: 0.5;
+}
+@keyframes stickUp{
+    0%{
+        opacity: 0.5;
+        rotate: 160deg;
+    }
+    100%{
+        opacity: 1;
+        rotate: 0;
+    }
 }
 .frequently_asked_question{
     height: auto;
@@ -3498,6 +3524,7 @@ button{
     border-radius: .4em;
     background: linear-gradient(23deg,rgb(9, 122, 126),rgb(10, 189, 196),rgb(4, 239, 247));
     padding: 10px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.363);
     cursor: pointer;
     gap: 10px;
     transition: 0s !important;
@@ -3589,7 +3616,6 @@ cansil:active{
     gap: 15px;
     flex-direction: column;
     border-radius: .4rem;
-    border: 1px solid var(--bdrClr1);
     padding: 5px;
 }
 .div_input_test{
@@ -3609,7 +3635,10 @@ cansil:active{
     align-items: center;
     display: flex;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(7, 207, 181);
+}
+.div_input_test select option{
+    border: 1px solid rgb(7, 207, 181);
 }
 .txtArea{
     height: 100%;
@@ -3790,7 +3819,7 @@ cansil:active{
     object-fit: cover;
 }
 .add_test{
-    background: linear-gradient(rgb(11, 62, 173),rgb(11, 73, 207),rgb(32, 98, 241));
+    background: rgb(5, 84, 136);
     height: auto;
     width: 80%;
     justify-content: center;
@@ -3803,6 +3832,24 @@ cansil:active{
     color: white;
     border: none;
     padding: 15px;
+}
+.loadButon{
+    height: 25px;
+    width: 25px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid rgb(5, 84, 136);
+    animation: rotate 0.5s linear infinite;
+    border-radius: 50%;
+}
+@keyframes rotate{
+    100%{
+        rotate: 360deg;
+    }
 }
 .add_test:active{
     opacity: 0.5;
@@ -3843,17 +3890,102 @@ cansil:active{
     display: flex;
     padding: 10px;
 }
+.wrap_tes_ti h3{
+    font-size: medium;
+}
+.txt_post__{
+    width: 100%;
+    padding: 10px;
+    color: black;
+    font-size: medium;
+    text-align: center;
+    display: flex;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 26px;
+    resize: none;
+}
+.txt_post__::-webkit-scrollbar{
+    display: none;
+}
 .wrap_tes_ti{
     height: auto;
     width: 80%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
     display: flex;
     border-radius: .4rem;
-    border: 1px solid var(--bdrClr1);
+    background: rgba(0, 0, 0, 0.39);
     padding: 5px;
+    animation: slutIn 0.5s ease;
     gap: 5px;
+}
+.Rmuve{
+    animation: slutout 0.5s ease;
+}
+.tranX{
+    animation: tranX 0.5s linear;
+}
+@keyframes slutout{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-300px);
+    }
+}
+@keyframes tranX{
+    100%{
+        rotate: 180deg;
+    }
+}
+@keyframes slutIn{
+    0%{
+        transform: translateX(40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.SureDelt{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size:normal;
+    color: rgb(221, 216, 216);
+    background: linear-gradient(rgb(8, 26, 82),rgb(11, 42, 133),rgb(11, 48, 160),rgb(10, 61, 214));
+    padding: 10px;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: 0s !important;
+    animation: slutBtn 0.5s linear;
+}
+@keyframes slutBtn{
+    100%{
+        rotate: -180deg;
+    }
+}
+.SureDelt:active{
+    opacity: 0.5;
+}
+.delete__{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: rgb(255, 0, 0);
+    transition: 0s !important;
+    cursor: pointer;
+}
+.delete__:active{
+    opacity: 0.5;
 }
 .ig_wrap{
     height: 60px;
@@ -3877,11 +4009,15 @@ cansil:active{
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
+    gap: 5px;
     padding: 5px;
 }
 .time_stamp{
-    color: rgba(0, 128, 68, 0.667);
+    color: rgb(3, 252, 231);
     font-size: small;
+}
+.txtrappr p{
+    color: rgb(231, 228, 228);
 }
 .nwPrntCnt{
     height: 100vh;

@@ -2,7 +2,7 @@
    .sign_up_t{
       flex-direction: column-reverse;
    }
-   .task_part, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .withdrawals_request, .stars_cnt, .jewel_sent, .pluto_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
+   .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .withdrawals_request, .stars_cnt, .jewel_sent, .pluto_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
       width: 65%;
    }
    .Ctr_cnt_xxxxxxxxr{
@@ -39,7 +39,7 @@
    .Ctr_child01_xxxxxx{
       width: 50%;
    }
-   .task_part, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
+   .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
       width: 70%;
    }
    .pin_wrapper{
@@ -69,7 +69,7 @@
    .headdd{
       text-align: center;
    }
-   .task_part, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
+   .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
       width: 90%;
    }
    .why_am_i_not_paid_{
@@ -91,6 +91,10 @@
    .totop_up_plans{
       width: 95%;
    }
+   .testimonials{
+      border-bottom-right-radius: 36px;
+      border-bottom-left-radius: 36px;
+   }
    .pin_wrapper{
       width: 90%;
    }
@@ -106,7 +110,7 @@
    .payment_list{width: 100%;}
 }
 @media (max-width:780px){
-   .task_part, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
+   .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
       width: 100%;
    }
    .wrp__arr{

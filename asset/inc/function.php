@@ -279,6 +279,32 @@
         }
     }
 
+    function fetch_testimonials($conn){
+        $select = "SELECT * FROM testymonial ORDER BY ID DESC";
+        $query = mysqli_query($conn,$select);
+
+        if(!mysqli_num_rows($query) >0){
+            echo "Be The Firs To Testify";
+        }else{
+            while ($row = mysqli_fetch_assoc($query)){
+                ?>
+                    <nav un="<?php echo $row['unik']?>" class="wrap_tes_ti">
+                        <span class="ig_wrap wind_load"><nav><i></i></nav><img src="<?php echo __upl__ . $row['profile']?>" alt=""></span>
+                        <span><?php echo $row['name'] ?></span>
+                        <h3><?php echo $row['heading'] ?></h3>
+                        <nav class="txtrappr">
+                            <p>
+                                <?php echo $row['testy'] ?>
+                            </p>
+                            <span class="time_stamp"><?php echo $row['dte']?></span>
+                        </nav>
+                        <span class="delete__"><i class="fas fa-recycle"></i></span>
+                    </nav>
+                <?php
+            }
+        }
+    }
+
 
     function check_true1($conn,$uid){
         $sel = "SELECT clk5 FROM claimclick WHERE userid='$uid'";
