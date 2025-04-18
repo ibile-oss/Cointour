@@ -156,6 +156,9 @@ function create_Bubble(){
 function Scrol_to_top(){
     task_part.scrollTo(0, 0);
 }
+function walletscroll(){
+    wallet.scrollTo(0, 0);
+}
 function err_FLEX(){
     err.style.setProperty('display','flex');
 }
@@ -388,9 +391,7 @@ function loader__R(){
 function remove_ll(){
     let ele = document.querySelector('.ele_loader');
     let cnt = document.body;
-   setTimeout(() =>{
-        ele.remove();
-        cnt.classList.remove('toAbbb');
-   },2000)
+    ele.remove();
+    cnt.classList.remove('toAbbb');
 }
 

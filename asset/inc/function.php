@@ -279,6 +279,102 @@
         }
     }
 
+    function fetStar($conn,$uid){
+        $sel = "SELECT * FROM star WHERE userid='$uid'";
+        $query = mysqli_query($conn,$sel);
+        $star = 'str.gif';
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Available Stars";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)){
+                ?>
+                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                <?php
+            }
+        }
+    }
+
+    function fetkeystar($conn,$uid){
+        $sel = "SELECT * FROM keystar WHERE userid='$uid'";
+        $query = mysqli_query($conn,$sel);
+        $star = 'keystar.png';
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Available Keystar";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)){
+                ?>
+                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                <?php
+            }
+        }
+    }
+
+    function fetoctahedron($conn,$uid){
+        $sel = "SELECT * FROM octahedron WHERE userid='$uid'";
+        $query = mysqli_query($conn,$sel);
+        $star = 'octahedron.png';
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Available Octahedron";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)){
+                ?>
+                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                <?php
+            }
+        }
+    }
+
+    function fetdeltohedron($conn,$uid){
+        $sel = "SELECT * FROM deltohedron WHERE userid='$uid'";
+        $query = mysqli_query($conn,$sel);
+        $star = 'deltohedron.png';
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Available Deltohedron";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)){
+                ?>
+                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                <?php
+            }
+        }
+    }
+
+    function fetjewel($conn,$uid){
+        $sel = "SELECT * FROM jewel WHERE userid='$uid'";
+        $query = mysqli_query($conn,$sel);
+        $star = 'jewel.png';
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Available Dewel";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)){
+                ?>
+                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                <?php
+            }
+        }
+    }
+
+    function fetpluto($conn,$uid){
+        $sel = "SELECT * FROM pluto WHERE userid='$uid'";
+        $query = mysqli_query($conn,$sel);
+        $star = 'pluto.png';
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Available Pluto";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)){
+                ?>
+                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                <?php
+            }
+        }
+    }
+
     function fetch_testimonials($conn){
         $select = "SELECT * FROM testymonial ORDER BY ID DESC";
         $query = mysqli_query($conn,$select);

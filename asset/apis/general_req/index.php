@@ -248,4 +248,181 @@
         die;
     }
 
+    try {
+        if(isset($_POST['task_check']) && !empty($_POST['task_check'])){
+            $posdata = json_decode($_POST['task_check']);
+
+            $uid = $posdata->uid;
+            
+            $screen_shot = "SELECT * FROM user_screenshot WHERE userid='$uid'";
+            $query = mysqli_query($conn,$screen_shot);
+
+            $user_links = "SELECT * FROM user_on_media WHERE userid='$uid'";
+            $que = mysqli_query($conn,$user_links);
+
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Are Not Eligible For Our Tools!, Please Kindly Complete Task To Elig Our Tools'
+                ]);
+                die;
+            }
+
+            if(!mysqli_num_rows($que) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Are Not Eligible For Our Tools!, Please Kindly Upload Your Social Links To Elig'
+                ]);
+                die;
+            }
+
+            // $check_ref = "SELECT * FROM user_dentials WHERE userid='$uid'";
+            // $q = mysqli_query($conn,$check_ref);
+            // $fetch = mysqli_fetch_assoc($q);
+
+            // $current_ref = $fetch['referrals'];
+            // $verified_ref = 10;
+            // if($current_ref < $verified_ref){
+            //     echo json_encode([
+            //         'status' => 'error',
+            //         'message' => 'You Are Not Eligible For Our Tools!, Gain Up To 10 Referrals To Elig, Your Current Ref Is ' . $current_ref
+            //     ]);
+            //     die;
+            // }
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'You Are Eligible'
+            ]);
+            die;
+        }
+
+        echo mysqli_error($conn);
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['infor_gen']) && !empty($_POST['infor_gen'])){
+            $details = json_decode($_POST['infor_gen']);
+
+            $uid = $details->id;
+            $category = $details->spltEXt;
+            $price = $details->spltPrice;
+            $buy_from = $details->val;
+            $lenght = $details->lenght;
+
+
+            $check_if_account_exist_in_buy_from = 
+            "SELECT * FROM queeny_dentials WHERE userid='$uid'";
+            $query = mysqli_query($conn,$check_if_account_exist_in_buy_from);
+
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Do Non Have An Account On ' . $buy_from
+                ]);
+                die;
+            }
+
+            $fetch = mysqli_fetch_assoc($query);
+            $current_balance = $fetch['balance'];
+            if($price > $current_balance){
+
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Insufficient Balance In ' .$buy_from
+                ]);
+                die;
+            }
+
+            $new_balance = $current_balance - $price;
+            
+            
+
+            $set_back_new_balance = "UPDATE queeny_dentials SET balance='$new_balance' WHERE userid='$uid'";
+            $qy = mysqli_query($conn,$set_back_new_balance);
+
+
+            $tonum = (int) $lenght;
+            if($category == 'jewel'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO jewel(userid,jewel)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'pluto'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO pluto(userid,pluto)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'crys'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO crys(userid,crys)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'gem'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO gem(userid,gem)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'keystar'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO keystar(userid,keystar)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'maxkey'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO maxkey(userid,maxkey)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'octahedron'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO octahedron(userid,octahedron)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'sapphire'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO sapphire(userid,sapphire)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'ruby'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO ruby(userid,ruby)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'star'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO star(userid,star)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }else if($category == 'deltohedron'){
+                for($i=0; $i < $tonum; $i++){ 
+                    $ins = "INSERT INTO deltohedron(userid,deltohedron)VALUES('$uid','$lenght')";
+                    $quy = mysqli_query($conn,$ins);
+                }
+            }
+                  
+            echo json_encode([
+                'status' => 'success',
+                'newBalance' => $new_balance,
+                'message' => 'Successfully bought ' . $category
+            ]);
+            die;
+        }
+
+    } catch (Exeption $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
     

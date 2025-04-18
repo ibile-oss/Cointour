@@ -15,10 +15,20 @@ function Error_msg(err_txt){
 function ERROR(txt){
     const err = querySelector('.copy_msg');
         err.style.setProperty('display','flex');
-            err.innerHTML = txt;
-    setTimeout(() =>{
-       err.style.setProperty('display','none'); 
+        err.innerHTML = txt;
+    let set = setTimeout(() =>{
+       err.style.setProperty('display','none');
     },3000);
+
+    err.onmouseenter = () =>{
+        clearTimeout(set);
+    }
+
+    err.onmouseout = () =>{
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+        },1000);
+    }
 }
 function success_msg_txt(txt){
     let err = querySelector('.err_msg_upl_f');
@@ -51,9 +61,6 @@ function err_msg_txt(txt){
 var very_state = querySelector('.verified_state');
     var ssss = querySelector('.circuler');
         var cnt_wrap = querySelectorAll('.tasking_mode');
-            var veryS = querySelector('.verify_state');
-            var htxt = querySelector('.verify_state h3');
-                var txt = querySelector('.txt_to p');
                     var clk = querySelector('.num1');
                         var clk2 = querySelector('.num2');
                             var tools = querySelectorAll('.tools');
@@ -87,7 +94,6 @@ var shares_task  = querySelector('.shares_task');
                             var check_cash = querySelector('.check_cash');
                                 var if_undone  = querySelector('.why_am_i_not_paid_');
                                     var cansil_ = querySelector('.why_am_i_not_paid_ p span');
-                                        var why_n = querySelector('.check_lelp');
 var me_de_medias = querySelector('.me_de_medias');
     var me_on_mdias = querySelector('.me_on_mdias');
         var closier = querySelector('.close____');
@@ -160,9 +166,40 @@ let deltCnt = querySelectorAll('.wrap_tes_ti');
         let tosend = querySelectorAll('.wrap_tes_ti p');
             const uid = querySelector('.header').getAttribute('uid');
                 const unik = querySelectorAll('.txtrappr');
+                    const wallet = querySelector('.wallet_cnt_parkd');
 
 
 
+
+
+openMain.onclick = () =>{
+    loader__R();
+    try {
+        fetch(`${__root__2()}/asset/apis/general_req/`,{
+            method:"POST",
+            headers:{'Content-type':'application/x-www-form-urlencoded'},
+            body:'task_check=' + JSON.stringify({uid})
+        })
+        .then(respons => respons.json())
+        .then(result =>{
+            console.log(result);
+            if(result.status !== 'success'){
+                ERROR(result.message);
+                remove_ll();
+                return;
+            }
+            
+            ERROR(result.message);
+            remove_ll();
+            mAin.style.setProperty('display','flex');
+            task_part.scrollTo(0, 0);
+        })
+    }catch(error){
+        console.error(error);
+        ERROR(error);
+        remove_ll();
+    }
+}
 
 for (let x = 0; x < deltCnt.length; x++){
     let uni = deltCnt[x].getAttribute('un');
@@ -201,7 +238,7 @@ for (let x = 0; x < deltCnt.length; x++){
                 
                 }catch(error){
                     console.error(error);
-                    ERROR(result.message);
+                    ERROR(error);
                 }
                             
                 delt[x].style.setProperty('display','flex');
@@ -219,9 +256,14 @@ if(fcount.innerHTML > 1){
 
 
 let ArrClassLis = ['ani1','ani3'];
+let randAni = querySelectorAll('.randAni');
 for (let x = 0; x < stok_img.length; x++) {
     let rand = Math.floor(Math.random() * ArrClassLis.length);
     stok_img[x].classList.add(ArrClassLis[rand])
+}
+for (let x = 0; x < randAni.length; x++) {
+    let rand = Math.floor(Math.random() * ArrClassLis.length);
+    randAni[x].classList.add(ArrClassLis[rand])
 }
 
 close_trsnfer.onclick = () =>{
@@ -264,6 +306,8 @@ for (let x = 0; x < medium_str.length; x++) {
         },400);
     }
     medium_str[x].onclick = () =>{
+        walletscroll();
+        Scrol_to_top();
         if(medium_txt[x].innerHTML == 'Octahedron'){
             OCT_.style.setProperty('display','flex');
             DEL_.style.setProperty('display','none');
@@ -740,6 +784,7 @@ async function Post(){
 
             }catch(error){
                 console.error(error);
+                err_mgg(error);
             }
                                     
     testify_cnt.appendChild(testify_spn);
@@ -819,6 +864,7 @@ Push_data = (event) =>{
                     },3000);
     }
 }
+
 copyToClipBoard = () =>{
     let txt = querySelector('.copy_link .ccpy');
     let toaap = querySelector('.copy_msg');
@@ -839,6 +885,7 @@ btnsGo.disabled = true;
         let alfa;
             nums = true;
                 alfa = false;
+
 __numbers__();
 __alfabets__();
 for (let x = 0; x < open_cnt.length; x++) {
@@ -860,7 +907,7 @@ for (let x = 0; x < open_cnt.length; x++) {
                                  document.querySelector('.PopUpcnt_for_About').style.setProperty('display','flex');
         }if(open_[x].innerHTML == 'Logout'){
             window.location.href=`${__root__2()}/logout.php`;
-        }if(open_[x].innerHTML == 'Medium stock'){
+        }if(open_[x].innerHTML == 'Stock'){
             medium_stock.style.setProperty('display','flex');
         }if(open_[x].innerHTML == 'Me'){
             document.querySelector('.me_account').style.setProperty('display','flex');
@@ -877,22 +924,19 @@ clo_Me.onclick = () =>{
         document.querySelector('.me_account').classList.remove('goBack');
     },400);
 }
-    thisdotspn.onclick = () =>{
-        document.querySelector('.PopUpcnt_for_About').style.setProperty('display','none');
+thisdotspn.onclick = () =>{
+    document.querySelector('.PopUpcnt_for_About').style.setProperty('display','none');
+}
+closMain.onclick = () =>{
+    mAin.style.setProperty('display','none');
+}
+           
+var attri = 'asset/img/icon_mark.png'
+for (let x = 0; x < notice.length; x++) {
+    notice[x].onclick = () =>{
+        inf_yet[x].setAttribute('src',attri);
     }
-        closMain.onclick = () =>{
-            mAin.style.setProperty('display','none');
-        }
-            openMain.onclick = () =>{
-                mAin.style.setProperty('display','flex');
-                task_part.scrollTo(0, 0);
-            }
-                var attri = 'asset/img/icon_mark.png'
-                    for (let x = 0; x < notice.length; x++) {
-                        notice[x].onclick = () =>{
-                            inf_yet[x].setAttribute('src',attri);
-                        }
-                    }
+}
 
 xx_inf.onclick = () =>{
         info_r.style.setProperty('display','flex');
@@ -950,12 +994,7 @@ info_cl.onclick = () =>{
                                         me_de_medias.style.setProperty('display','flex');
                                         task_part.scrollTo(0, 0);
                                     }
-why_n.onclick = () =>{
-    if_undone.style.setProperty('display','flex');
-}
-        cansil_.onclick = () =>{
-            if_undone.style.setProperty('display','none');
-        }
+      
                 for (let x = 0; x < info_bring.length; x++) {
                     info_bring[x].onclick = () =>{
                         info_r.style.setProperty('display','flex');
@@ -1099,55 +1138,4 @@ for (let x = 0; x < alltoolsCnt.length; x++) {
                         }
                                                         task_part.scrollTo(0, 0);
                     }
-}
-
-var veryTXT = [`Lorem ipsum dolor, sit amet consectetur 
-    adipisicing elit. Quam nemo fugit aut ut 
-    pariatur. Libero quaerat iusto accusantium 
-    maiores saepe. Iusto consequatur odit error 
-    sunt, illum odio repellendus animi maxime ea 
-    magnam vitae nihil expedita numquam neque 
-    delectus culpa? Libero voluptates quam magnam non.
-    Est nisi fuga provident, culpa debitis aspernatur 
-    obcaecati perferendis quia quam optio adipisci quo 
-    incidunt consequatur iste dicta tempore voluptate 
-    blanditiis eaque enim possimus. Iusto provident ad, 
-    delectus harum ullam repudiandae, facilis quasi odio
-    odit quos, quibusdam sit vel in magni vero! Harum vitae 
-    qui voluptatibus`
-]
-
-        var instruTXT = [`Lorem ipsum dolor, sit amet consectetur 
-            adipisicing elit. Quam nemo fugit aut ut 
-            pariatur. Libero quaerat iusto accusantium 
-            maiores saepe. Iusto consequatur odit error 
-            sunt, illum odio repellendus animi maxime ea 
-            magnam vitae nihil expedita numquam neque 
-            delectus culpa? Libero voluptates quam magnam non.
-            Est nisi fuga provident, culpa debitis aspernatur 
-            obcaecati perferendis quia quam optio adipisci quo 
-            incidunt consequatur iste dicta tempore voluptate 
-            blanditiis eaque enim possimus. Iusto provident ad, 
-            delectus harum ullam repudiandae, facilis quasi odio
-            odit quos, quibusdam sit vel in magni vero! Harum vitae 
-            qui voluptatibus.`
-        ]
-var veryT = 'Verification steps';
-var instT = 'Instructions';
-clk.setAttribute('txt',veryT);
-clk2.setAttribute('txt',instT);
-for (let x = 0; x < tools.length; x++) {
-    tools[x].onclick = () =>{
-        veryS.classList.toggle('show');
-            if(tools[x].getAttribute('txt') == veryT){
-                txt.innerHTML = veryTXT;
-                htxt.innerHTML = tools[x].getAttribute('txt');
-                    }else{
-                    txt.innerHTML = instruTXT;
-                    htxt.innerHTML = tools[x].getAttribute('txt');
-                }
-    }    
-}
-ssss.onclick = () =>{
-    very_state.classList.toggle('flex');
 }

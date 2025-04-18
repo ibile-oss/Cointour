@@ -138,13 +138,7 @@
         </div>
 
         <div class="why_am_i_not_paid_">
-            <p>Dear user base on out <a href="">terms and condition</a> a user who dos'nt
-                follow out terms and condition will not be paid after the Admin confirmation,
-                all task that has been given to you is always recorded when it's done,
-                If you are not paid. you hav'nt follow our terms and condition.
-                and your account is on risk cause the Admins are deleting that particular account.
-                for it's not usable. <span>Cancil</span>
-            </p>
+            
         </div>
 
         <div class="withdrawals_request">
@@ -180,9 +174,9 @@
                         <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
                     </div>
                     <div class="available__stars">
-                        <span>No Available Star</span>
-
-                        <nav class="starswrap"></nav>
+                        <nav class="starswrap">
+                            <?=fetStar($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -194,9 +188,9 @@
                         <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
                     </div>
                     <div class="available_keys_stars">
-                        <span>No Available Keys Star</span>
-
-                        <nav class="keys_starswrap"></nav>
+                        <nav class="keys_starswrap">
+                            <?=fetkeystar($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -207,10 +201,10 @@
                         <span>Octahedron</span>
                         <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
                     </div>
-                    <div class="available_keys_stars">
-                        <span>No Available Octahedron</span>
-
-                        <nav class="octahedronwrap"></nav>
+                    <div class="available_keys_stars available_keys_stars">
+                        <nav class="octahedronwrap keys_starswrap">
+                            <?=fetoctahedron($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -221,10 +215,10 @@
                         <span>Deltohedron</span>
                         <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
                     </div>
-                    <div class="available_keys_stars">
-                        <span>No Available Deltohedron</span>
-
-                        <nav class="deltohegronwrap"></nav>
+                    <div class="available_keys_stars available_keys_stars">
+                        <nav class="deltohegronwrap keys_starswrap">
+                            <?=fetdeltohedron($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -235,10 +229,10 @@
                         <span>Jewel</span>
                         <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
                     </div>
-                    <div class="available_keys_stars">
-                        <span>No Available Jewel</span>
-
-                        <nav class="jewelwrap"></nav>
+                    <div class="available_keys_stars available_keys_stars">
+                        <nav class="jewelwrap keys_starswrap">
+                            <?=fetjewel($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -249,10 +243,10 @@
                         <span>Pluto</span>
                         <span class="close__up__"><i class="fa fa-close fa-shake"></i></span>
                     </div>
-                    <div class="available_keys_stars">
-                        <span>No Available Pluto</span>
-
-                        <nav class="plutowrap"></nav>
+                    <div class="available_keys_stars available_keys_stars">
+                        <nav class="plutowrap keys_starswrap">
+                            <?=fetpluto($conn,$uid)?>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -272,9 +266,9 @@
                             </div>
                             <div class="toolsss">
                                 <nav>
-                                    <img src="asset/img/menu_s.png" alt="">
+                                    <img src="asset/img/icon1.png" alt="">
                                 </nav>
-                                <span>Main</span>
+                                <span>All&tools</span>
                             </div>
                             <div class="tools num2">
                                 <nav>
@@ -283,13 +277,6 @@
                                 <span>Instruction</span>
                             </div>
                        </div>
-
-                        <div class="verify_state">
-                            <h3></h3>
-                            <div class="txt_to">
-                                <p></p>
-                            </div>
-                        </div>
                     </div>
                 </nav>
 
@@ -610,49 +597,49 @@
                         <div class="payment_list">
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/int.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/int.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Internet</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/elec2.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/elec2.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Electricity</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/vou.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/vou.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Voucher</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/test.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/test.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Assurance</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/cell.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/cell.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Mobil credit</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/king.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/king.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Bill</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/mar.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/mar.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Marchant</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/more.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/more.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">More</span>
                             </nav>
@@ -661,37 +648,37 @@
                         <div class="payment_list">
                             <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/octahedron.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/octahedron.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Octahedron</span>
                             </nav>
                             <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/deltohedron.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/deltohedron.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Deltohedron</span>
                             </nav>
                             <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/jewel.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/jewel.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Jewel</span>
                             </nav>
                             <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/pluto.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/pluto.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Pluto</span>
                             </nav>
                             <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/star.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/star.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Stars</span>
                             </nav>
                             <nav class="item_2slut medium_str">
                                 <span class="fst_spn">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/keystar.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/keystar.png" alt=""></span>
                                 </span>
                                 <span class="txt_style">Key Stars</span>
                             </nav>
@@ -700,31 +687,31 @@
                         <div class="payment_list">
                             <nav class="item_2slut">
                                 <span class="fst_spn premium_bb">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/sapphire.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/sapphire.png" alt=""></span>
                                 </span>
                                 <span class="txt_style pre_col">Sapphire</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn premium_bb">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/gem.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/gem.png" alt=""></span>
                                 </span>
                                 <span class="txt_style pre_col">Gem</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn premium_bb">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/maxkey.png" alt=""></span>
+                                    <span class="scn_spn ani wind_load"><nav><i></i></nav><img src="asset/img/maxkey.png" alt=""></span>
                                 </span>
                                 <span class="txt_style pre_col">Max Key</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn premium_bb">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/Ruby.png" alt=""></span>
+                                    <span class="scn_spn ani3 wind_load"><nav><i></i></nav><img src="asset/img/Ruby.png" alt=""></span>
                                 </span>
                                 <span class="txt_style pre_col">Ruby</span>
                             </nav>
                             <nav class="item_2slut">
                                 <span class="fst_spn premium_bb">
-                                    <span class="scn_spn wind_load"><nav><i></i></nav><img src="asset/img/crys.png" alt=""></span>
+                                    <span class="scn_spn ani1 wind_load"><nav><i></i></nav><img src="asset/img/crys.png" alt=""></span>
                                 </span>
                                 <span class="txt_style pre_col">Crystal</span>
                             </nav>
@@ -1082,9 +1069,9 @@
 
                 <div class="medium_stock">
                     <div class="head_m_stodk">
-                        <nav class="mgwrap_m_stock"><img src="asset/img/giftss.avif" alt=""></nav>
+                        <!-- <nav class="mgwrap_m_stock"><img src="asset/img/giftss.avif" alt=""></nav> -->
                         <div class="menu_close_m_stoc">
-                            <h2>Medium stock</h2>
+                            <h2>Stock</h2>
                             <span class="closD_med"><img src="asset/img/icons8-close-188.png" alt=""></span>
                         </div>
                     </div>
@@ -1093,8 +1080,28 @@
                         <div class="buy_with_coins_cnt">
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
                                     <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
-                                    <p>2</p>
+                                    <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
@@ -1108,7 +1115,7 @@
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
@@ -1118,13 +1125,93 @@
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
                                     <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
                                     <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+12000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/sapphire.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+18000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/gem.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+18000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/ruby.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+18000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/maxkey.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+18000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/crys.png" alt=""></span>
+                                    <p>2</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+18000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/star.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <p>1</p>
+                                </nav>
+                                <span class="div__fff">
+                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
+                                    <span class="price_sold">+6000</span>
+                                </span>
+                            </div>
+                            <div class="stock_item_wrap">
+                                <nav class="wrap_ittitem">
+                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
+                                    <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
@@ -1138,17 +1225,17 @@
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
                                     <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
-                                    <p>1</p>
+                                    <p>2</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
@@ -1158,157 +1245,57 @@
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <span class="stok_img"><img src="asset/img/sapphire.png" alt=""></span>
                                     <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <span class="stok_img"><img src="asset/img/gem.png" alt=""></span>
                                     <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <span class="stok_img"><img src="asset/img/ruby.png" alt=""></span>
                                     <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/pluto.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/deltohedron.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/keystar.png" alt=""></span>
+                                    <span class="stok_img"><img src="asset/img/maxkey.png" alt=""></span>
                                     <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                             <div class="stock_item_wrap">
                                 <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/jewel.png" alt=""></span>
-                                    <p>2</p>
+                                    <span class="stok_img"><img src="asset/img/crys.png" alt=""></span>
+                                    <p>1</p>
                                 </nav>
                                 <span class="div__fff">
                                     <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
-                                </span>
-                            </div>
-                            <div class="stock_item_wrap">
-                                <nav class="wrap_ittitem">
-                                    <span class="stok_img"><img src="asset/img/octahedron.png" alt=""></span>
-                                    <p>2</p>
-                                </nav>
-                                <span class="div__fff">
-                                    <span class="img_coin_us_as"><i><img src="asset/img/17988288.png" alt=""></i></span>
-                                    <span class="price_sold">+6000</span>
+                                    <span class="price_sold">+12000</span>
                                 </span>
                             </div>
                         </div>
@@ -1319,12 +1306,12 @@
                     <div class="recTask">
                         <nav><img src="asset/img/bakk.jpg" alt=""></nav>
                         <div class="space_eve">
-                            <h2>Main</h2>
+                            <h2>Tools</h2>
                             <span class="close_m"><img src="asset/img/icons8-close-188.png" alt=""></span>
                         </div>
                     </div> 
 
-                    <h4 class="fa-fade">You are not eligible for our games</h4>
+                    <h4 class="fa-fade">You Are Eligible For Our Tools</h4>
 
                  
                     <div class="authentic_wrapper">
@@ -1358,7 +1345,7 @@
                         </nav>
                         <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/icons8-gem-folder-60.png" alt=""></span>
-                            <span class="txt_opem">Medium stock</span>
+                            <span class="txt_opem">Stock</span>
                         </nav>
                         <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/abou.png" alt=""></span>
@@ -1439,7 +1426,7 @@
                     <div class="recTask">
                         <nav><img src="asset/img/refplay.jpg" alt=""></nav>
                         <div class="space_eve">
-                            <h2>Welcome to ref play</h2>
+                            <h2>Join Infliuencer</h2>
                             <span class="info_t_d"><img src="asset/img/pic9.png" alt=""></span>
                             <span class="close_d"><img src="asset/img/icons8-close-188.png" alt=""></span>
                         </div>
