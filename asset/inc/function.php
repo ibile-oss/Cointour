@@ -289,7 +289,7 @@
         }else{
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
-                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                    <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
                 <?php
             }
         }
@@ -305,7 +305,7 @@
         }else{
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
-                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                    <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
                 <?php
             }
         }
@@ -321,7 +321,7 @@
         }else{
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
-                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                    <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
                 <?php
             }
         }
@@ -337,7 +337,7 @@
         }else{
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
-                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                    <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
                 <?php
             }
         }
@@ -353,7 +353,7 @@
         }else{
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
-                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                    <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
                 <?php
             }
         }
@@ -369,7 +369,7 @@
         }else{
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
-                    <span class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></span>
+                    <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
                 <?php
             }
         }

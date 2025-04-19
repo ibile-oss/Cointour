@@ -254,7 +254,6 @@ if(fcount.innerHTML > 1){
     count_go.innerHTML = count_go.innerHTML;
 }
 
-
 let ArrClassLis = ['ani1','ani3'];
 let randAni = querySelectorAll('.randAni');
 for (let x = 0; x < stok_img.length; x++) {
@@ -1139,3 +1138,25 @@ for (let x = 0; x < alltoolsCnt.length; x++) {
                                                         task_part.scrollTo(0, 0);
                     }
 }
+
+
+/*
+    <input id="customInput" type="text" readonly>
+    <input id="customInput" type="text" inputmode="none" readonly>
+    <div id="keyboard">
+    <button onclick="typeKey('1')">1</button>
+    <button onclick="typeKey('2')">2</button>
+    <button onclick="typeKey('3')">3</button>
+    <button onclick="deleteKey()">⌫</button>
+    </div>
+
+    const input = document.getElementById('customInput');
+
+    function typeKey(char){
+        input.value += char;
+    }
+
+    function deleteKey() {
+        input.value = input.value.slice(0, -1);
+    }
+*/

@@ -343,9 +343,6 @@
             }
 
             $new_balance = $current_balance - $price;
-            
-            
-
             $set_back_new_balance = "UPDATE queeny_dentials SET balance='$new_balance' WHERE userid='$uid'";
             $qy = mysqli_query($conn,$set_back_new_balance);
 
@@ -416,7 +413,7 @@
             die;
         }
 
-    } catch (Exeption $th) {
+    }catch(Exeption $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -424,5 +421,225 @@
         ]);
         die;
     }
+
+    try {
+        if(isset($_POST['sendIDclicked']) && !empty($_POST['sendIDclicked'])){
+            $postItems = json_decode($_POST['sendIDclicked']);
+
+            $uid = $postItems->uid;
+            $id = $postItems->ID;
+
+            $checkUSERid = "SELECT * FROM star WHERE userid='$uid'";
+            $query = mysqli_query($conn,$checkUSERid);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Where Logged Out!'
+                ]);
+                die;
+            }
+
+            $delet = "DELETE FROM star WHERE ID='$id'";
+            mysqli_query($conn,$delet);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Claimed'
+            ]);
+            die;
+        }
+
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['sendIDkey']) && !empty($_POST['sendIDkey'])){
+            $postItems = json_decode($_POST['sendIDkey']);
+
+            $uid = $postItems->uid;
+            $id = $postItems->ID;
+
+            $checkUSERid = "SELECT * FROM keystar WHERE userid='$uid'";
+            $query = mysqli_query($conn,$checkUSERid);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Where Logged Out!'
+                ]);
+                die;
+            }
+
+            $delet = "DELETE FROM keystar WHERE ID='$id'";
+            mysqli_query($conn,$delet);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Claimed'
+            ]);
+            die;
+        }
+
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['sendIDoct']) && !empty($_POST['sendIDoct'])){
+            $postItems = json_decode($_POST['sendIDoct']);
+
+            $uid = $postItems->uid;
+            $id = $postItems->ID;
+
+            $checkUSERid = "SELECT * FROM octahedron WHERE userid='$uid'";
+            $query = mysqli_query($conn,$checkUSERid);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Where Logged Out!'
+                ]);
+                die;
+            }
+
+            $delet = "DELETE FROM octahedron WHERE ID='$id'";
+            mysqli_query($conn,$delet);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Claimed'
+            ]);
+            die;
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['sendIDdel']) && !empty($_POST['sendIDdel'])){
+            $postItems = json_decode($_POST['sendIDdel']);
+
+            $uid = $postItems->uid;
+            $id = $postItems->ID;
+
+            $checkUSERid = "SELECT * FROM deltohedron WHERE userid='$uid'";
+            $query = mysqli_query($conn,$checkUSERid);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Where Logged Out!'
+                ]);
+                die;
+            }
+
+            $delet = "DELETE FROM deltohedron WHERE ID='$id'";
+            mysqli_query($conn,$delet);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Claimed'
+            ]);
+            die;
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['sendIDjew']) && !empty($_POST['sendIDjew'])){
+            $postItems = json_decode($_POST['sendIDjew']);
+
+            $uid = $postItems->uid;
+            $id = $postItems->ID;
+
+            $checkUSERid = "SELECT * FROM jewel WHERE userid='$uid'";
+            $query = mysqli_query($conn,$checkUSERid);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Where Logged Out!'
+                ]);
+                die;
+            }
+
+            $delet = "DELETE FROM jewel WHERE ID='$id'";
+            mysqli_query($conn,$delet);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Claimed'
+            ]);
+            die;
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['sendIDplut']) && !empty($_POST['sendIDplut'])){
+            $postItems = json_decode($_POST['sendIDplut']);
+
+            $uid = $postItems->uid;
+            $id = $postItems->ID;
+
+            $checkUSERid = "SELECT * FROM pluto WHERE userid='$uid'";
+            $query = mysqli_query($conn,$checkUSERid);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'You Where Logged Out!'
+                ]);
+                die;
+            }
+
+            $delet = "DELETE FROM pluto WHERE ID='$id'";
+            mysqli_query($conn,$delet);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Successfully Claimed'
+            ]);
+            die;
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+
 
     

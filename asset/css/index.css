@@ -1,4 +1,10 @@
 @import url(var.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -9,6 +15,115 @@
     -webkit-user-drag: none;
     -moz-user-select: none;
 }
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  
 .Ctr_Cnt_xxxxxxxxx00{
     height: 100vh;
     width: 100%;
@@ -155,7 +270,7 @@
     bottom: 0;
     z-index: 400;
     animation: sl_n_slut 0.5s ease;
-    background: url('../img/pic_go.jpg');
+    background: url('../img/star2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -172,7 +287,7 @@
     bottom: 0;
     z-index: 400;
     animation: sl_n_slut 0.5s ease;
-    background: url('../img/pic7.jpg');
+    background: url('../img/star1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -189,7 +304,7 @@
     bottom: 0;
     z-index: 400;
     animation: sl_n_slut 0.5s ease;
-    background: url('../img/3d-rendewring-cryptocurency-distribution-concept_23-2149901282.jpg');
+    background: url('../img/ock.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -273,57 +388,62 @@
     display: flex;
     flex-direction: column;
 }
-.keys_starswrap span{
-    height: 35px;
-    width: 35px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+.keys_starswrap button:disabled{
+    background: linear-gradient(rgb(235, 234, 234),rgb(219, 216, 216),rgb(235, 234, 234));
 }
-.keys_starswrap span{
-    height: 35px;
-    width: 35px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    cursor: pointer;
-    transition: 0s !important;
+.starswrap button:disabled{
+    background: linear-gradient(rgb(235, 234, 234),rgb(219, 216, 216),rgb(235, 234, 234));
 }
-.keys_starswrap span:active{
-    opacity: 0.5;
-}
-.keys_starswrap span i{
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-.starswrap span{
+.keys_starswrap button{
     height: 35px;
     width: 35px;
     justify-content: center;
     align-items: center;
     display: flex;
     cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
     transition: 0s !important;
 }
-.starswrap span:active{
+.keys_starswrap button:active{
     opacity: 0.5;
 }
-.starswrap span i{
+.keys_starswrap button i{
     height: 100%;
     width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
 }
-.keys_starswrap span i img{
+.starswrap button{
+    height: 35px;
+    width: 35px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: 0s !important;
+}
+.starswrap button:active{
+    opacity: 0.5;
+}
+.starswrap button i{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.keys_starswrap button i img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-.starswrap span i img{
+.starswrap button i img{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -2146,17 +2266,18 @@ button{
 .buy_with_coins_cnt{
     height: auto;
     width: 100%;
-    padding: 10px;
-    gap: 10px;
+    padding: 5px;
+    gap: 5px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.548);
+    background: rgba(0, 0, 0, 0.397);
     display: flex;
 }
 .stock_item_wrap{
     height: auto;
-    width: fit-content;
+    width: auto;
+    min-width: 100px;
     justify-content: flex-start;
     align-items: center;
     display: flex;

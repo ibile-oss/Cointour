@@ -413,11 +413,20 @@
 // }
 
 document.onreadystatechange = function(){
-    if(this.readyState !== 'complete'){
+    if(this.readyState == 'loading'){
         Loading_ani();
         loader__R();
-    }else{
+    }else if(this.readyState == 'interactive'){
+        Loading_ani();
+        loader__R();
+    }else if(this.readyState == 'complete'){
         Remove_ani();
         remove_ll();
     }
+}
+Loading_ani();
+loader__R();
+window.onload = function(){
+    Remove_ani();
+    remove_ll();
 }
