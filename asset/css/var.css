@@ -5,19 +5,16 @@
     --ba2:rgb(226, 225, 225);
     --bg-color: #081b29;
     --bg2-color: #112e42;
+    --test1-:#4158D0;
+    --testbg-:linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    --btn-:linear-gradient(43deg,#FFCC70  0%,#213fd4  46%, #C850C0 100%);
     --bg-sucess-button:linear-gradient(23deg, rgb(6, 128, 128), rgb(7, 192, 192), rgb(8, 224, 224));
+    --test2-:#0093E9;
+    --test3-:linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    --bgsm-:#D9AFD9;
+    --bgt5-:linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    --bgbg-:#8EC5FC;
+    --tbt-:linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    --tbb-:#F4D03F;
+    --anbg-:linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
 }
-
-/*
-background-color: #4158D0;
-background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-background-color: #D9AFD9;
-background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-background-color: #8EC5FC;
-background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-background-color: #F4D03F;
-background-image: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
-
-*/

@@ -25,6 +25,19 @@ body {
     z-index: 20;
     background: rgb(250, 252, 253);
 }
+.slingIn{
+    animation: slingIn 0.5s ease;
+}
+@keyframes slingIn{
+    0%{
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 .Ctr_cnt_xxxxxxxxr::-webkit-scrollbar{
     display: none;
 }
@@ -100,6 +113,7 @@ body {
     flex-direction: column;
     border-top-left-radius: .8em;
     border-top-right-radius: .8em;
+    animation: slingIn 0.5s ease;
     gap: 5px;
     box-shadow: var(--shad1);
 }

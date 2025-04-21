@@ -975,5 +975,39 @@
     </div>
     
     <script src="asset/js/queeny.js"></script>
+    <script>
+        function LoAnimate(){
+            const ele = document.createElement('DIV');
+            ele.className = 'LoadINde2';
+            const ele2 = document.createElement('div');
+            ele2.className = 'ele2_ain'
+            ele.appendChild(ele2);
+            for (let x = 0; x < 4; x++) {
+               const label = document.createElement('LABEL');
+               const span = document.createElement('SPAN');
+               label.appendChild(span);
+               ele2.appendChild(label);
+            }
+            const bdy = document.body;
+            bdy.classList.add('toAbbb');
+            bdy.insertAdjacentElement('afterbegin',ele);
+        }
+        
+        function RemoveLoAnimate(){
+            const ele = document.querySelector('.LoadINde2');
+            const bdy = document.body;
+            ele.remove();
+            bdy.classList.remove('toAbbb');
+        }
+        LoAnimate();
+        window.onload = () =>{
+            setTimeout(() =>{
+                setTimeout(() => {
+                    document.querySelector('.Qinx-x-x-x--x--x--x').classList.add('animatee');
+                    RemoveLoAnimate();
+                },500);
+            },1500)
+        }
+    </script>
 </body>
 </html>

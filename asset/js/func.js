@@ -50,78 +50,8 @@ function Remove_ani(){
         bdy.classList.remove('rel_tive');
     },1000)
 }
-function __numbers__(){
-    opts.forEach((otp) =>{
-        otp.onclick = () =>{
-            if(inputt.value.length > 4){
-                btnsGo.disabled = false;
-            }
-            if(inputt.value.length > 5){
-                return;
-            }
-            inputt.value = inputt.value + otp.innerHTML
-        }
-    })
-}
-function __alfabets__(){
-    var alfabets = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
-    change_cnt.onclick = () =>{
-        if(change_cnt.innerHTML == 'abc'){
-            toUper.style.display = 'flex';
-            change_cnt.innerHTML = '123';
-            cncl.classList.add('add_active');
-            change_cnt.classList.add('add_active');
-            for (let x = 0; x < tonone.length; x++) {
-                tonone[x].style.setProperty('display','none');
-            }
-            for (let x = 0; x < alfabets.length; x++){
-                var cre = createElement('i');
-                cre.className = 'alfas';
-                cre.innerHTML = alfabets[x];
-                var crR = querySelectorAll('.alfas');
-                for (let i = 0; i < crR.length; i++){
-                    crR[i].onclick = () =>{
-                        if(inputt.value.length > 4){
-                            btnsGo.disabled = false;
-                        }
-                        if(inputt.value.length > 5){
-                            return;
-                        }
-                        inputt.value = inputt.value + crR[i].innerHTML
-                    }
-                    toUper.onclick = () =>{
-                        var alfas = querySelectorAll('.alfas');
-                        if(toUper.innerHTML == 'Upc'){
-                            toUper.innerHTML = 'Lwc';
-                            for (let x = 0; x < alfas.length; x++) {
-                                alfas[x].innerHTML = alfas[x].innerHTML.toUpperCase();
-    
-                            }
-                        }else{
-                            toUper.innerHTML = 'Upc';
-                            for (let x = 0; x < alfas.length; x++) {
-                                alfas[x].innerHTML = alfas[x].innerHTML.toLowerCase();
-                            }
-                        }
-                    }
-                }
-                cnt_kkm.insertAdjacentElement('afterbegin',cre);
-            }
-        }else{
-            toUper.style.display = 'none';
-            cncl.classList.remove('add_active');
-            change_cnt.classList.remove('add_active');
-            change_cnt.innerHTML = 'abc';
-            var ai = querySelectorAll('.alfas');
-            for (let x = 0; x < ai.length; x++){
-                ai[x].remove();
-            }
-            for (let x = 0; x < tonone.length; x++) {
-                tonone[x].style.setProperty('display','flex');
-            }
-        }
-    }
-}
+
+
 function create_Bubble(){
     setInterval(() =>{
         let bcolor = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
@@ -364,34 +294,24 @@ function Success_msg(err_txt){
     err.classList.add('success');
 }
 
-function loader__R(){
-    let style = ['--i:1;','--i:2;','--i:3;',
-                    '--i:4;','--i:5;','--i:6;',
-                    '--i:7;','--i:8;','--i:9;',
-                    '--i:10;','--i:11;','--i:12;',
-                    '--i:13;','--i:14','--i:15;',
-                    '--i:16;','--i:17;','--i:18;','--i:19;','--i:20;'
-    ];
-    let cnt = document.body;
-    let ele = createElement('DIV');
-    ele.className = 'ele_loader';
-    let loader = createElement('div');
-    loader.className = 'loader__rrrd';
-    cnt.classList.add('toAbbb');
+function Loading_Animation_Index(){
+    const cnt = document.createElement('DIV');
+    cnt.className = 'LoAder_index';
+    const bdy = document.body;
+    bdy.classList.add('toAbbb');
 
-    let count = 20;
-    for (let x = 0; x < count; x++) {
-       let spn = createElement('SPAN');
-        spn.setAttribute('style',style[x]);
-        loader.appendChild(spn);
+    for (let x = 0; x < 4; x++) {
+        const circula_loader = createElement('SPAN');
+        circula_loader.className = 'dot';
+        cnt.appendChild(circula_loader);
     }
-    ele.appendChild(loader);
-    cnt.insertAdjacentElement('afterbegin',ele);
+
+    bdy.insertAdjacentElement('afterBegin',cnt);
 }
-function remove_ll(){
-    let ele = document.querySelector('.ele_loader');
-    let cnt = document.body;
-    ele.remove();
-    cnt.classList.remove('toAbbb');
+function RemoveIndexAnimation(){
+    const LoAder_index = document.querySelector('.LoAder_index');
+    const bdy = document.body;
+    LoAder_index.remove();
+    bdy.classList.remove('toAbbb');
 }
 

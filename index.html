@@ -166,6 +166,30 @@
         <div class="cnt_crt_another_">
             <div class="copy_msg">Ready to paste</div>
             <div class="err_msg"></div>
+            <div class="toast">
+                <div class="toast-content">
+                    <i class="fas fa-check check"></i>
+
+                    <div class="message">
+                        <span class="textt text1">Success</span>
+                        <span class="textt text2"></span>
+                    </div>
+                    <!-- <i class="fas fa-solid fa-xmark closeH"></i> -->
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <div class="toast_two">
+                <div class="toast-content">
+                    <i class="fas fa-warning warn"></i>
+
+                    <div class="message">
+                        <span class="textt text1">Faliure</span>
+                        <span class="textt text2"></span>
+                    </div>
+                    <!-- <i class="fas fa-solid fa-xmark closeH"></i> -->
+                    <div class="progress"></div>
+                </div>
+            </div>
             <!-- STARS SENT -->
             <div class="stars_cnt">
                 <div class="wrap_cover_to_blend">
@@ -1043,25 +1067,23 @@
                         </p>
                     </nav>
 
-                    <form class="input_wallet_wrapp">
-                        <input type="text" placeholder="Enter six pin in length">
+                    <div class="input_wallet_wrapp">
+                        <input id="customInput" readonly type="text" inputmode="none" placeholder="Enter six pin length">
                         <div class="pin_wrapper">
-                            <span class="cnt_cont tonone_">1</span>
-                            <span class="cnt_cont tonone_">2</span>
-                            <span class="cnt_cont tonone_">3</span>
-                            <span class="cnt_cont tonone_">4</span>
-                            <span class="cnt_cont tonone_">5</span>
-                            <span class="cnt_cont tonone_">6</span>
-                            <span class="cnt_cont tonone_">7</span>
-                            <span class="cnt_cont tonone_">8</span>
-                            <span class="cnt_cont tonone_">9</span>
-                            <span class="cnt_cont tonone_">0</span>
-                            <span class="change_cnt">abc</span>
-                            <cansil class="cansil">Del</cansil>
-                            <toUper class="toUper">Upc</toUper>
-                            <button class="">Go</button>
+                            <button class="same__" onclick="typeKey('1')">1</button>
+                            <button class="same__" onclick="typeKey('2')">2</button>
+                            <button class="same__" onclick="typeKey('3')">3</button>
+                            <button class="same__" onclick="typeKey('4')">4</button>
+                            <button class="same__" onclick="typeKey('5')">5</button>
+                            <button class="same__" onclick="typeKey('6')">6</button>
+                            <button class="same__" onclick="typeKey('7')">7</button>
+                            <button class="same__" onclick="typeKey('8')">8</button>
+                            <button class="same__" onclick="typeKey('9')">9</button>
+                            <button class="same__" onclick="typeKey('0')">0</button>
+                            <button>Save</button>
+                            <button class="same__" onclick="deleteKey()">⌫</button>
                         </div>
-                    </form>
+                    </div>
 
                     <div class="adds_here"><h4>Add here</h4></div>
                     <div class="adds_here"><h4>Add here</h4></div>
@@ -1426,7 +1448,7 @@
                     <div class="recTask">
                         <nav><img src="asset/img/refplay.jpg" alt=""></nav>
                         <div class="space_eve">
-                            <h2>Join Infliuencer</h2>
+                            <h2>Join Influencer</h2>
                             <span class="info_t_d"><img src="asset/img/pic9.png" alt=""></span>
                             <span class="close_d"><img src="asset/img/icons8-close-188.png" alt=""></span>
                         </div>
@@ -1902,5 +1924,39 @@
     <script src="asset/js/api.js"></script>
     <script src="asset/js/buyCoin.js"></script>
     <script src="asset/js/index.js"></script>
+    <script>
+        function LoAnimate(){
+            const ele = document.createElement('DIV');
+            ele.className = 'LoadINde2';
+            const ele2 = document.createElement('div');
+            ele2.className = 'ele2_ain'
+            ele.appendChild(ele2);
+            for (let x = 0; x < 4; x++) {
+               const label = document.createElement('LABEL');
+               const span = document.createElement('SPAN');
+               label.appendChild(span);
+               ele2.appendChild(label);
+            }
+            const bdy = document.body;
+            bdy.classList.add('toAbbb');
+            bdy.insertAdjacentElement('afterbegin',ele);
+        }
+        
+        function RemoveLoAnimate(){
+            const ele = document.querySelector('.LoadINde2');
+            const bdy = document.body;
+            ele.remove();
+            bdy.classList.remove('toAbbb');
+        }
+        LoAnimate();
+        window.onload = () =>{
+            setTimeout(() =>{
+                setTimeout(() => {
+                    document.querySelector('.Ctr_Cnt_xxxxxxxxx00').classList.add('animatee');
+                    RemoveLoAnimate();
+                },500);
+            },1500)
+        }
+    </script>
 </body>
 </html>

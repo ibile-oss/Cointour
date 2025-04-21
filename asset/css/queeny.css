@@ -465,7 +465,7 @@ body {
     position: relative;
     cursor: pointer;
     box-shadow: 1px 3px 2px 0px rgba(0, 0, 0, 0.219);
-    background: linear-gradient(rgba(12, 48, 70, 0.877),rgba(17, 83, 124, 0.877),rgba(27, 131, 196, 0.877));
+    background: var(--btn-);
 }
 .wrap_cmbo{
     height: 100px;
@@ -613,7 +613,7 @@ body {
     background: linear-gradient(rgba(6, 21, 31, 0.877),rgba(13, 54, 80, 0.877),rgba(27, 157, 238, 0.877));
 }
 .daily_wrap_f__:hover{
-    background: linear-gradient(rgba(6, 21, 31, 0.877),rgba(13, 54, 80, 0.877),rgba(27, 157, 238, 0.877));
+    background: var(--anbg-);
 }
 .daily_wrap_f__:active{
     opacity: 0.5;
@@ -1738,7 +1738,89 @@ body {
     cursor: default;
 }
 .wrap_spn--x-x-x:hover{
-    background: linear-gradient(rgb(53, 47, 47),rgb(24, 22, 22),rgb(7, 7, 7));
+    background: var(--btn-);
+}
+.LoadINde2{
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    background: white;
+    z-index: 9000;
+}
+.ele2_ain{
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 30px;
+}
+.ele2_ain label{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: zindex 3520ms linear infinite;
+}
+@keyframes zindex{
+    0%{
+        z-index: 100;
+    }
+    100%{
+        z-index: 1;
+    }
+}
+.ele2_ain label span{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    animation: animatO 880ms cubic-bezier(.445,.05,.55,.95) infinite alternate;
+}
+@keyframes animatO{
+    0%{
+        transform: translate(-98%,0);
+    }
+    100%{
+        transform: translate(98%,0);
+    }
+}
+.ele2_ain label:nth-child(1) span{
+    background: linear-gradient(315deg, #0055dd, #0077ff, #66adff);
+}
+.ele2_ain label:nth-child(2) span{
+    background: linear-gradient(225deg, #dd0000, #ee3333, #ff7755);
+}
+.ele2_ain label:nth-child(3) span{
+    background: linear-gradient(90deg, #007744, #009944, #55bb55);
+}
+.ele2_ain label:nth-child(4) span{
+    background: linear-gradient(0deg, #ffaa33, #ffcc00, #ffdd66);
+}
+.ele2_ain label:nth-child(1){
+    animation-delay: 2620ms;
+    transform: rotate(45deg);
+}
+.ele2_ain label:nth-child(2){
+    animation-delay: 1760ms;
+    transform: rotate(135deg);
+}
+.ele2_ain label:nth-child(3){
+    transform: rotate(225deg);
+}
+.ele2_ain label:nth-child(4){
+    animation-delay: 880ms;
+    transform: rotate(315deg);
+}
+.animatee{
+    animation: eassing 0.5s ease;
+}
+@keyframes eassing{
+    0%{
+        transform: translateX(-40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
 .wrp__arr:active{
     opacity: 0.5;

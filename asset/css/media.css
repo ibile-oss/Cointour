@@ -66,6 +66,21 @@
    .sign_up_t div{
       width: 75%;
    }
+   .hmeChld p {
+      font-size: small;
+   }
+   .wrap_tes_ti h3{
+      font-size: 15px;
+   }
+   .infor_cnt p{
+      font-size: small;
+  }
+  .task_link p{
+   font-size: small;
+  }
+   .timer-Count, .ttxt_arr{
+      font-size: small;
+   }
    .headdd{
       text-align: center;
    }

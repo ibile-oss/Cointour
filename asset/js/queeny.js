@@ -88,6 +88,7 @@ class taskingMode{
         this.task5 = t5;
     }
 }
+
 function Awarding_Info(){
     let cre1 = createElement('div');
     cre1.className = 'cre1';

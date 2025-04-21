@@ -78,7 +78,7 @@ function timmer(){
             const minutes = Math.floor((remainingTime % 3600) / 60);
             const seconds = remainingTime % 60;
     
-            timerElement[x].textContent = 'Claim After ' +
+            timerElement[x].textContent = 'Reload Or Claim After ' +
             `${String(hours).padStart(2, '0')}:` +
             `${String(minutes).padStart(2, '0')}:` +
             `${String(seconds).padStart(2, '0')}`;

@@ -12,13 +12,41 @@ function Error_msg(err_txt){
                 },2000);
     err.classList.remove('success');
 }
-function ERROR(txt){
-    const err = querySelector('.copy_msg');
+function SUCCESS(txt){
+    const err = querySelector('.toast');
+    const text = querySelector('.toast .toast-content .message .text2');
         err.style.setProperty('display','flex');
-        err.innerHTML = txt;
+        text.innerHTML = txt;
     let set = setTimeout(() =>{
-       err.style.setProperty('display','none');
-    },3000);
+        err.classList.add('pumst')
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+            err.classList.remove('pumst')
+        },500)
+    },4000);
+
+    err.onmouseenter = () =>{
+        clearTimeout(set);
+    }
+
+    err.onmouseout = () =>{
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+        },1000);
+    }
+}
+function ERROR(txt){
+    const err = querySelector('.toast_two');
+    const text = querySelector('.toast_two .toast-content .message .text2');
+        err.style.setProperty('display','flex');
+        text.innerHTML = txt;
+    let set = setTimeout(() =>{
+        err.classList.add('pumst')
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+            err.classList.remove('pumst')
+        },500)
+    },4000);
 
     err.onmouseenter = () =>{
         clearTimeout(set);
@@ -167,13 +195,23 @@ let deltCnt = querySelectorAll('.wrap_tes_ti');
             const uid = querySelector('.header').getAttribute('uid');
                 const unik = querySelectorAll('.txtrappr');
                     const wallet = querySelector('.wallet_cnt_parkd');
+                        const inputmode = document.getElementById('customInput');
 
 
 
 
 
+                    
+
+
+function typeKey(char){
+    inputmode.value += char;
+}
+function deleteKey() {
+    inputmode.value = inputmode.value.slice(0, -1);
+}
 openMain.onclick = () =>{
-    loader__R();
+    Loading_Animation_Index();
     try {
         fetch(`${__root__2()}/asset/apis/general_req/`,{
             method:"POST",
@@ -184,20 +222,19 @@ openMain.onclick = () =>{
         .then(result =>{
             console.log(result);
             if(result.status !== 'success'){
+                RemoveIndexAnimation();
                 ERROR(result.message);
-                remove_ll();
                 return;
             }
-            
-            ERROR(result.message);
-            remove_ll();
+            RemoveIndexAnimation();
+            SUCCESS(result.message);
             mAin.style.setProperty('display','flex');
             task_part.scrollTo(0, 0);
         })
     }catch(error){
+        RemoveIndexAnimation();
         console.error(error);
         ERROR(error);
-        remove_ll();
     }
 }
 
@@ -229,7 +266,7 @@ for (let x = 0; x < deltCnt.length; x++){
                             return;
                         }
 
-                        ERROR(result.message);
+                        SUCCESS(result.message);
                         deltCnt[x].classList.add('Rmuve');
                         setTimeout(() =>{
                             deltCnt[x].style.setProperty('display','none');
@@ -879,14 +916,7 @@ copyToClipBoard = () =>{
       toaap.innerHTML = err;
     })
 }
-btnsGo.disabled = true;
-    let nums;
-        let alfa;
-            nums = true;
-                alfa = false;
 
-__numbers__();
-__alfabets__();
 for (let x = 0; x < open_cnt.length; x++) {
     open_cnt[x].onclick = () =>{
         Scrol_to_top();
@@ -1139,24 +1169,3 @@ for (let x = 0; x < alltoolsCnt.length; x++) {
                     }
 }
 
-
-/*
-    <input id="customInput" type="text" readonly>
-    <input id="customInput" type="text" inputmode="none" readonly>
-    <div id="keyboard">
-    <button onclick="typeKey('1')">1</button>
-    <button onclick="typeKey('2')">2</button>
-    <button onclick="typeKey('3')">3</button>
-    <button onclick="deleteKey()">⌫</button>
-    </div>
-
-    const input = document.getElementById('customInput');
-
-    function typeKey(char){
-        input.value += char;
-    }
-
-    function deleteKey() {
-        input.value = input.value.slice(0, -1);
-    }
-*/

@@ -68,11 +68,15 @@
             $data = json_decode($_POST['check']);
     
             $uid = $data->uid;
-    
+            $selec = "SELECT * FROM daily_reward WHERE userid='$uid'";
+            $q = mysqli_query($conn,$selec);
+
             $update_reward = "UPDATE daily_reward SET day1='', day2='', day3='', day4='', day5='',
             day6='', day7='' WHERE userid='$uid'";
             $query = mysqli_query($conn,$update_reward);
 
+            $selec1 = "SELECT * FROM daly_combo WHERE userid='$uid'";
+            $q1 = mysqli_query($conn,$selec1);
             $update_combo = "UPDATE daly_combo SET day1='', day2='', day3='', day4='', day5='',
             day6='', day7='' WHERE userid='$uid'";
             $query = mysqli_query($conn,$update_combo);
