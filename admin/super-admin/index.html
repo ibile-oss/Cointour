@@ -1,0 +1,76 @@
+<?php
+    require_once dirname(__DIR__, 2) ."/asset/inc/function.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="..\..\asset/img/ctrlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="..\..\asset/css/media.css">
+    <link rel="stylesheet" href="..\..\asset/css/var.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/users.css">
+    <link rel="stylesheet" href="css/faqs.css">
+    <link rel="stylesheet" href="..\..\fontawesome/css/all.min.css">
+    <script src="js/fetch.js"></script>
+    <script src="js/func.js"></script>
+    <title><?php echo adminTitle()?></title>
+</head>
+<body >
+    <div class="generalCnt">
+        <header>
+            <div class="logaandname">
+                <nav class="logo"><img src="..\..\asset/img/persin.jpg" alt=""></nav>
+                <p>Rapheal henry</p>
+            </div>
+            <span class="open_togle_close"><i class="fas fa-bars"></i></span>
+        </header>
+
+        <div class="cnt_gen2">
+            <div class="leftPad">
+                <nav class="tables">Users</nav>
+                <nav class="tables">Addfaqs</nav>
+                <nav class="tables">Faqs</nav>
+                <nav class="tables">Aprovals</nav>
+            </div>
+            <div class="rightPad"></div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script>
+        function Loading_Animation_Index(){
+            const cnt = document.createElement('DIV');
+            cnt.className = 'LoAder_index';
+            const bdy = document.body;
+            bdy.classList.add('toAbbb');
+
+            for (let x = 0; x < 4; x++) {
+                const circula_loader = createElement('SPAN');
+                circula_loader.className = 'dot';
+                cnt.appendChild(circula_loader);
+            }
+
+            bdy.insertAdjacentElement('afterBegin',cnt);
+        }
+        Loading_Animation_Index();
+        function RemoveIndexAnimation(){
+            const LoAder_index = document.querySelector('.LoAder_index');
+            const bdy = document.body;
+            LoAder_index.remove();
+            bdy.classList.remove('toAbbb');
+        }
+        window.onload = () =>{
+            setTimeout(() =>{
+                setTimeout(() =>{
+                    document.querySelector('.generalCnt').style.setProperty('display','flex');
+                    setTimeout(() =>{
+                        RemoveIndexAnimation();
+                    },700)
+                },500)
+            },1000)
+        }
+    </script>
+</body>
+</html>

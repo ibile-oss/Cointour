@@ -366,24 +366,26 @@
                 </div>
 
                 <div class="Bank_details_push">
-                    <div class="history_header">
-                        <span class="wind_load imgHis close_p2"><nav><i></i></nav><img src="asset/img/backw.png" alt=""></span>
-                        <h2>Push Bank Details</h2>
+                    <div class="push_b_details">
+                        <div class="history_header">
+                            <span class="wind_load imgHis close_p2"><nav><i></i></nav><img src="asset/img/backw.png" alt=""></span>
+                            <h2>Push Bank Details</h2>
+                        </div>
+    
+                        <form action="" onsubmit="Push_data(event)" class="push_bdetails">
+                            <span class="err_txt"></span>
+                            <div class="input_wrap">
+                                <input type="text" id="Bname" placeholder="Enter Bank Name">
+                            </div>
+                            <div class="input_wrap">
+                                <input type="text" id="Aname" placeholder="Enter Account Name">
+                            </div>
+                            <div class="input_wrap">
+                                <input type="text" id="Bnumber" placeholder="Enter Bank Number">
+                            </div>
+                            <button class="push_data">Push</button>
+                        </form>
                     </div>
-
-                    <form action="" onsubmit="Push_data(event)" class="push_bdetails">
-                        <span class="err_txt"></span>
-                        <div class="input_wrap">
-                            <input type="text" id="Bname" placeholder="Enter Bank Name">
-                        </div>
-                        <div class="input_wrap">
-                            <input type="text" id="Aname" placeholder="Enter Account Name">
-                        </div>
-                        <div class="input_wrap">
-                            <input type="text" id="Bnumber" placeholder="Enter Bank Number">
-                        </div>
-                        <button class="push_data">Push</button>
-                    </form>
 
                     <div class="Available_banks">
                         <h2>Available Bank</h2>
@@ -491,13 +493,14 @@
                 </div>
 
                 <div class="History">
-                    <div class="sfixcnt">
-                        <div class="history_header">
-                            <span class="wind_load imgHis clos_hist"><nav><i></i></nav><img src="asset/img/backw.png" alt=""></span>
-                            <h2>History</h2>
+                    <div class="toap_fix">
+                        <div class="sfixcnt">
+                            <div class="history_header">
+                                <span class="wind_load imgHis clos_hist"><nav><i></i></nav><img src="asset/img/backw.png" alt=""></span>
+                                <h2>History</h2>
+                            </div>
+                            <p class="pttts">Recent Transfer</p>
                         </div>
-
-                        <p class="pttts">Recent Transfer</p>
                     </div>
 
                     <div class="transfer_cnt_wrappzzz">
@@ -581,19 +584,21 @@
                 </div>
 
                 <div class="wallet_cnt_parkd">
-                    <div class="upworking">
-                        <div class="wallet_header">
-                            <nav class="wallet_profle close_p2">
-                                <span class="spn_pp wind_load"><nav><i></i></nav><img src="asset/img/back.png" alt=""></span>
-                            </nav>
-                            <nav class="wallet_notifications">
-                                <span class="fas fa-bell"></span>
-                            </nav>
-                        </div>
-
-                        <div class="balance">
-                            <h4>Available balance</h4>
-                            <h1>$450.60</h1>
+                    <div class="toap_fix">
+                        <div class="upworking">
+                            <div class="wallet_header">
+                                <nav class="wallet_profle close_p2">
+                                    <span class="spn_pp wind_load"><nav><i></i></nav><img src="asset/img/back.png" alt=""></span>
+                                </nav>
+                                <nav class="wallet_notifications">
+                                    <span class="fas fa-bell"></span>
+                                </nav>
+                            </div>
+    
+                            <div class="balance">
+                                <h4>Available balance</h4>
+                                <h1>$450.60</h1>
+                            </div>
                         </div>
                     </div>
                     <div class="other_theriff">
@@ -962,55 +967,27 @@
                 </div>
 
                 <div class="frequently_asked_question">
-                    <div class="recTask">
-                        <nav><img src="asset/img/testimo.jpeg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Faqs</h2>
-                            <span class="close_faqs hovery close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask frequ_stop">
+                            <nav><img src="asset/img/testimo.jpeg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Faqs</h2>
+                                <span class="close_faqs hovery close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
+    
+                        <nav class="input_search">
+                            <input type="text" placeholder="Enter your faqs">
+                            <span class="wrap_ggmg wind_load"><nav><i></i></nav><img src="asset/img/send.png" alt=""></span>
+                        </nav>
+                        <nav class="search_faqs">
+                            <input type="search" placeholder="Search Faqs">
+                        </nav>
                     </div>
-
-                    <nav class="input_search">
-                        <input type="text" placeholder="Enter your faqs">
-                        <span class="wrap_ggmg wind_load"><nav><i></i></nav><img src="asset/img/send.png" alt=""></span>
-                    </nav>
 
                     <div class="questions_go_cnt">
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
-                        <nav class="faqs_infor">
-                            <h3>How do we monetize:</h3>
-                            <span class="faqs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae recusandae vitae excepturi consequuntur, enim dicta!</span>
-                        </nav>
+                        <?=fetch_faqs_to_users($conn)?>                     
                     </div>
-                    <div class="adds_here">Add</div>
-                    <div class="adds_here">Add</div>
                 </div>
 
                 <div class="testimonials">
@@ -1047,11 +1024,13 @@
                 </div>
 
                 <div class="create_your_wallet_pin">
-                    <div class="recTask">
-                        <nav><img src="asset/img/secur.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Create wallet pin</h2>
-                            <span class="close_waletp close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/secur.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Create wallet pin</h2>
+                                <span class="close_waletp close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
 
@@ -1084,9 +1063,6 @@
                             <button class="same__" onclick="deleteKey()">⌫</button>
                         </div>
                     </div>
-
-                    <div class="adds_here"><h4>Add here</h4></div>
-                    <div class="adds_here"><h4>Add here</h4></div>
                 </div>
 
                 <div class="medium_stock">
@@ -1325,11 +1301,13 @@
                 </div>
 
                 <div class="main_menu">
-                    <div class="recTask">
-                        <nav><img src="asset/img/bakk.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Tools</h2>
-                            <span class="close_m"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/bakk.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Tools</h2>
+                                <span class="close_m"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div> 
 
@@ -1368,6 +1346,10 @@
                         <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/icons8-gem-folder-60.png" alt=""></span>
                             <span class="txt_opem">Stock</span>
+                        </nav>
+                        <nav class="wrap_authentic">
+                            <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/message.png" alt=""></span>
+                            <span class="txt_opem">Messages</span>
                         </nav>
                         <nav class="wrap_authentic">
                             <span class="img_tap_wrap wind_load"><nav><i></i></nav><img src="asset/img/abou.png" alt=""></span>
@@ -1445,12 +1427,14 @@
                 </div>
 
                 <div class="ref_game_earning">
-                    <div class="recTask">
-                        <nav><img src="asset/img/refplay.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Join Influencer</h2>
-                            <span class="info_t_d"><img src="asset/img/pic9.png" alt=""></span>
-                            <span class="close_d"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/refplay.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Join Influencer</h2>
+                                <span class="info_t_d"><img src="asset/img/pic9.png" alt=""></span>
+                                <span class="close_d"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
 
@@ -1586,13 +1570,51 @@
                     </div>
                 </div>
 
+                <div class="messages">
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/task_3.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Messages</h2>
+                                <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="msg_from_admins">
+                        <nav class="msg_admin_no_reply">
+                            <i>No reply</i>
+                            <p class="msg_tag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam nostrum incidunt eaque cum animi.</p>
+                            <span class="dte_send">1:02</span>
+                            <span class="timestamp">sun/1/2020</span>
+                            <nav class="close_div"><i class="fas fa-close"></i></nav>
+                        </nav>
+                        <nav class="msg_admin_no_reply">
+                            <i>No reply</i>
+                            <p class="msg_tag">llis li ls;li illisl i Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam nostrum incidunt eaque cum animi.</p>
+                            <span class="dte_send">1:02</span>
+                            <span class="timestamp">sun/1/2020</span>
+                            <nav class="close_div"><i class="fas fa-close"></i></nav>
+                        </nav>
+                        <nav class="msg_admin_no_reply">
+                            <i>No reply</i>
+                            <p class="msg_tag">lit. Nihil veniam nostrum incidunt eaque cum animi.</p>
+                            <span class="dte_send">1:02</span>
+                            <span class="timestamp">sun/1/2020</span>
+                            <nav class="close_div"><i class="fas fa-close"></i></nav>
+                        </nav>
+                    </div>
+                </div>
+
                 <div class="all_tasking_for_user div_sel">
-                    <div class="recTask">
-                        <nav><img src="asset/img/task_3.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Recomended task</h2>
-                            <span class="info_t"><img src="asset/img/pic9.png" alt=""></span>
-                            <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/task_3.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Recomended task</h2>
+                                <span class="info_t"><img src="asset/img/pic9.png" alt=""></span>
+                                <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
                     <form onsubmit="send_dir(event)" enctype="multipart/form-data" class="task_body TTask">
@@ -1653,12 +1675,14 @@
                 </div>
 
                 <form onsubmit="Push_Link_data(event)" class="me_de_medias">
-                    <div class="recTask">
-                        <nav><img src="asset/img/cont.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Me on all medias</h2>
-                            <span class="info_t__"><img src="asset/img/pic9.png" alt=""></span>
-                            <span class="close____"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/cont.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Me on all medias</h2>
+                                <span class="info_t__"><img src="asset/img/pic9.png" alt=""></span>
+                                <span class="close____"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
                     
@@ -1706,9 +1730,6 @@
                             successfully withdrawals every placement.
                         </p>
                     </div>
-
-                    <div class="adds_here"><h4>Add</h4></div>
-                    <div class="adds_here"><h4>Add</h4></div>
                 </form>
 
                 <div class="shares_task">
@@ -1773,12 +1794,14 @@
                 </div>
 
                 <div class="Referals_cnt">
-                    <div class="recTask">
-                        <nav><img src="asset/img/ref_.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>My referal</h2>
-                            <span class="info_t"><img src="asset/img/pic9.png" alt=""></span>
-                            <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/ref_.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>My referal</h2>
+                                <span class="info_t"><img src="asset/img/pic9.png" alt=""></span>
+                                <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
 
@@ -1851,12 +1874,14 @@
                 </div>
 
                 <div class="all_engage_for_user">
-                    <div class="recTask">
-                        <nav><img src="asset/img/task_.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Engage task on</h2>
-                            <span class="info_t"><img src="asset/img/pic9.png" alt=""></span>
-                            <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/task_.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Engage task on</h2>
+                                <span class="info_t"><img src="asset/img/pic9.png" alt=""></span>
+                                <span class="close"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
                     <div class="task_body">
@@ -1952,7 +1977,7 @@
         window.onload = () =>{
             setTimeout(() =>{
                 setTimeout(() => {
-                    document.querySelector('.Ctr_Cnt_xxxxxxxxx00').classList.add('animatee');
+                    document.querySelector('.Ctr_Cnt_xxxxxxxxx00').style.setProperty('display','flex');
                     RemoveLoAnimate();
                 },500);
             },1500)

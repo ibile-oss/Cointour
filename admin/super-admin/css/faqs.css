@@ -1,0 +1,223 @@
+@import url(var.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s linear;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.add_faqs{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    animation: slut 0.2s linear;
+    gap: 5px;
+}
+.add_faqs textarea{
+    height: auto;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    resize: none;
+    padding: 10px;
+    outline: none;
+    border: none;
+    box-shadow: var(--bbsd-);
+}
+.add_faqs textarea::-webkit-scrollbar{
+    display: none;
+}
+::placeholder{
+    font-family: 'Roboto', sans-serif;
+}
+.add_faqs input{
+    padding: 10px;
+    outline: none;
+    border: none;
+    box-shadow: var(--bbsd-);
+}
+.add_faqs button{
+    padding: 10px;
+    height: auto;
+    width: 40%;
+    box-shadow: var(--bbsd-);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: none;
+    outline: none;
+    background: var(--btn-);
+    color: white;
+    transition: 0s !important;
+    cursor: pointer;
+}
+.add_faqs button:active{
+    opacity: 0.5;
+}
+.allfaqs{
+    height: auto;
+    width: 70%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    animation: slut 0.2s linear;
+    flex-direction: column;
+    position: relative;
+}
+.faqs_details{
+    height: auto;
+    min-width: 200px;
+    width: fit-content;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border-bottom-left-radius: 23px;
+    box-shadow: var(--bbsd-);
+    background: var(--testbg-);
+}
+.copyID{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: x-small;
+    color: rgb(201, 194, 194);
+    padding:5px;
+    cursor:pointer;
+    transition:0s !important;
+}
+.copyID:active{
+    opacity: 0.5;
+}
+.copYheading{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: x-small;
+    cursor:pointer;
+    color: rgb(201, 194, 194);
+    transition:0s !important;
+}
+.btn_tn:disabled{
+    cursor: default;
+}
+.copYheading:active{
+    opacity: 0.5;
+}
+.Profile_imm{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+}
+.Profile_imm img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.faqs_details:nth-child(odd){
+    left: 50px;
+}
+.faqs_details h4{
+    color: var(--bg-color);
+}
+.toAbbb{
+    position: relative;
+}
+.faqs_details:nth-child(even){
+    right: 50px;
+}
+.loader_spn{
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #213fd4;
+    animation: spiner 0.7s linear infinite;
+}
+@keyframes spiner{
+    100%{
+        rotate: 360deg;
+    }
+}
+.cover_page{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    background: rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(1px); */
+}
+.txtWriter{
+    height: auto;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: white;
+    border-radius: .8em;
+    gap: 5px;
+    padding: 5px;
+}
+.txtWriter textarea{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(250, 249, 249);
+    border-radius: .6em;
+    width: 70%;
+    outline: none;
+    border: none;
+    resize: none;
+    box-shadow: var(--shad1);
+}
+.txtWriter button{
+    padding: 10px;
+    border-radius: .4em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0s !important;
+}
+.txtWriter button:nth-child(even){
+    background: var(--testbg-);
+}
+.txtWriter button:nth-child(odd){
+    background:  var(--danger-);
+}
+.txtWriter button:active{
+    opacity: 0.5;
+}

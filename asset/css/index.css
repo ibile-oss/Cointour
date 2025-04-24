@@ -184,11 +184,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    display: flex;
+    display: none;
     background: url('../img/3d-rendering-cryptocurency-distribution_23-2149875500.jpg');
     overflow: hidden;
     flex-direction: column;
     scroll-behavior: smooth;
+    animation: eassing 0.5s ease;
 }
 .LoadINde2{
     height: 100vh;
@@ -225,6 +226,7 @@ body {
     width: 100%;
     border-radius: 50%;
     animation: animatO 880ms cubic-bezier(.445,.05,.55,.95) infinite alternate;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 @keyframes animatO{
     0%{
@@ -728,7 +730,7 @@ body {
     display: none;
 }
 .all_tasking_for_user{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -747,8 +749,98 @@ body {
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
 }
-.ref_game_earning{
+.messages{
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    animation: slidee 0.5s ease;
+    position: absolute;
+    top: 0;
+    scroll-behavior: smooth;
+    z-index: 105;
+    gap: 7px;
+    background: white;
+    flex-direction: column;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    box-shadow: var(--shad1);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+.msg_from_admins{
     height: auto;
+    width: 100%;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.msg_admin_no_reply p{
+    transition: 0s !important;
+}
+.msg_admin_no_reply{
+    height: auto;
+    min-width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    background: var(--trns-);
+    flex-direction: column;
+    position: relative;
+    gap: 5px;
+    padding: 5px;
+    border-radius: .5em;
+    transition: 0s !important;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.close_div{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background: rgb(177, 175, 175);
+    box-shadow: var(--shad1);
+    color: rgb(214, 64, 64);
+    cursor: pointer;
+    transition: 0s !important;
+}
+.close_div:active{
+    opacity: 0.5;
+}
+.timestamp, .dte_send{
+    font-size: small;
+    transition: 0s !important;
+    color: rgb(61, 61, 61);
+}
+.msg_admin_no_reply:hover p{
+    color: white;
+}
+.msg_admin_no_reply:hover i{
+    transform: scale(1.1);
+    color: white;
+}
+.msg_admin_no_reply:hover{
+    background: var(--btn-);
+}
+.msg_admin_no_reply i{
+   color: rgb(170, 64, 64);
+   transition: 0s !important;
+   font-style: normal;
+}
+.messages::-webkit-scrollbar{
+    display: none;
+}
+.ref_game_earning{
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -866,7 +958,7 @@ body {
     display: none;
 }
 .me_de_medias{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -916,7 +1008,7 @@ body {
     display: flex;
 }
 .all_engage_for_user{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -936,7 +1028,7 @@ body {
     border-bottom-right-radius: .5rem;
 }
 .Referals_cnt{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -1996,9 +2088,7 @@ button{
     width: 100%;
     object-fit: cover;
 }
-.wind_load{
-    position: relative;
-}
+
 .wind_load nav{
     position: absolute;
     justify-content: center;
@@ -2385,7 +2475,7 @@ button{
     z-index: 50;
 }
 .medium_stock{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -2395,7 +2485,7 @@ button{
     background: white;
     animation: slidee 0.5s ease;
     box-shadow: var(--shad1);
-    z-index: 60;
+    z-index: 105;
 }
 .buy_with_coins_cnt{
     height: auto;
@@ -2456,7 +2546,7 @@ button{
     display: flex;
 }
 .wrapin_img{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -2531,7 +2621,7 @@ button{
     object-fit: cover;
 }
 .me_account{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -2539,10 +2629,17 @@ button{
     display: none;
     gap: .5rem;
     position: absolute;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
     background: white;
     animation: slidee 0.5s ease;
     box-shadow: var(--shad1);
-    z-index: 60;
+    border-bottom-left-radius: .6em;
+    border-bottom-right-radius: .6em;
+    z-index: 105;
+}
+.me_account::-webkit-scrollbar{
+    display: none;
 }
 .scroll_tap_ff span img{
     height: 100%;
@@ -2555,8 +2652,10 @@ button{
     justify-content: center;
     align-items: center;
     display: flex;
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
+    z-index: 50;
 }
 .wrapDetails{
     height: 70%;
@@ -2871,7 +2970,7 @@ button{
     }
 }
 .frequently_asked_question{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -2888,7 +2987,19 @@ button{
     scroll-behavior: smooth;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    border: 1px solid var(--bdrClr1);
+}
+.toap_fix{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 50;
 }
 .coins_available{
     height: auto;
@@ -2929,14 +3040,14 @@ button{
     display: none;
 }
 .History{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
     display: none;
     animation: slidee 0.5s ease;
     position: absolute;
-    padding: 10px;
+    /* padding: 10px; */
     top: 0;
     z-index: 106;
     gap: 15px;
@@ -2949,14 +3060,14 @@ button{
     border-bottom-right-radius: .5rem;
 }
 .Bank_details_push{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
     display: none;
     animation: slidee 0.5s ease;
     position: absolute;
-    padding: 10px;
+    /* padding: 10px; */
     top: 0;
     z-index: 106;
     gap: 15px;
@@ -2967,6 +3078,19 @@ button{
     scroll-behavior: smooth;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
+    box-shadow: var(--shad1);
+}
+.push_b_details{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    position: sticky;
+    background: white;
+    z-index: 50;
+    top: 0;
 }
 .imgHis{
     transition: 0s !important;
@@ -3136,7 +3260,7 @@ button{
     display: none;
 }
 .wallet_cnt_parkd{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -3266,7 +3390,7 @@ button{
     padding: 2px;
 }
 .img_permnt2{
-     height: 40px;
+    height: 40px;
     width: 40px;
     justify-content: center;
     align-items: center;
@@ -3347,7 +3471,9 @@ button{
     justify-content: center;
     align-items: center;
     display: flex;
-    position: relative;
+    position: sticky;
+    top: 40px;
+    z-index: 50;
 }
 .totop_inner{
     position: absolute;
@@ -3393,6 +3519,25 @@ button{
     align-items: center;
     display: flex;
 }
+.search_faqs{
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+}
+.search_faqs input{
+    border: none;
+    outline: none;
+    text-align: center;
+    background: none;
+    padding: 15px;
+    border-radius: .9em;
+    color: gray;
+    font-size: medium;
+    width: 100%;
+    background: var(--trns-);
+}
 .input_search input{
     border: none;
     outline: none;
@@ -3412,8 +3557,7 @@ button{
     padding: 5px;
     cursor: pointer;
     transition: 0s !important;
-    border: 1px solid var(--bdrClr1);
-    background: linear-gradient(rgb(8, 71, 148),rgb(12, 107, 223),rgb(9, 98, 207));
+    background: var(--btn-);
 }
 .wrap_ggmg:active{
     opacity: 0.5;
@@ -3434,9 +3578,25 @@ button{
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    display: flex;
     font-size: medium;
     transition: 0s !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.phpfaqs{
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: medium;
+    transition: 0s !important;
+}
+.faqs_infor:hover .phpfaqs{
+    transition: 0s !important;
+    color: white;
 }
 .faqs_infor h3{
     transition: 0s !important;
@@ -3444,6 +3604,12 @@ button{
 .faqs_infor:hover h3{
     color: white;
     transition: 0s !important;
+}
+.faqs_infor:hover .Dte{
+    color: rgb(167, 165, 165);
+}
+.faqs_infor:hover .askedby{
+    color: rgb(212, 211, 211);
 }
 .faqs_infor{
     height: auto;
@@ -3453,13 +3619,24 @@ button{
     flex-direction: column;
     display: flex;
     padding: 20px;
+    gap: 5px;
     transition: 0s !important;
     cursor: pointer;
     background: rgba(0, 0, 0, 0.253);
     border-radius: .5em;
 }
+.faqs_infor .askedby{
+    color: #0055dd;
+    font-size: small;
+    transition: 0s !important;
+}
+.faqs_infor .Dte{
+    color: #e70677;
+    font-size: small;
+    transition: 0s !important;
+}
 .faqs_infor:hover{
-    background: linear-gradient(23deg,rgb(5, 5, 81),rgb(9, 9, 108),rgb(24, 24, 238));
+    background: var(--testbg-);
 }
 .imgHis:hover{
     background: linear-gradient(23deg,rgb(5, 5, 81),rgb(9, 9, 108),rgb(24, 24, 238));
@@ -3636,6 +3813,7 @@ button{
     background: white;
     position: relative;
     top: -20px;
+    z-index: 60;
 }
 .other_theriff h3{
     text-align: left;
@@ -3723,7 +3901,7 @@ button{
     background: linear-gradient(23deg,rgb(5, 5, 81),rgb(9, 9, 108),rgb(24, 24, 238));
 }
 .create_your_wallet_pin{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;

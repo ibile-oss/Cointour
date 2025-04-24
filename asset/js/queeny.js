@@ -223,7 +223,7 @@ async function senDtask(uid,taskNum){
 
     } catch (error){
         console.error(error);
-        err_txt__(respons.message);
+        err_txt__(error);
     }
 
 }
@@ -346,7 +346,8 @@ async function Update_Balance(){
         // console.log(respy);
     
         if(respy.status !== 'success'){
-            err_txt__(respy.message);
+            console.error(error);
+            err_txt__(error);
             return;
         }
 
@@ -762,7 +763,7 @@ async function check_daily_combo(uid,day){
 
     }catch(error){
         console.error(error);
-        err_txt__(respon.message);   
+        err_txt__(error);   
     }
 }
 

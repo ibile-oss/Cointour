@@ -1,10 +1,38 @@
-function ERROR(txt){
-    const err = querySelector('.copy_msg');
+function SUCCESS(txt){
+    const err = querySelector('.toast');
+    const text = querySelector('.toast .toast-content .message .text2');
         err.style.setProperty('display','flex');
-        err.innerHTML = txt;
+        text.innerHTML = txt;
     let set = setTimeout(() =>{
-       err.style.setProperty('display','none');
-    },3000);
+        err.classList.add('pumst')
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+            err.classList.remove('pumst')
+        },500)
+    },4000);
+
+    err.onmouseenter = () =>{
+        clearTimeout(set);
+    }
+
+    err.onmouseout = () =>{
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+        },1000);
+    }
+}
+function ERROR(txt){
+    const err = querySelector('.toast_two');
+    const text = querySelector('.toast_two .toast-content .message .text2');
+        err.style.setProperty('display','flex');
+        text.innerHTML = txt;
+    let set = setTimeout(() =>{
+        err.classList.add('pumst')
+        setTimeout(() =>{
+            err.style.setProperty('display','none');
+            err.classList.remove('pumst')
+        },500)
+    },4000);
 
     err.onmouseenter = () =>{
         clearTimeout(set);
@@ -110,7 +138,7 @@ for (let x = 0; x < plutowrapChild.length; x++){
                     return
                 }
     
-                ERROR(result.message);
+                SUCCESS(result.message);
                 plutowrapChild[x].classList.add('slideUp');
                 plutowrapChild[x].classList.remove('ani3');
                 plutowrapChild[x].classList.remove('ani1');
@@ -146,7 +174,7 @@ for (let x = 0; x < jewelwrapChild.length; x++){
                     return
                 }
     
-                ERROR(result.message);
+                SUCCESS(result.message);
                 jewelwrapChild[x].classList.add('slideUp');
                 jewelwrapChild[x].classList.remove('ani3');
                 jewelwrapChild[x].classList.remove('ani1');
@@ -182,7 +210,7 @@ for (let x = 0; x < deltohegronwrapChild.length; x++){
                     return
                 }
     
-                ERROR(result.message);
+                SUCCESS(result.message);
                 deltohegronwrapChild[x].classList.add('slideUp');
                 deltohegronwrapChild[x].classList.remove('ani3');
                 deltohegronwrapChild[x].classList.remove('ani1');
@@ -218,7 +246,7 @@ for (let x = 0; x < octahedronwrapChild.length; x++){
                     return
                 }
     
-                ERROR(result.message);
+                SUCCESS(result.message);
                 octahedronwrapChild[x].classList.add('slideUp');
                 octahedronwrapChild[x].classList.remove('ani3');
                 octahedronwrapChild[x].classList.remove('ani1');
@@ -254,7 +282,7 @@ for (let x = 0; x < keysChild.length; x++){
                     return
                 }
     
-                ERROR(result.message);
+                SUCCESS(result.message);
                 keysChild[x].classList.add('slideUp');
                 keysChild[x].classList.remove('ani3');
                 keysChild[x].classList.remove('ani1');
@@ -290,7 +318,7 @@ for (let x = 0; x < strChild.length; x++){
                     return
                 }
     
-                ERROR(result.message);
+                SUCCESS(result.message);
                 strChild[x].classList.add('slideUp');
                 strChild[x].classList.remove('ani3');
                 strChild[x].classList.remove('ani1');
@@ -405,7 +433,7 @@ for (let x = 0; x < coinType.length; x++) {
                             return;
                         }
 
-                        ERROR(result.message);
+                        SUCCESS(result.message);
                         if(spltEXt == 'star'){
                             for (let x = 0; x < lenght; x++) {
                                 let ele = createElement('button');

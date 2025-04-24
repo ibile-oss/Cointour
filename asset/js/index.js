@@ -196,14 +196,88 @@ let deltCnt = querySelectorAll('.wrap_tes_ti');
                 const unik = querySelectorAll('.txtrappr');
                     const wallet = querySelector('.wallet_cnt_parkd');
                         const inputmode = document.getElementById('customInput');
+                            const faqscnt = querySelectorAll('.faqs_infor');
+                                const faqstxt = querySelectorAll('.faqs_infor .faqs')
+const senDfaqs = querySelector('.wrap_ggmg');
+    const faqsTxt = querySelector('.input_search input');
+        const search_faqsUser = querySelector('.search_faqs input');
 
 
 
+search_faqsUser.addEventListener('keyup',function(){
+    search_faqs_us(search_faqsUser.value);
+})
+async function search_faqs_us(params) {
+    try {
+        const fech = await fetch(`${__root__2()}/asset/apis/general_req/`,{
+            method:"POST",
+            headers:{'Content-type':'application/x-www-form-urlencoded'},
+            body:'search_engine=' + JSON.stringify({params})
+        });
 
+        const respons = await fech.text();
+        let cnt = querySelector('.questions_go_cnt');
+        cnt.innerHTML = respons;
+        
+    } catch (error) {
+        console.error(error);
+    }
+}        
+senDfaqs.onclick = () =>{
+    if(faqsTxt.value == ''){
+        ERROR('Please Include Faqs')
+        return;
+    }
+    if(faqsTxt.value.search(/[@#$-%)^&*(+_"]/) !== -1){
+        ERROR('Unwanted Character Detected!');
+        return;
+    }
+    if(faqsTxt.value.length > 40){
+        ERROR('Faqs Too Long!');
+        return
+    }
+    Loading_Animation_Index();
+    let MonthArr = ['January','Febuary','March','April','May','June','July','August',
+        'September','October','November','December'
+    ];
+    let DayArr = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+    let today = new Date();
+    let day = today.getDay();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let fullDay = `${String(DayArr[day - 1]).padStart(2, '0')}/${String(MonthArr[month]).padStart(2, '0')}/${String(year).padStart(2, '0')}`;
+    let theday = fullDay;
+    let txt = faqsTxt.value;
+    try {
+        fetch(`${__root__2()}/asset/apis/general_req/`,{
+            method:"POST",
+            headers:{'Content-type':'application/x-www-form-urlencoded'},
+            body:'faqs=' + JSON.stringify({txt,uid,theday})
+        })
+        .then(respons => respons.json())
+        .then(result =>{
+            console.log(result);
+            if(result.status !== 'success'){
+                ERROR(result.message);
+                RemoveIndexAnimation();
+                return;
+            }
 
-                    
+            SUCCESS(result.message);
+            RemoveIndexAnimation();
+        })
+    }catch(error){
+        console.error(error);
+        ERROR(error);
+        RemoveIndexAnimation();
+    }
+}
 
-
+for (let x = 0; x < faqscnt.length; x++){
+    faqscnt[x].onclick = () =>{
+        faqstxt[x].style.setProperty('-webkit-line-clamp','none');
+    }
+}
 function typeKey(char){
     inputmode.value += char;
 }

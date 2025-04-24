@@ -7,6 +7,7 @@
     --bg2-color: #112e42;
     --test1-:#4158D0;
     --testbg-:linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    --trns-:linear-gradient(43deg, #4159d05e 0%, #c850c060 46%, #ffcd7062 100%);
     --btn-:linear-gradient(43deg,#FFCC70  0%,#213fd4  46%, #C850C0 100%);
     --bg-sucess-button:linear-gradient(23deg, rgb(6, 128, 128), rgb(7, 192, 192), rgb(8, 224, 224));
     --test2-:#0093E9;
@@ -17,4 +18,6 @@
     --tbt-:linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     --tbb-:#F4D03F;
     --anbg-:linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
+    --bbsd-: 0px 5px 10px rgba(0,0,0,0.1);
+    --danger-:#660303;
 }

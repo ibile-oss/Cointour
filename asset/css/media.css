@@ -2,6 +2,29 @@
    .sign_up_t{
       flex-direction: column-reverse;
    }
+   .sign_in_tabs{
+      flex-direction: column;
+   }
+   .log_in_tabs{
+      flex-direction: column;
+   }
+   .add_faqs textarea{
+      width: 70% !important;
+   }
+   .inptt{
+      width: 70% !important;
+   }
+   .right_{
+      height: auto;
+      padding: 10px;
+      width: 70% !important;
+   }
+   .sign_in_tabs .left_ nav{
+      height: auto !important;
+   }
+   .log_in_tabs .left_ nav{
+      height: auto !important;
+   }
    .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .withdrawals_request, .stars_cnt, .jewel_sent, .pluto_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
       width: 65%;
    }
@@ -28,13 +51,64 @@
    .pin_wrapper{
       width: 70%;
    }
+   .right_ form{
+      width: 100% !important;
+   }
    .uplo{
       width: 30%;
    }
+   .header{
+      width: 70% !important;
+   }
+   .allfaqs{
+      width: 80% !important;
+   }
+   .txtWriter{
+      width: 60% !important;
+   }
+}
+@media (max-width:954px){
+   
 }
 @media (max-width:900px){
    .sign_up_t div{
       width: 65%;
+   }
+   .faqs_infor h3{
+      font-size: medium;
+   }
+   .txtWriter{
+      width: 70% !important;
+   }
+   .rightPad{
+      width: 100% !important;
+   }
+   .add_faqs textarea{
+      width: 80% !important;
+   }
+   .allfaqs{
+      width: 90% !important;
+   }
+   .inptt{
+      width: 80% !important;
+   }
+   .leftPad{
+      position: absolute;
+      width: 98% !important;
+      display: none !important;
+      z-index: 50;
+   }
+   .open_togle_close{
+      display: flex !important;
+   }
+   .header{
+      width: 80% !important;
+   }
+   .right_{
+      width: 80% !important;
+   }
+   .left_{
+      width: 60% !important;
    }
    .Ctr_child01_xxxxxx{
       width: 50%;
@@ -65,6 +139,27 @@
 @media (max-width:800px){
    .sign_up_t div{
       width: 75%;
+   }
+   .txtWriter textarea{
+      width: 80% !important;
+   }
+   .txtWriter{
+      width: 80% !important;
+   }
+   .add_faqs textarea{
+      width: 90% !important;
+   }
+   .allfaqs{
+      width: 100% !important;
+   }
+   .inptt{
+      width: 90% !important;
+   }
+   .header{
+      width: 90% !important;
+   }
+   .right_{
+      width: 90% !important;
    }
    .hmeChld p {
       font-size: small;
@@ -128,6 +223,21 @@
    .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
       width: 100%;
    }
+   .txtWriter{
+      width: 100% !important;
+   }
+   .header{
+      width: 100% !important;
+   }
+   .add_faqs textarea{
+      width: 100% !important;
+   }
+   .inptt{
+      width: 100% !important;
+   }
+   .right_{
+      width: 100% !important;
+   }
    .wrp__arr{
       font-size: x-small;
    }
@@ -160,6 +270,9 @@
 @media (max-width:700px){
    .sign_up_t div{
       width: 85%;
+   }
+   .left_{
+      width: 80% !important;
    }
    .Ctr_child01_xxxxxx{
       width: 80%;

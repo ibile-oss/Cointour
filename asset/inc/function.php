@@ -2,7 +2,12 @@
     define('__Root__','http://localhost/cointour/');
     define('__upl__','http://localhost/cointour/asset/apis/sendUpload/uploads/');
     define('__img__','http://localhost/cointour/asset/img/');
+    define('ROOT','http://localhost/cointour/admin/super-admin/table/');
+    define('RUT','http://localhost/cointour/asset/apis/general_req/');
 
+    function adminTitle(){
+        return 'Cointour admin';
+    }
 
     function random_nums($length){
         $text = "";
@@ -212,6 +217,25 @@
         }
 
     }
+    function fetch_faqs_to_users($conn){
+        $sel = "SELECT * FROM faqsadmin ORDER BY ID DESC LIMIT 10";
+        $query = mysqli_query($conn,$sel);
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No Faqs Yet";
+        }else{
+            while ($fetch = mysqli_fetch_assoc($query)) {
+                ?>
+                    <nav class="faqs_infor">
+                        <h3><?php echo $fetch['heading'] ?></h3>
+                        <span class="faqs"><?php echo $fetch['faqs'] ?></span>
+                        <P class="askedby">Queried by: <i><?php echo $fetch['user_name'] ?></i></P>
+                        <P class="Dte">Dte: <i><?php echo $fetch['dte'] ?></i></P>
+                    </nav> 
+                <?php
+            }
+        }
+    }
 
     function get_my_friends($conn,$reflink){
         $sel = "SELECT * FROM fetch_refer_users WHERE referralink='$reflink'";
@@ -370,6 +394,45 @@
             while ($fetch = mysqli_fetch_assoc($query)){
                 ?>
                     <button id="<?php echo $fetch['ID'] ?>" class="randAni"><i><img src="<?php echo __img__ . $star ?>" alt=""></i></button>
+                <?php
+            }
+        }
+    }
+    function fetchAllUsers($conn){
+        $selec = "SELECT * FROM register ORDER BY ID LIMIT 50";
+        $query = mysqli_query($conn,$selec);
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No User Yet";
+        }else{
+            while ($row = mysqli_fetch_assoc($query)){
+                ?>
+                    <nav class="wrap_each_user">
+                        <span class="profile"><i><img src="<?php echo __upl__ .  $row['bot_av'] ?>" alt=""></i></span>
+                        <p><?php echo $row['fname'] . ' ' . $row['lname']?></p>
+                        <button user_name="<?php echo $row['fname'] . ' ' . $row['lname']?>" uid="<?php echo $row['userid']?>" class="message__F">Message</button>
+                        <button uid="<?php echo $row['userid']?>" class="delete _dels__">Delete</button>
+                    </nav>
+                <?php
+            }
+        }
+    }
+
+    function fetch_faqs($conn){
+        $select = "SELECT * FROM faqs ORDER BY ID DESC LIMIT 6";
+        $query = mysqli_query($conn,$select);
+
+        if(!mysqli_num_rows($query) >0){
+            echo "No User Yet";
+        }else{
+            while ($row = mysqli_fetch_assoc($query)){
+                ?>
+                    <nav class="faqs_details">
+                        <span class="Profile_imm"><img src="<?php echo __upl__ .  $row['pfile'] ?>" alt=""></span>
+                        <h4><?php echo $row['faqs'] ?></h4>
+                        <span heading="<?php echo $row['faqs'] ?>" class="copYheading">Copy heading<i class="fas fa-copy"></i></span>
+                        <span uid="<?php echo $row['userid'] ?>" class="copyID">Copy Id<i class="fas fa-copy"></i></span>
+                    </nav>
                 <?php
             }
         }
@@ -724,5 +787,6 @@
         return $day;
     }
 
+   
 
 ?>

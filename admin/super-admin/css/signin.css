@@ -1,0 +1,296 @@
+@import url(var.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s linear;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -webkit-user-modify: none;
+}
+.ad_sign_in_cnt_general{
+    height: 100vh;
+    width: 100%;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    display: none;
+    position: relative;
+    background: var(--trns-);
+}
+.ad_sign_in_cnt_general::-webkit-scrollbar{
+    display: none;
+}
+.sign_in_tabs{
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    animation: slutin 0.5s ease;
+}
+.log_in_tabs{
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: none;
+    animation: slutin 0.5s ease;
+}
+@keyframes slutin{
+    0%{
+        transform: translateX(-40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.instead{
+    background:var(--btn-) !important; 
+}
+.sign_in_tabs .left_{
+    height: 100%;
+    width: 40%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    display: flex;
+}
+.log_in_tabs .left_{
+    height: 100%;
+    width: 40%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    display: flex; 
+}
+.sign_in_tabs .left_ h4{
+    color: var(--test1-);
+}
+.log_in_tabs .left_ h4{
+    color: var(--test1-);
+}
+.sign_in_tabs .left_ h2 {
+    color: var(--bg-color);
+}
+.log_in_tabs .left_ h2{
+    color: var(--bg-color);
+}
+.sign_in_tabs .left_ nav{
+    height: 50%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.log_in_tabs .left_ nav{
+    height: 50%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.sign_in_tabs .left_ nav img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.log_in_tabs .left_ nav img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.sign_in_tabs .right_{
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.log_in_tabs .right_{
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.right_ form{
+    height: auto;
+    width: 70%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.right_ form .input_wraps{
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.right_ form .input_wraps input{
+    padding: 10px;
+    width: 100%;
+    font-size: normal;
+    background: white;
+    border: none;
+    outline: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    animation: slutin 0.5s linear;
+}
+.right_ form .input_wraps button{
+    padding: 10px;
+    color: #fff;
+    justify-content: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    background: var(--testbg-);
+    border: none;
+    outline: none;
+    transition: 0s !important;
+    width: 100%;
+    animation: slutout 0.5s linear;
+}
+.right_ form .input_wraps nav{
+    padding: 10px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    background: var(--testbg-);
+    border: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: 0s !important;
+    width: 100%;
+    animation: slutout 0.5s linear;
+}
+@keyframes slutout{
+    0%{
+        transform: translateX(45px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.right_ form .input_wraps button:active{
+    opacity: 0.5;
+    transition: 0s !important;
+}
+.right_ form .input_wraps nav:active{
+    opacity: 0.5;
+    transition: 0s !important;
+}
+.bubbles{
+    height: 25px;
+    width: 25px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    transition: 7s linear !important;
+}
+.bubbles img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.LoadINde2{
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    background: white;
+    z-index: 9000;
+}
+.ele2_ain{
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 30px;
+}
+.ele2_ain label{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: zindex 3520ms linear infinite;
+}
+@keyframes zindex{
+    0%{
+        z-index: 100;
+    }
+    100%{
+        z-index: 1;
+    }
+}
+.ele2_ain label span{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    animation: animatO 880ms cubic-bezier(.445,.05,.55,.95) infinite alternate;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+@keyframes animatO{
+    0%{
+        transform: translate(-98%,0);
+    }
+    100%{
+        transform: translate(98%,0);
+    }
+}
+.ele2_ain label:nth-child(1) span{
+    background: linear-gradient(315deg, #0055dd, #0077ff, #66adff);
+}
+.ele2_ain label:nth-child(2) span{
+    background: linear-gradient(225deg, #dd0000, #ee3333, #ff7755);
+}
+.ele2_ain label:nth-child(3) span{
+    background: linear-gradient(90deg, #007744, #009944, #55bb55);
+}
+.ele2_ain label:nth-child(4) span{
+    background: linear-gradient(0deg, #ffaa33, #ffcc00, #ffdd66);
+}
+.ele2_ain label:nth-child(1){
+    animation-delay: 2620ms;
+    transform: rotate(45deg);
+}
+.ele2_ain label:nth-child(2){
+    animation-delay: 1760ms;
+    transform: rotate(135deg);
+}
+.ele2_ain label:nth-child(3){
+    transform: rotate(225deg);
+}
+.ele2_ain label:nth-child(4){
+    animation-delay: 880ms;
+    transform: rotate(315deg);
+}
+.animatee{
+    animation: eassing 0.5s ease;
+}
+@keyframes eassing{
+    0%{
+        transform: translateX(-40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}

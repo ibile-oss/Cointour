@@ -1,18 +1,19 @@
 <?php
     require_once dirname(__DIR__, 3) ."/conn.php";
-    function random_nums($length){
-        $text = "";
-        if($length < 5){
-            $length = 5;
-        }
+    require_once dirname(__DIR__, 3) ."/asset/inc/function.php";
+    // function random_nums($length){
+    //     $text = "";
+    //     if($length < 5){
+    //         $length = 5;
+    //     }
     
-        $len = rand(4,$length);
-        for ($i=0; $i < $len; $i++){ 
-           $text .= rand(0,9);
-        }
+    //     $len = rand(4,$length);
+    //     for ($i=0; $i < $len; $i++){ 
+    //        $text .= rand(0,9);
+    //     }
     
-        return $text;
-    }
+    //     return $text;
+    // }
     if($_SERVER['REQUEST_METHOD'] !== 'POST'){
         http_response_code(401);
         echo json_encode([
@@ -644,6 +645,166 @@
         die;
     }
 
+    try {
+        if(isset($_POST['search_engine']) && !empty($_POST['search_engine'])){
+            $data = json_decode($_POST['search_engine']);
 
+            $query = $data->params;
+
+            $check_query = "SELECT * FROM faqsadmin WHERE heading LIKE '%$query%'";
+            $que = mysqli_query($conn,$check_query);
+
+            while ($fetch = mysqli_fetch_assoc($que)){
+                $queried_data = $fetch['heading'];
+                $queried_faqs = $fetch['faqs'];
+                $queried_date = $fetch['dte'];
+                $queried_name = $fetch['user_name'];
+               
+                ?>
+                    <nav class="faqs_infor">
+                        <h3><?php echo $queried_data ?></h3>
+                        <span class="phpfaqs"><?php echo $queried_faqs ?></span>
+                        <P class="askedby">Queried by: <i><?php echo $queried_name ?></i></P>
+                        <P class="Dte">Dte: <i><?php echo $queried_date ?></i></P>
+                    </nav> 
+                <?php
+            }
+
+        }
+    } catch (Exeption $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['name']) && !empty($_POST['name'])){
+            $receive = json_decode($_POST['name']);
+            
+
+            $searchQuery = $receive->nme;
+            
+            $sele = "SELECT * FROM register WHERE fname LIKE '%$searchQuery%' || lname LIKE '%$searchQuery%'";
+            $query = mysqli_query($conn,$sele);
+
+            while ($fetch = mysqli_fetch_assoc($query)){
+                if(!mysqli_num_rows($query) > 0){
+                    ?>
+                        <h3><?php echo $searchQuery?> dosen't exist</h3>
+                    <?php
+                }else{
+                    $name1 = $fetch['fname'];
+                    $name2 = $fetch['lname'];
+                    $profile = $fetch['bot_av'];
+                    $uid = $fetch['userid'];
+
+                    $botName = $name1 . ' ' . $name2; 
+                    ?>
+                        <nav class="wrap_each_user">
+                            <span class="profile"><i><img src="<?php echo __upl__ .  $profile ?>" alt=""></i></span>
+                            <p><?php echo $botName?></p>
+                            <button>Message</button>
+                            <button uid="<?php echo $uid?>" class="delete">Delete</button>
+                        </nav>
+                    <?php
+                }
+            }
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['faqs']) && !empty($_POST['faqs'])){
+            $pdata = json_decode($_POST['faqs']);
+
+            $faqs = $pdata->txt;
+            $uid = $pdata->uid;
+            $dte = $pdata->theday;
+
+            $sel = "SELECT * FROM faqs WHERE faqs='$faqs'";
+            $u = mysqli_query($conn,$sel);
+            if(mysqli_num_rows($u) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Faqs Already Exist'
+                ]);
+                die; 
+            }
+
+            $sel = "SELECT * FROM register WHERE userid='$uid'";
+            $q = mysqli_query($conn,$sel);
+            $fetch = mysqli_fetch_assoc($q);
+            $user_profile = $fetch['bot_av'];
+
+        
+            $ins = "INSERT INTO faqs(userid,faqs,dte,pfile)VALUES('$uid','$faqs','$dte','$user_profile')";
+            $query = mysqli_query($conn,$ins);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Faqs will Be Submitted Soon'
+            ]);
+            die;
+        }
+
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['faqstoIn']) && !empty($_POST['faqstoIn'])){
+            $dint = json_decode($_POST['faqstoIn']);
+
+            $uid = $dint->usv;
+            $heading = $dint->hv;
+            $txt = $dint->txt;
+
+            $select = "SELECT * FROM register WHERE userid='$uid'";
+            $query = mysqli_query($conn,$select);
+            $fetch = mysqli_fetch_assoc($query);
+
+            $name1 = $fetch['fname'];
+            $name2 = $fetch['lname'];
+
+            $user_name = $name1 . ' ' . $name2;
+            $dte = "SELECT * FROM faqs WHERE faqs='$heading'";
+            $ur = mysqli_query($conn,$dte);
+            $fetch2 = mysqli_fetch_assoc($ur);
+
+            $faqsDate = $fetch2['dte'];
+            
+            $ins = "INSERT INTO faqsadmin(userid,faqs,heading,dte,user_name)
+            VALUES('$uid','$txt','$heading','$faqsDate','$user_name')";
+            mysqli_query($conn,$ins);
+        }
+
+        echo mysqli_error($conn);
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+  
 
     

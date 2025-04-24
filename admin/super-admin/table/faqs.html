@@ -1,0 +1,9 @@
+<?php
+    require_once dirname(__DIR__, 3) ."/asset/inc/function.php";
+?>
+<?php
+    require_once dirname(__DIR__, 4) ."/Cointour/conn.php";
+?>
+<div class="allfaqs">
+    <?=fetch_faqs($conn)?>
+</div>
