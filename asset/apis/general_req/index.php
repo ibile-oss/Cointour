@@ -644,7 +644,7 @@
         ]);
         die;
     }
-
+    
     try {
         if(isset($_POST['search_engine']) && !empty($_POST['search_engine'])){
             $data = json_decode($_POST['search_engine']);
@@ -706,7 +706,7 @@
                         <nav class="wrap_each_user">
                             <span class="profile"><i><img src="<?php echo __upl__ .  $profile ?>" alt=""></i></span>
                             <p><?php echo $botName?></p>
-                            <button>Message</button>
+                            <button class="message__F" user_name="<?php echo $name1 . ' ' . $name2?>" uid="<?php echo $uid?>">Message</button>
                             <button uid="<?php echo $uid?>" class="delete">Delete</button>
                         </nav>
                     <?php
@@ -777,6 +777,13 @@
 
             $select = "SELECT * FROM register WHERE userid='$uid'";
             $query = mysqli_query($conn,$select);
+            if(!mysqli_num_rows($query) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'User dos\'nt exist'
+                ]);
+                die;
+            }
             $fetch = mysqli_fetch_assoc($query);
 
             $name1 = $fetch['fname'];
@@ -788,10 +795,27 @@
             $fetch2 = mysqli_fetch_assoc($ur);
 
             $faqsDate = $fetch2['dte'];
+            $replace = str_replace('\'', '', $txt);
+
+            $checkIfFaqs_exist = "SELECT * FROM faqsadmin WHERE heading='$heading'";
+            $confirm = mysqli_query($conn,$checkIfFaqs_exist);
+            if(mysqli_num_rows($confirm) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Faqs already exist'
+                ]);
+                die;
+            }
             
             $ins = "INSERT INTO faqsadmin(userid,faqs,heading,dte,user_name)
-            VALUES('$uid','$txt','$heading','$faqsDate','$user_name')";
+            VALUES('$uid','$replace','$heading','$faqsDate','$user_name')";
             mysqli_query($conn,$ins);
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Added'
+            ]);
+            die;
         }
 
         echo mysqli_error($conn);
@@ -804,6 +828,59 @@
         ]);
         die;
     }
+
+    try {
+        if(isset($_POST['credential']) && !empty($_POST['credential'])){
+            $dntials = json_decode($_POST['credential']);
+
+            $time = $dntials->sendTime;
+            $date = $dntials->theday;
+            $mesage = $dntials->addresing;
+            $uid = $dntials->userId;
+            
+
+
+
+            
+            $check_if_user_exist = "SELECT * FROM register WHERE userid='$uid'";
+            $query_cheking = mysqli_query($conn,$check_if_user_exist);
+            if(!mysqli_num_rows($query_cheking) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'User dons\'nt exist'
+                ]);
+                die;
+            }else{
+                $ins = "INSERT INTO messages(userid,msg,time,dte)VALUES('$uid','$mesage','$time','$date')";
+                $query = mysqli_query($conn,$ins);
+
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => 'Message send'
+                ]);
+            }
+        }
+
+    }catch(Exeption $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+
+    if(isset($_POST['idset']) && !empty($_POST['idset'])){
+        $data = json_decode($_POST['idset']);
+        $message_id = $data->id;
+
+
+        $updat = "UPDATE messages SET status = 'read' WHERE ID = '$message_id'";
+        $query = mysqli_query($conn,$updat);
+    }
+        
+
 
   
 

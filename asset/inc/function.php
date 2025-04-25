@@ -398,6 +398,7 @@
             }
         }
     }
+    
     function fetchAllUsers($conn){
         $selec = "SELECT * FROM register ORDER BY ID LIMIT 50";
         $query = mysqli_query($conn,$selec);
@@ -410,8 +411,8 @@
                     <nav class="wrap_each_user">
                         <span class="profile"><i><img src="<?php echo __upl__ .  $row['bot_av'] ?>" alt=""></i></span>
                         <p><?php echo $row['fname'] . ' ' . $row['lname']?></p>
-                        <button user_name="<?php echo $row['fname'] . ' ' . $row['lname']?>" uid="<?php echo $row['userid']?>" class="message__F">Message</button>
-                        <button uid="<?php echo $row['userid']?>" class="delete _dels__">Delete</button>
+                        <button class="message__F" user_name="<?php echo $row['fname'] . ' ' . $row['lname']?>" uid="<?php echo $row['userid']?>">Message</button>
+                        <button class="delete _dels__" uid="<?php echo $row['userid']?>" >Delete</button>
                     </nav>
                 <?php
             }

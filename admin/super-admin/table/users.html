@@ -4,7 +4,7 @@
 <?php
     require_once dirname(__DIR__, 4) ."/Cointour/conn.php";
 ?>
-<div class="user_wraper">
+<div class="user_wraper" root="<?=RUT?>">
     <div class="header"><input type="search" placeholder="Search User"></div>
    <div class="wraper__info">
         <?=fetchAllUsers($conn)?>

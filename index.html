@@ -166,6 +166,11 @@
         <div class="cnt_crt_another_">
             <div class="copy_msg">Ready to paste</div>
             <div class="err_msg"></div>
+            <div class="noreply">
+                <i>No reply</i>
+                <p class="msg_tag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam nostrum incidunt eaque cum animi.</p>
+                <nav class="close_div"><i class="fas fa-close"></i></nav>
+            </div>
             <div class="toast">
                 <div class="toast-content">
                     <i class="fas fa-check check"></i>
@@ -1981,6 +1986,50 @@
                     RemoveLoAnimate();
                 },500);
             },1500)
+        }
+
+        SSe();
+        function __root__2(){
+            return document.querySelector('.rrt_').getAttribute('url');
+        }
+
+        function SSe(){
+            const source = new EventSource(`${__root__2()}/asset/apis/general_req/webs.php`);
+
+            source.onmessage = (event) => {
+                let resCnt = document.querySelector('.noreply');
+                let resTxt = document.querySelector('.noreply p');
+                let resClose = document.querySelector('.noreply nav');
+                const data = JSON.parse(event.data);
+                if(data.msg){
+                    resCnt.style.setProperty('display','flex');
+                    resTxt.innerHTML = data.msg;
+                }
+                let id = data.ID;
+                // Simulate user reaction (e.g., button click or dismiss action)
+                resClose.addEventListener('click', () => {
+                    try {
+                        fetch(`${__root__2()}/asset/apis/general_req/`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body:'idset=' + JSON.stringify({id}) // Send the message ID to the server
+                        })
+                        .then(respons => respons.text())
+                        .then(result =>{
+                            console.log(result);
+                        })
+                    } catch (error) {
+                        console.error(error);
+                        console.log(result);
+                    }
+                    resCnt.style.setProperty('display','none');
+                });
+            };
+
+            source.onerror = (error) => {
+                console.error('SSE error:', error);
+                source.close(); // Close the connection if there's an error
+            };
         }
     </script>
 </body>

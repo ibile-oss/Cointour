@@ -754,7 +754,7 @@ body {
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    display: flex;
+    display: none;
     animation: slidee 0.5s ease;
     position: absolute;
     top: 0;
@@ -782,6 +782,9 @@ body {
 .msg_admin_no_reply p{
     transition: 0s !important;
 }
+.noreply p{
+    transition: 0s !important;
+}
 .msg_admin_no_reply{
     height: auto;
     min-width: 100%;
@@ -794,6 +797,23 @@ body {
     gap: 5px;
     padding: 5px;
     border-radius: .5em;
+    transition: 0s !important;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.noreply{
+    height: auto;
+    width: 300px !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: none;
+    background: var(--trns-);
+    flex-direction: column;
+    position: absolute !important;
+    gap: 5px;
+    padding: 5px;
+    border-radius: none !important;
+    bottom: 5px;
+    right: 5px;
     transition: 0s !important;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -813,6 +833,9 @@ body {
     cursor: pointer;
     transition: 0s !important;
 }
+.noreply p{
+    color: rgb(26, 131, 131) !important;
+}
 .close_div:active{
     opacity: 0.5;
 }
@@ -824,15 +847,30 @@ body {
 .msg_admin_no_reply:hover p{
     color: white;
 }
+.noreply:hover p{
+    color: white !important;
+}
 .msg_admin_no_reply:hover i{
+    transform: scale(1.1);
+    color: white;
+}
+.noreply:hover i{
     transform: scale(1.1);
     color: white;
 }
 .msg_admin_no_reply:hover{
     background: var(--btn-);
 }
+.noreply:hover{
+    background: var(--btn-);
+}
 .msg_admin_no_reply i{
    color: rgb(170, 64, 64);
+   transition: 0s !important;
+   font-style: normal;
+}
+.noreply i{
+    color: rgb(170, 64, 64);
    transition: 0s !important;
    font-style: normal;
 }

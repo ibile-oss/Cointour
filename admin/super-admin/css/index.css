@@ -73,7 +73,6 @@ body {
     display: flex;
     background: #fff;
     position: relative;
-    padding: 5px;
     gap: 5px;
     background: var(--trns-);
 }

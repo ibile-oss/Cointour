@@ -948,3 +948,55 @@ clsSTR.onclick = () =>{
     Star_pad.style.setProperty('display','none');
 }
 _js_slc.addEventListener('click', ClasTogle);   
+
+
+
+
+
+// const buttons = document.querySelectorAll('.day-btn');
+// const countdownDisplay = document.getElementById('countdown');
+
+// // Function to handle button click
+// buttons.forEach(button => {
+//     button.addEventListener('click', () => {
+//         const day = button.dataset.day;
+//         const now = new Date();
+        
+//         // Calculate time remaining until midnight
+//         const midnight = new Date();
+//         midnight.setHours(24, 0, 0, 0); // Set to next midnight
+        
+//         const timeRemaining = midnight.getTime() - now.getTime();
+
+//         // Store in localStorage
+//         localStorage.setItem(`day${day}`, midnight.getTime());
+//         button.disabled = true; // Disable button
+
+//         updateCountdown();
+//     });
+// });
+
+// // Function to update countdown display
+// function updateCountdown() {
+//     buttons.forEach(button => {
+//         const day = button.dataset.day;
+//         const savedTime = localStorage.getItem(`day${day}`);
+        
+//         if (savedTime) {
+//             const now = new Date().getTime();
+//             const timeRemaining = savedTime - now;
+
+//             if (timeRemaining > 0) {
+//                 button.disabled = true;
+//                 countdownDisplay.innerHTML = `Day ${day} reactivates in ${Math.floor(timeRemaining / 1000 / 60)} minutes.`;
+//                 setTimeout(updateCountdown, 1000); // Update every second
+//             } else {
+//                 button.disabled = false; // Re-enable button
+//                 localStorage.removeItem(`day${day}`); // Clear storage when countdown ends
+//             }
+//         }
+//     });
+// }
+
+// Run update function on page load to restore countdowns
+// updateCountdown();

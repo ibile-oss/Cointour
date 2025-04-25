@@ -204,6 +204,12 @@ const senDfaqs = querySelector('.wrap_ggmg');
 
 
 
+
+
+
+
+
+
 search_faqsUser.addEventListener('keyup',function(){
     search_faqs_us(search_faqsUser.value);
 })
@@ -1015,6 +1021,9 @@ for (let x = 0; x < open_cnt.length; x++) {
         }if(open_[x].innerHTML == 'Me'){
             document.querySelector('.me_account').style.setProperty('display','flex');
             Scrol_to_top();
+        }if(open_[x].innerHTML == 'Messages'){
+            document.querySelector('.messages').style.setProperty('display','flex');
+            Scrol_to_top();
         }
         
     }
@@ -1196,11 +1205,14 @@ infor_ff.onclick = () =>{
 for (let x = 0; x < close_.length; x++) {
     close_[x].onclick = () =>{
             task_cnt.classList.add('callback');
+            document.querySelector('.messages').classList.add('callback');
                 Referals_cnt.classList.add('callback');
                     engage.classList.add('callback');
                         shares_task.classList.add('callback');
                             setTimeout(() =>{
                                 task_cnt.style.setProperty('display','none');
+                                document.querySelector('.messages').classList.remove('callback');
+                                document.querySelector('.messages').style.setProperty('display','none');
                                 task_cnt.classList.remove('callback');
                                 Referals_cnt.style.setProperty('display','none');
                                 Referals_cnt.classList.remove('callback');
@@ -1242,4 +1254,6 @@ for (let x = 0; x < alltoolsCnt.length; x++) {
                                                         task_part.scrollTo(0, 0);
                     }
 }
+
+
 
