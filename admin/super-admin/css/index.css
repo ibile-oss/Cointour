@@ -32,7 +32,7 @@ body {
     opacity: 0.5;
 }
 .dis_imp{
-    display: flex !important;
+    left: 0 !important;
 }
 .open_togle_close{
     padding: 5px;

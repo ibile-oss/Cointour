@@ -23,74 +23,6 @@
         die;
     }
 
-    if(isset($_POST['docu']) && $_POST['docu'] !== ''){
-        try {
-            $data =json_decode($_POST['docu']);
-            $day = $data->day;
-            $uid = $data->uid;
-            $txt = 'true';
-
-            if($day == 1){
-                $ins = "UPDATE daily_reward SET day1='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }else if($day == 2){
-                $ins = "UPDATE daily_reward SET day2='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }else if($day == 3){
-                $ins = "UPDATE daily_reward SET day3='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }else if($day == 4){
-                $ins = "UPDATE daily_reward SET day4='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }else if($day == 5){
-                $ins = "UPDATE daily_reward SET day5='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }else if($day == 6){
-                $ins = "UPDATE daily_reward SET day6='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }else if($day == 7){
-                $ins = "UPDATE daily_reward SET day7='$txt' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$ins);
-            }
-
-
-        }catch (Exeption $th) {
-            http_response_code(500);
-            echo json_encode([
-                'status' => 'error',
-                'message' => $th
-            ]);
-            die;
-        }
-    }
-
-    try {
-        if(isset($_POST['check']) && !empty($_POST['check'])){
-            $data = json_decode($_POST['check']);
-    
-            $uid = $data->uid;
-            $selec = "SELECT * FROM daily_reward WHERE userid='$uid'";
-            $q = mysqli_query($conn,$selec);
-
-            $update_reward = "UPDATE daily_reward SET day1='', day2='', day3='', day4='', day5='',
-            day6='', day7='' WHERE userid='$uid'";
-            $query = mysqli_query($conn,$update_reward);
-
-            $selec1 = "SELECT * FROM daly_combo WHERE userid='$uid'";
-            $q1 = mysqli_query($conn,$selec1);
-            $update_combo = "UPDATE daly_combo SET day1='', day2='', day3='', day4='', day5='',
-            day6='', day7='' WHERE userid='$uid'";
-            $query = mysqli_query($conn,$update_combo);
-        }
-
-    }catch (Exeption $th){
-        http_response_code(500);
-        echo json_encode([
-            'status' => 'error',
-            'message' => $th
-        ]);
-        die;
-    }
 
     try {
         if(isset($_POST['taskM']) && !empty($_POST['taskM'])){
@@ -119,11 +51,12 @@
 
         }
 
-    } catch (Exeption $th) {
+    } catch (Exception $th) {
+        error_log($th); // Logs the full exception
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
-            'message' => $th
+            'message' => 'An unexpected error occurred. Please try again later.'
         ]);
         die;
     }
@@ -162,7 +95,7 @@
 
         //echo mysqli_error($conn);
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -201,7 +134,7 @@
             die;
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -244,7 +177,7 @@
             }
 
         }
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -304,7 +237,7 @@
 
         echo mysqli_error($conn);
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -418,7 +351,7 @@
             die;
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -455,7 +388,7 @@
         }
 
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -492,7 +425,7 @@
         }
 
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -528,7 +461,7 @@
             die;
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -564,7 +497,7 @@
             die;
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -600,7 +533,7 @@
             die;
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -636,7 +569,7 @@
             die;
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -671,7 +604,7 @@
             }
 
         }
-    } catch (Exeption $th) {
+    } catch (Exception  $th) {
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -714,7 +647,7 @@
             }
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -758,7 +691,7 @@
         }
 
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -820,7 +753,7 @@
 
         echo mysqli_error($conn);
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -828,6 +761,7 @@
         ]);
         die;
     }
+    
 
     try {
         if(isset($_POST['credential']) && !empty($_POST['credential'])){
@@ -861,7 +795,7 @@
             }
         }
 
-    }catch(Exeption $th){
+    }catch(Exception  $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -879,7 +813,90 @@
         $updat = "UPDATE messages SET status = 'read' WHERE ID = '$message_id'";
         $query = mysqli_query($conn,$updat);
     }
+
+    try {
+        if(isset($_POST['timeterval']) && !empty($_POST['timeterval'])){
+            $data = json_decode(($_POST['timeterval']));
+
+            $time = time();
+            $id = $data->uid;
+
+            $sel = "SELECT * FROM daily_reward WHERE userid='$id'";
+            $check = mysqli_query($conn,$sel);
+
+            if(mysqli_num_rows($check) >0){
+                $upedat = "UPDATE daily_reward SET day='$time' WHERE userid='$id'";
+                mysqli_query($conn,$upedat);
+            }else{
+                $ins = "INSERT INTO daily_reward(userid,day)VALUES('$id','$time')";
+                $query = mysqli_query($conn,$ins);
+            }
+
+            
+        }
+    } catch (Exception $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
         
+    try {
+        if(isset($_POST['check_time']) && !empty($_POST['check_time'])){
+            $data = json_decode(($_POST['check_time']), false);
+
+            $id = $data->uid;
+
+            $sel = "SELECT day FROM daily_reward WHERE userid='$id'";
+            $query = mysqli_query($conn,$sel);
+            $result = mysqli_fetch_assoc($query);
+
+            if ($result) {
+                echo json_encode(["timestamp" => $result['day']]);
+            } else {
+                echo json_encode(["day" => null]);
+            }
+        }
+    } catch (Exception $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['clearit']) && !empty($_POST['clearit'])){
+            $data = json_decode(($_POST['clearit']));
+
+            $uid = $data->uid;
+            echo $uid;
+
+            $searchQuery = "SELECT * FROM daily_reward WHERE userid='$uid'";
+            
+            $query = mysqli_query($conn,$searchQuery);
+            if(!mysqli_num_rows($query) >0){
+                echo "No Data Found";
+                die;
+            }else{
+                $delet = "DELETE FROM daily_reward WHERE userid='$uid'";
+                mysqli_query($conn,$delet);
+                echo "Data Cleared";
+                die;
+            }
+
+        }
+    } catch (Exception $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
 
 
   

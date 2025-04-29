@@ -29,7 +29,7 @@
     <title>Cointour</title>
 </head>
 <body class="getMyRoot" url="<?=__Root__?>">
-    <div class="Ctr_cnt_xxxxxxxxr">
+    <!-- <div class="Ctr_cnt_xxxxxxxxr">
         <nav class="Ctr_child01_xxxxxx">
             <span class="Ctr_logo_cnt_xxxxx">
                 <img src="asset/img/ctrlogo.png" alt="">
@@ -111,12 +111,87 @@
                 </div>
             </div>
         </form>
+    </div> -->
+
+    <div class="thegen">
+        <div class="singINN_">
+            <div class="signPAD">
+                <div class="toleft">
+                    <h1>Signin</h1>
+                    <div class="signinsvg">
+                        <img src="asset/img/signIn.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="loginPAD">
+                <form onsubmit="SignUp(event)" action="" class="sign_up styleani">
+                    <nav class="err"></nav>
+                    <div class="inputwrapper">
+                        <input style="--i:1;" class="fname" type="text" placeholder="First name">
+                    </div>
+                    <div class="inputwrapper">
+                        <input style="--i:2;" class="lname" type="text" placeholder="Last name">
+                    </div>
+                    <div class="inputwrapper">
+                        <input style="--i:3;" class="email" type="email" placeholder="Email">
+                    </div>
+                    <div class="inputwrapper">
+                        <input style="--i:4;" class="phone" type="text" placeholder="Phone">
+                    </div>
+                    <div class="inputwrapper">
+                        <input style="--i:5;" class="password" type="password" placeholder="Password">
+                        <span class="un__ passw fas fa-eye"></span>
+                    </div>
+                    <div class="inputwrapper">
+                        <input style="--i:6;" class="cnpassord" type="password" placeholder="Confirm password">
+                    </div>
+                    <div class="inputwrapper">
+                        <input style="--i:7;" <?php echo $readonly?> value="<?php echo $refLink?>" class="text" type="text" placeholder="Referral link">
+                    </div>
+                    <div class="inputwrapper">
+                        <button style="--i:8;" class="incaseLoad">Sign</button>
+                    </div>
+                    <div class="inputwrapper">
+                        <nav style="--i:9;" class="loginginstead">Login instead</nav>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="LogiNN_">
+            <div class="signPAD">
+                <div class="toleft">
+                    <h1>Login</h1>
+                    <div class="signinsvg">
+                        <img src="asset/img/logI.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="loginPAD">
+                <nav class="err___"></nav>
+                <form onsubmit="Login(event)" action="" class="sign_up">
+                    <div class="inputwrapper">
+                        <input class="email___e" type="text" placeholder="Email">
+                    </div>
+                    <div class="inputwrapper">
+                        <input class="passw__af__" type="password" placeholder="Password">
+                        <span class="un__ passww fas fa-eye"></span>
+                    </div>
+                    <div class="inputwrapper">
+                        <button class="loginload">Login</button>
+                    </div>
+                    <div class="inputwrapper">
+                        <nav class="signininstead">Sign instead</nav>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     
 
-    <script src="owl/owl.carousel.js"></script>
-    <script src="owl/owl.autoplay.js"></script>
-    <script src="owl/owl.animate.js"></script>
+    <!-- <script src="owl/owl.carousel.js"></script> -->
+    <!-- <script src="owl/owl.autoplay.js"></script> -->
+    <!-- <script src="owl/owl.animate.js"></script> -->
     <script src="asset/js/signin.js"></script>
     <script src="asset/js/api.js"></script>
     <script>
@@ -154,7 +229,7 @@
         window.onload = () =>{
             setTimeout(() =>{
                 setTimeout(() =>{
-                    document.querySelector('.Ctr_cnt_xxxxxxxxr').classList.add('slingIn');
+                    document.querySelector('.thegen').style.setProperty('display','flex');
                     remove_ll();
                 },500)
             },1500)

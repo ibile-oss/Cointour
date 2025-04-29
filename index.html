@@ -844,11 +844,13 @@
                 </div>
 
                 <div class="coins_available">
-                    <div class="recTask">
-                        <nav><img src="asset/img/isto.jpg" alt=""></nav>
-                        <div class="space_eve">
-                            <h2>Available coins</h2>
-                            <span class="close_aval_coin hovery close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                    <div class="toap_fix">
+                        <div class="recTask">
+                            <nav><img src="asset/img/isto.jpg" alt=""></nav>
+                            <div class="space_eve">
+                                <h2>Available coins</h2>
+                                <span class="close_aval_coin hovery close_p2"><img src="asset/img/icons8-close-188.png" alt=""></span>
+                            </div>
                         </div>
                     </div>
 
@@ -1978,6 +1980,7 @@
             ele.remove();
             bdy.classList.remove('toAbbb');
         }
+    
         LoAnimate();
         window.onload = () =>{
             setTimeout(() =>{
@@ -1988,11 +1991,15 @@
             },1500)
         }
 
-        SSe();
+        // window.addEventListener('DOMContentLoaded',function(){
+        //     SSe();
+        // })
+
+
         function __root__2(){
             return document.querySelector('.rrt_').getAttribute('url');
         }
-
+        
         function SSe(){
             const source = new EventSource(`${__root__2()}/asset/apis/general_req/webs.php`);
 
@@ -2031,6 +2038,72 @@
                 source.close(); // Close the connection if there's an error
             };
         }
+
+
+        let isFetching = false; // Flag to control real-time fetching
+
+        function fetchMessage(){
+            if (isFetching) return; // Prevent overlapping requests
+
+            isFetching = true; // Set the flag to indicate fetching is happening
+
+            // AJAX call to fetch one unread message
+            fetch(`${__root__2()}/asset/apis/general_req/webs.php`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    let resCnt = document.querySelector('.noreply');
+                    let resTxt = document.querySelector('.noreply p');
+                    let resClose = document.querySelector('.noreply nav');
+
+                    if (data.msg && data.msg !== "No unread messages") {
+                        resCnt.style.setProperty('display', 'flex');
+                        resTxt.innerHTML = data.msg;
+
+                        let id = data.ID;
+
+                        // Handle dismiss action
+                        resClose.addEventListener('click', () => {
+                            fetch(`${__root__2()}/asset/apis/general_req/`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body:'idset=' + JSON.stringify({id}) // Send the message ID to mark as read
+                            })
+                                .then(response => response.text())
+                                .then(result => {
+                                    console.log(result);
+                                })
+                                .catch(error => console.error('Dismiss error:', error));
+
+                            // Hide the notification container after dismissal
+                            resCnt.style.setProperty('display', 'none');
+
+                            // Reset the flag and trigger the next fetch
+                            isFetching = false;
+                            fetchMessage(); // Fetch the next unread message immediately
+                        });
+                    } else {
+                        // console.log("No unread messages.");
+                        resCnt.style.setProperty('display', 'none');
+                        isFetching = false; // Reset the flag when there’s no unread messages
+                    }
+                })
+                .catch(error => {
+                    console.error('AJAX error:', error);
+                    isFetching = false; // Reset the flag if an error occurs
+                });
+        }
+
+        // Start polling for messages immediately
+        fetchMessage();
+
+        // Optional: Use a timer to recheck messages regularly (e.g., every 5 seconds)
+        // This ensures new messages are fetched when the user hasn’t dismissed the current one
+        setInterval(fetchMessage, 5000);
     </script>
 </body>
 </html>

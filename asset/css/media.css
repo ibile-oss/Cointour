@@ -8,6 +8,14 @@
    .log_in_tabs{
       flex-direction: column;
    }
+   .signPAD,
+   .loginPAD{
+      width: 70%;
+   }
+   .singINN_,
+   .LogiNN_{
+      flex-direction: column;
+   }
    .add_faqs textarea{
       width: 70% !important;
    }
@@ -74,11 +82,22 @@
    .sign_up_t div{
       width: 65%;
    }
+   .inputwrapper{
+      width: 100%;
+   }
+   .signPAD,
+   .loginPAD{
+      width: 75%;
+      height: auto;
+   }
    .faqs_infor h3{
       font-size: medium;
    }
    .txtWriter{
       width: 70% !important;
+   }
+   .err, .err___{
+      width: 100%;
    }
    .rightPad{
       width: 100% !important;
@@ -94,8 +113,9 @@
    }
    .leftPad{
       position: absolute;
-      width: 98% !important;
-      display: none !important;
+      width: 80% !important;
+      display: flex !important;
+      left: -900px;
       z-index: 50;
    }
    .open_togle_close{
@@ -140,8 +160,24 @@
    .sign_up_t div{
       width: 75%;
    }
+   .ele2_ain{
+      transform: translate(-15%, -40%);
+      height: 30px;
+      width: 30px;
+  }
+   .coins_available{
+      border-bottom-left-radius: .5em;
+      border-bottom-right-radius: .5em;
+   }
+   .avater{
+      height: 100px;
+   }
    .txtWriter textarea{
       width: 80% !important;
+   }
+   .signPAD,
+   .loginPAD{
+      width: 85%;
    }
    .txtWriter{
       width: 80% !important;
@@ -217,10 +253,17 @@
    .Ctr_cnt_xxxxxxxxr{
       gap: 70px;
    }
+   .sign_up{
+      padding: 5px;
+   }
    .payment_list{width: 100%;}
 }
 @media (max-width:780px){
    .task_part, .moveToTop, .but_coin_cn, .ABout_tools, .transfar__cc, .hmeChld, .Home, .Friends, .Task, .Linkwallet, .stars_cnt, .withdrawals_request, .pluto_sent, .jewel_sent, .deltohedron_sent, .keys_starts, .octahedron_sent{
+      width: 100%;
+   }
+   .signPAD,
+   .loginPAD{
       width: 100%;
    }
    .txtWriter{

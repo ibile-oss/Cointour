@@ -138,42 +138,7 @@
     }else{
         $bbtn1 = '';
     }
-    $checkR2 = check_reward2($conn,$uid);
-    if($checkR2){
-        $bbtn2 = 'disabled';
-    }else{
-        $bbtn2 = '';
-    }
-    $checkR3 = check_reward3($conn,$uid);
-    if($checkR3){
-        $bbtn3 = 'disabled';
-    }else{
-        $bbtn3 = '';
-    }
-    $checkR4 = check_reward4($conn,$uid);
-    if($checkR4){
-        $bbtn4 = 'disabled';
-    }else{
-        $bbtn4 = '';
-    }
-    $checkR5 = check_reward5($conn,$uid);
-    if($checkR5){
-        $bbtn5 = 'disabled';
-    }else{
-        $bbtn5 = '';
-    }
-    $checkR6 = check_reward6($conn,$uid);
-    if($checkR6){
-        $bbtn6 = 'disabled';
-    }else{
-        $bbtn6 = '';
-    }
-    $checkR7 = check_reward7($conn,$uid);
-    if($checkR7){
-        $bbtn7 = 'disabled';
-    }else{
-        $bbtn7 = '';
-    }
+    
 
     $checkClaim1 = getTaskClaim1($conn,$uid);
     if($checkClaim1){
@@ -216,48 +181,8 @@
         $dis5 = '';
     }
 
-    $check_Combo1 = check_combo1($conn,$uid);
-    if($check_Combo1){
-        $tn1 = 'disabled';
-    }else{
-        $tn1 = '';
-    }
-    $check_Combo2 = check_combo2($conn,$uid);
-    if($check_Combo2){
-        $tn2 = 'disabled';
-    }else{
-        $tn2 = '';
-    }
-    $check_Combo3 = check_combo3($conn,$uid);
-    if($check_Combo3){
-        $tn3 = 'disabled';
-    }else{
-        $tn3 = '';
-    }
-    $check_Combo4 = check_combo4($conn,$uid);
-    if($check_Combo4){
-        $tn4 = 'disabled';
-    }else{
-        $tn4 = '';
-    }
-    $check_Combo5 = check_combo5($conn,$uid);
-    if($check_Combo5){
-        $tn5 = 'disabled';
-    }else{
-        $tn5 = '';
-    }
-    $check_Combo6 = check_combo6($conn,$uid);
-    if($check_Combo6){
-        $tn6 = 'disabled';
-    }else{
-        $tn6 = '';
-    }
-    $check_Combo7 = check_combo7($conn,$uid);
-    if($check_Combo7){
-        $tn7 = 'disabled';
-    }else{
-        $tn7 = '';
-    }
+    
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -448,42 +373,42 @@
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$bbtn2?> class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Tue</p>
                             <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$bbtn3?> class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Wed</p>
                             <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$bbtn4?> class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Thu</p>
                             <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$bbtn5?> class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Fri</p>
                             <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$bbtn6?> class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Sat</p>
                             <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="daily_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="daily_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$bbtn7?> class="daily_wrap_f__">
+                        <button <?=$bbtn1?> class="daily_wrap_f__">
                             <nav class="mg___g"><img src="asset/img/icons8-birthday-50.png" alt=""></nav>
                             <p>Sun</p>
                             <span class="img_2_"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
@@ -502,49 +427,49 @@
                     </div>
 
                     <div class="wrap_levels">
-                        <button <?=$tn1?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Mon</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$tn2?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Tue</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$tn3?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Wed</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$tn4?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Thu</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$tn5?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Fri</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$tn6?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Sat</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>
                             <span class="combo_lock"> <span><img src="asset/img/key.png" alt=""></span></span>
                             <span class="combo_open"> <span><img src="asset/img/opne_.png" alt=""></span></span>
                         </button>
-                        <button <?=$tn7?> class="wrap_cmbo">
+                        <button  class="wrap_cmbo">
                             <nav class="img_toq"><img src="asset/img/all.png" alt=""></nav>
                             <p>Sun</p>
                             <span class="img32__"><i><img src="asset/img/icons8-coins-64 (5).png" alt=""></i><p></p></span>

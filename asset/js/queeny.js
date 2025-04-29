@@ -69,6 +69,101 @@ let taskCnt = querySelectorAll('.task_body__X__X');
 
 
 
+                
+
+
+
+// window.addEventListener("load", function (){
+//    try{ 
+//         fetch(`${__RUT__()}/asset/apis/general_req/`, { 
+//             method: "POST",
+//             headers:{'Content-type':'application/x-www-form-urlencoded'}, 
+//             body:'check_time=' +  JSON.stringify({uid})})
+//             .then(response => response.json())
+//             .then(data => {
+//                 if (data && !isNaN(data.timestamp)){
+//                     const now = new Date().getTime();
+//                     const elapsedTime = now - data.timestamp;
+
+//                     // const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours
+//                     const countdownDuration = 5 * 60 * 1000;
+//                     if (elapsedTime >= countdownDuration){
+//                         // Re-enable the button if 24 hours passed
+//                         console.log(data.timestamp, 'now ' + countdownDuration);
+//                         console.log(data.timestamp, 'now ' + elapsedTime);
+//                         fetch(`${__RUT__()}/asset/apis/general_req/`,{
+//                             method: "POST",
+//                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//                             body:'clearit=' + JSON.stringify({uid}),
+//                         })
+//                         .then(response => response.text())
+//                         .then(data => {
+//                             console.log(data);
+                            
+//                         });
+//                     }{
+//                         console.log(data.timestamp, 'now ' + elapsedTime);
+//                         console.log(data.timestamp, 'now ' + countdownDuration);
+//                     }
+//                 }
+//             });
+//         }catch(error){
+//             console.error(error);
+//         }
+
+// });
+
+function setcount() {
+    try {
+        fetch(`${__RUT__()}/asset/apis/general_req/`, { 
+            method: "POST",
+            headers: {'Content-type': 'application/x-www-form-urlencoded'},
+            body: 'check_time=' + JSON.stringify({ uid })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data && !isNaN(data.timestamp)) {
+                // Get the clicked time
+                const clickedTime = data.timestamp * 1000; // Convert to milliseconds
+                // console.log("Clicked Time:", new Date(clickedTime));
+
+                // Calculate enableTime for the same time tomorrow
+                const clickedDate = new Date(clickedTime);
+                const enableTime = new Date(clickedDate);
+                enableTime.setDate(clickedDate.getDate() + 1); // Move to the next day
+                // console.log("Enable Time (Same Time Tomorrow):", enableTime);
+
+                // Start the countdown
+                starcount(enableTime.getTime());
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+function starcount(enableTime) {
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        if (now >= enableTime) {
+            console.log("Enable Time Reached:", new Date(enableTime));
+            fetch(`${__RUT__()}/asset/apis/general_req/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: 'clearit=' + JSON.stringify({ uid })
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Clear Response:", data);
+                clearInterval(interval);
+            });
+        } else {
+            // console.log("Waiting... Current Time:", new Date(now));
+        }
+    }, 1000); // Check every second
+}
+setInterval(setcount, 5000);
+
+
 let taskDone = {
     task1:false,
     task2:false,
@@ -619,7 +714,6 @@ function Awarding_chairs(amount,ref){
 
             if(Timleft <= 0){
                 clearInterval(Timer);
-                Clear_Rewards(uid);
                 CountDownTimer();
             }else{
                 const hours = Math.floor((Timleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -638,6 +732,7 @@ function Awarding_chairs(amount,ref){
 
     CountDownTimer();
 // DAILY REWARDS CODE HEREEEEEEEEEEEEEEEEEEEEEEEEE
+
     let dayCount = 0
     for (let x = 0; x < dailyReward_wrap.length; x++){
         dailyAmount[x].setAttribute('data',QueenYJ.DailyCombo);
@@ -663,7 +758,20 @@ function Awarding_chairs(amount,ref){
                 RewardLocked();
                 return;
             }
-            check_Daily_reward(dailyReward_wrap[x].getAttribute('day'),uid);
+
+            try {
+                fetch(`${__RUT__()}/asset/apis/general_req/`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body:'timeterval=' + JSON.stringify({uid})
+                })
+                .then(response => response.text())
+                .then(resul => {
+                    console.log(resul);
+                })
+            } catch (error) {
+                console.error(error);
+            }
             PupOutRewards(dailyAmount[x].getAttribute('data'));
             dailyReward_wrap[x].disabled = true;
             daily_lock[x].style.setProperty('display','flex');
@@ -674,44 +782,10 @@ function Awarding_chairs(amount,ref){
     }
     
 // DAILY COMBO CODE HEREEEEEEEEEEEEEEEEEEEEEEEEEEE
-async function Clear_Rewards(uid){
-    const fft = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
-        method:"POST",
-        headers:{'Content-type':'application/x-www-form-urlencoded'},
-        body:'check=' + JSON.stringify({uid})
-    });
 
-    const rest = await fft.text();
-    console.log(rest);
-
-    if(rest.status !== 'success'){
-        return;
-    }
-}
-
-async function check_Daily_reward(day,uid){
-    try {
-        let data = JSON.stringify({day,uid})
-        const fet = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
-            method:"POST",
-            headers:{'Content-type':'application/x-www-form-urlencoded'},
-            body:'docu=' + data
-        });
-
-        const resp = await fet.text();
-        console.log(resp);
-
-        if(resp.status !== 'success'){
-            // console.log(resp.message);
-            return;
-        }
-    } catch (error) {
-        console.error(error);
-    }
-} 
 
 let Count = 0
-for (let x = 0; x < dailyCombo.length; x++) {
+for (let x = 0; x < dailyCombo.length; x++){
     Count++;
     dailyCombo[x].setAttribute('day',Count);
     comboClaim[x].setAttribute('data',QueenYJ.DailyReward);
@@ -949,54 +1023,3 @@ clsSTR.onclick = () =>{
 }
 _js_slc.addEventListener('click', ClasTogle);   
 
-
-
-
-
-// const buttons = document.querySelectorAll('.day-btn');
-// const countdownDisplay = document.getElementById('countdown');
-
-// // Function to handle button click
-// buttons.forEach(button => {
-//     button.addEventListener('click', () => {
-//         const day = button.dataset.day;
-//         const now = new Date();
-        
-//         // Calculate time remaining until midnight
-//         const midnight = new Date();
-//         midnight.setHours(24, 0, 0, 0); // Set to next midnight
-        
-//         const timeRemaining = midnight.getTime() - now.getTime();
-
-//         // Store in localStorage
-//         localStorage.setItem(`day${day}`, midnight.getTime());
-//         button.disabled = true; // Disable button
-
-//         updateCountdown();
-//     });
-// });
-
-// // Function to update countdown display
-// function updateCountdown() {
-//     buttons.forEach(button => {
-//         const day = button.dataset.day;
-//         const savedTime = localStorage.getItem(`day${day}`);
-        
-//         if (savedTime) {
-//             const now = new Date().getTime();
-//             const timeRemaining = savedTime - now;
-
-//             if (timeRemaining > 0) {
-//                 button.disabled = true;
-//                 countdownDisplay.innerHTML = `Day ${day} reactivates in ${Math.floor(timeRemaining / 1000 / 60)} minutes.`;
-//                 setTimeout(updateCountdown, 1000); // Update every second
-//             } else {
-//                 button.disabled = false; // Re-enable button
-//                 localStorage.removeItem(`day${day}`); // Clear storage when countdown ends
-//             }
-//         }
-//     });
-// }
-
-// Run update function on page load to restore countdowns
-// updateCountdown();

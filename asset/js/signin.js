@@ -1,11 +1,10 @@
     var txtAll = querySelectorAll('.Ctr_random_txt_xxxxxx');
-        var picCnt = querySelector('.rt_part');
-            var button = querySelector('.Ctr_Owl2_xxxxxx button');
+            var buttonLog = querySelector('.loginginstead');
+            var buttonsign = querySelector('.signininstead');
                 var txt = querySelector('.Ctr_Owl2_xxxxxx button span');
-                    var loginTable = querySelector('.login_');
-                        var signupTable = querySelector('.signup_');
-var ctrCnt = querySelector('.Ctr_cnt_xxxxxxxxr');
-    var buttonGo = querySelectorAll('.Ctr_inpt_wrap button');
+                    var loginTable = querySelector('.LogiNN_');
+                        var signupTable = querySelector('.singINN_');
+var ctrCnt = querySelector('.thegen');
         let passw = querySelector('.passw');
                     let password = querySelector('.password');
                         let cnpassword = querySelector('.cnpassord');
@@ -24,6 +23,7 @@ passww.onclick = () =>{
       passw__af__.type = 'password';
     }
 }
+
 passw.onclick = () =>{
   if(passw.classList.contains('fa-eye')){
     passw.classList.remove('fa-eye');
@@ -37,7 +37,9 @@ passw.onclick = () =>{
     cnpassword.type = 'password';
   }
 }
-
+cnpassword.addEventListener('focus',function(){
+    cnpassword.value = password.value;
+})
 function __root__(){
     return querySelector('.getMyRoot').getAttribute('url');
 }
@@ -144,67 +146,24 @@ Login = (event) =>{
 }
 
 
-
-var parentPosiW = ctrCnt.clientWidth;
-var parentPosiH = ctrCnt.clientHeight;
-setInterval(() =>{
-    let bcolor = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
-    var buble = createElement('span');
-    buble.className = 'bubbles';
-    var bbuble = querySelectorAll('.bubbles');
-    ctrCnt.append(buble);
-
-    for (let x = 0; x < bbuble.length; x++) {
-        var bubleW = bbuble[x].clientWidth;
-        var bubleH = bbuble[x].clientHeight;
-
-        var cx = parentPosiW - bubleW;
-        var ch = parentPosiH - bubleH;
-
-        var randomW = Math.floor(Math.random() * cx);
-        var randomH = Math.floor(Math.random() * ch);
-
-        bbuble[x].style.setProperty('left', randomW + 'px');
-        bbuble[x].style.setProperty('top', randomH + 'px');
-        bbuble[x].style.setProperty('position', 'absolute');
-        bbuble[x].style.background = bcolor;
-
-        setTimeout(() =>{
-            bbuble[x].style.setProperty('opacity','0');
-            bbuble[x].remove();
-        },4000)
-    }
-},1000)
-    
-
-button.onclick = () =>{
-   if(txt.innerHTML == 'Log in now'){
-    txt.innerHTML = 'Sign in now';
-    signupTable.style.setProperty('display','none');
+buttonLog.onclick = () =>{
+    signupTable.style.setProperty('display','none','important');
     loginTable.style.setProperty('display','flex');
-   }else{
-    txt.innerHTML = 'Log in now';
+}
+buttonsign.onclick = () =>{
     signupTable.style.setProperty('display','flex');
     loginTable.style.setProperty('display','none');
-   }
 }
 
-for (let x = 0; x < txtAll.length; x++) {
-    setInterval(() =>{
-        let bcolor = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
-        txtAll[x].style.color = bcolor;
-    },4000)
-}
-
-$(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-        items:1,
-        loop:true,
-        autoplayHoverPause:true,
-        autoplay:true,
-        dots:true,
-        lazyLoad:true,
-        autoplayTimeout: 4000
-    })
-})
+// $(document).ready(function(){
+//     $('.owl-carousel').owlCarousel({
+//         items:1,
+//         loop:true,
+//         autoplayHoverPause:true,
+//         autoplay:true,
+//         dots:true,
+//         lazyLoad:true,
+//         autoplayTimeout: 4000
+//     })
+// })
 

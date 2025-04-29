@@ -781,6 +781,7 @@ body {
 }
 .msg_admin_no_reply p{
     transition: 0s !important;
+    color: white;
 }
 .noreply p{
     transition: 0s !important;
@@ -791,12 +792,11 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     display: flex;
-    background: var(--trns-);
+    background: var(--btn-);
     flex-direction: column;
     position: relative;
     gap: 5px;
     padding: 5px;
-    border-radius: .5em;
     transition: 0s !important;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -1578,6 +1578,7 @@ h2{
     justify-content: space-evenly;
     align-items: center;
     display: flex;
+    color: #0055dd !important;
 }
 
 .head_m_stodk h2 span{
@@ -3040,7 +3041,7 @@ button{
     z-index: 50;
 }
 .coins_available{
-    height: auto;
+    height: 100%;
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -3049,12 +3050,11 @@ button{
     position: absolute;
     top: 0;
     z-index: 105;
-    scroll-behavior: smooth;
     gap: 7px;
-    flex-direction: column;
     background: white;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    flex-direction: column;
     background: url('../img/3d-rendering-cryptocurency-distribution_23-2149875500.jpg');
 }
 .instruction{
@@ -3067,9 +3067,6 @@ button{
 }
 .coins_available::-webkit-scrollbar{
     display: none;
-}
-.coins_available h2{
-    color: white !important;
 }
 .hovery{
     transition: 0s !important;
@@ -3974,17 +3971,17 @@ button{
     align-items: center;
     display: flex;
     column-gap: 10px;
-    background: white;
+    /* background: white; */
     position: absolute;
     z-index: 90000;
 }
 .LoAder_index .dot{
-    height:40px;
-    width:40px;
+    height:30px;
+    width:30px;
     border-radius: 50%;
     background: #008ae6;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    animation: animate 1s ease-in-out infinite alternate;
+    animation: animate 0.9s ease-in-out infinite alternate;
 }
 @keyframes animate{
     0%{
@@ -3998,15 +3995,15 @@ button{
     animation-delay: -2.25s;
 }
 .dot:nth-child(2){
-    background: #e60000;
+    background: var(--testbg-);
     animation-delay: -2.5s;
 }
 .dot:nth-child(3){
-    background: #ffcc00;
+    background: #008ae6;
     animation-delay: -2.75s;
 }
 .dot:nth-child(4){
-    background: #008800;
+    background: var(--btn-);
     animation-delay: -1s;
 }
 .input_wallet_wrapp input{
@@ -4754,8 +4751,8 @@ cansil:active{
     opacity: 0.5;
 }
 .ImG_oin{
-    height: 100px;
-    width: 90px;
+    height: 150px;
+    width: 200px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -4786,6 +4783,9 @@ cansil:active{
     display: flex;
     padding: 10px;
     gap: 5px;
+}
+.General_for_every::-webkit-scrollbar{
+    width: 0px;
 }
 .General_for_every h3{
     color: rgb(5, 5, 81);

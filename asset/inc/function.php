@@ -640,54 +640,14 @@
     }
 
     function check_reward1($conn,$uid){
-        $sel = "SELECT day1 FROM daily_reward WHERE userid='$uid'";
+        $sel = "SELECT day FROM daily_reward WHERE userid='$uid'";
         $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day1'];
-        return $day;
-    }function check_reward2($conn,$uid){
-        $sel = "SELECT day2 FROM daily_reward WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+        if(!mysqli_num_rows($query) >0){
+            return false;
+        }
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day2'];
-        return $day;
-    }function check_reward3($conn,$uid){
-        $sel = "SELECT day3 FROM daily_reward WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
-
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day3'];
-        return $day;
-    }function check_reward4($conn,$uid){
-        $sel = "SELECT day4 FROM daily_reward WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
-
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day4'];
-        return $day;
-    }function check_reward5($conn,$uid){
-        $sel = "SELECT day5 FROM daily_reward WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
-
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day5'];
-        return $day;
-    }function check_reward6($conn,$uid){
-        $sel = "SELECT day6 FROM daily_reward WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
-
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day6'];
-        return $day;
-    }function check_reward7($conn,$uid){
-        $sel = "SELECT day7 FROM daily_reward WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
-
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day7'];
-        return $day;
+        return true;
     }
 
     function getTaskClaim1($conn,$uid){
@@ -731,62 +691,62 @@
         return $row;
     }
 
-    function check_combo1($conn,$uid){
-        $sel = "SELECT day1 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    // function check_combo1($conn,$uid){
+    //     $sel = "SELECT day1 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day1'];
-        return $day;
-    }
-    function check_combo2($conn,$uid){
-        $sel = "SELECT day2 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day1'];
+    //     return $day;
+    // }
+    // function check_combo2($conn,$uid){
+    //     $sel = "SELECT day2 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day2'];
-        return $day;
-    }
-    function check_combo3($conn,$uid){
-        $sel = "SELECT day3 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day2'];
+    //     return $day;
+    // }
+    // function check_combo3($conn,$uid){
+    //     $sel = "SELECT day3 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day3'];
-        return $day;
-    }
-    function check_combo4($conn,$uid){
-        $sel = "SELECT day4 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day3'];
+    //     return $day;
+    // }
+    // function check_combo4($conn,$uid){
+    //     $sel = "SELECT day4 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day4'];
-        return $day;
-    }
-    function check_combo5($conn,$uid){
-        $sel = "SELECT day5 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day4'];
+    //     return $day;
+    // }
+    // function check_combo5($conn,$uid){
+    //     $sel = "SELECT day5 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day5'];
-        return $day;
-    }
-    function check_combo6($conn,$uid){
-        $sel = "SELECT day6 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day5'];
+    //     return $day;
+    // }
+    // function check_combo6($conn,$uid){
+    //     $sel = "SELECT day6 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day6'];
-        return $day;
-    }
-    function check_combo7($conn,$uid){
-        $sel = "SELECT day7 FROM daly_combo WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day6'];
+    //     return $day;
+    // }
+    // function check_combo7($conn,$uid){
+    //     $sel = "SELECT day7 FROM daly_combo WHERE userid='$uid'";
+    //     $query = mysqli_query($conn,$sel);
 
-        $fetch = mysqli_fetch_assoc($query);
-        $day = $fetch['day7'];
-        return $day;
-    }
+    //     $fetch = mysqli_fetch_assoc($query);
+    //     $day = $fetch['day7'];
+    //     return $day;
+    // }
 
    
 

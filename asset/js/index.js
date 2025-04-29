@@ -207,12 +207,10 @@ const senDfaqs = querySelector('.wrap_ggmg');
 
 
 
-
-
-
 search_faqsUser.addEventListener('keyup',function(){
     search_faqs_us(search_faqsUser.value);
 })
+
 async function search_faqs_us(params) {
     try {
         const fech = await fetch(`${__root__2()}/asset/apis/general_req/`,{
@@ -229,6 +227,7 @@ async function search_faqs_us(params) {
         console.error(error);
     }
 }        
+
 senDfaqs.onclick = () =>{
     if(faqsTxt.value == ''){
         ERROR('Please Include Faqs')
@@ -1254,6 +1253,7 @@ for (let x = 0; x < alltoolsCnt.length; x++) {
                                                         task_part.scrollTo(0, 0);
                     }
 }
+
 
 
 

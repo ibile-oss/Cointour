@@ -27,7 +27,7 @@
         die;
         
 
-    }catch (Exeption $th) {
+    }catch (Exception $th) {
         http_response_code(500);
         echo json_encode([
             'status' => 'error',

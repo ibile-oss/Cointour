@@ -12,10 +12,11 @@ function createElement(x){
 }
 
 async function LoaderPage(d, cnt, callback){
-    const tolw = d.toLowerCase().trim()
+    const root = querySelector('.body_url').getAttribute('ROOT');
+    const tolw = d.toLowerCase().trim();
     try {
         loader();
-         const fech = await fetch(`http://localhost/cointour/admin/super-admin/table/${tolw}.html`,{
+         const fech = await fetch(`${root}${tolw}.html`,{
             method:"POST",
             headers:{'Content-type':'application/json'},
         });
@@ -32,6 +33,7 @@ async function LoaderPage(d, cnt, callback){
         console.error(error);
     }
 }
+
 function loader(){
     let load = createElement('DIV');
     load.className = 'pageLoadd_';
@@ -41,12 +43,14 @@ function loader(){
     bdy.classList.add('toAbbb');
     bdy.insertAdjacentElement('afterbegin',load);
 }
+
 function removeloader(){
     let load = querySelector('.pageLoadd_');
     let bdy = document.body;
     load.remove();
     bdy.classList.remove('toAbbb')
 }
+
 function check_Domcontent_loaded(d){
     switch (d) {
         case 'users':

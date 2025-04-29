@@ -102,7 +102,7 @@
         }
 
         
-    }catch (Exeption $th) {
+    }catch (Exception $th) {
         echo json_encode([
             'status' => 'error',
             'message' => $th
