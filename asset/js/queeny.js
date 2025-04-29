@@ -809,7 +809,21 @@ for (let x = 0; x < dailyCombo.length; x++){
             dailyCombo[x].disabled = true;
             return;
         }
-        check_daily_combo(uid,dailyCombo[x].getAttribute('day'));
+
+        try {
+            fetch(`${__RUT__()}/asset/apis/general_req/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body:'timeState=' + JSON.stringify({uid})
+            })
+            .then(response => response.text())
+            .then(resul => {
+                console.log(resul);
+            })
+        } catch (error) {
+            console.error(error);
+        }
+
         PupOutRewards2(comboClaim[x].getAttribute('data'));
         dailyCombo[x].disabled = true;
         comboLock[x].style.setProperty('display','flex');
@@ -819,27 +833,7 @@ for (let x = 0; x < dailyCombo.length; x++){
     Update_Balance();
     dailyCombo[x].addEventListener('click', Shop)
 }
-async function check_daily_combo(uid,day){
-    try {
-        const send = await fetch(`${__RUT__()}/asset/apis/general_req/`,{
-            method:"POST",
-            headers:{'Content-type':'application/x-www-form-urlencoded'},
-            body:'dataSet=' + JSON.stringify({uid,day})
-        });
-    
-        const respon = await send.text();
-        console.log(respon);
-    
-        if(respon.status !== 'success'){
-            console.log(respon.message);
-            return;
-        }
 
-    }catch(error){
-        console.error(error);
-        err_txt__(error);   
-    }
-}
 
 
 // TAPPING BOT
@@ -1022,4 +1016,56 @@ clsSTR.onclick = () =>{
     Star_pad.style.setProperty('display','none');
 }
 _js_slc.addEventListener('click', ClasTogle);   
+
+
+function setcount2(){
+    try {
+        fetch(`${__RUT__()}/asset/apis/general_req/`, { 
+            method: "POST",
+            headers: {'Content-type': 'application/x-www-form-urlencoded'},
+            body: 'Dcombo=' + JSON.stringify({ uid })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data && !isNaN(data.timestamp)) {
+                // Get the clicked time
+                const clickedTime = data.timestamp * 1000; // Convert to milliseconds
+                // console.log("Clicked Time:", new Date(clickedTime));
+
+                // Calculate enableTime for the same time tomorrow
+                const clickedDate = new Date(clickedTime);
+                const enableTime = new Date(clickedDate);
+                enableTime.setDate(clickedDate.getDate() + 1); // Move to the next day
+                // console.log("Enable Time (Same Time Tomorrow):", enableTime);
+
+                // Start the countdown
+                starcount2(enableTime.getTime());
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function starcount2(enableTime){
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        if (now >= enableTime) {
+            console.log("Enable Time Reached:", new Date(enableTime));
+            fetch(`${__RUT__()}/asset/apis/general_req/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: 'cleaRcombo=' + JSON.stringify({ uid })
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Clear Response:", data);
+                clearInterval(interval);
+            });
+        } else {
+            // console.log("Waiting... Current Time:", new Date(now));
+        }
+    }, 1000); // Check every second
+}
+setInterval(setcount2, 5000);
 

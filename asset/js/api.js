@@ -1,8 +1,8 @@
 
 async function Sing_Up(n1,n2,em,ph,pwd,cpwd,ref){
     const err = querySelector('.err');
-    const login_ = querySelector('.login_');
-    const signup_ = querySelector('.signup_');
+    const login_ = querySelector('.LogiNN_');
+    const signup_ = querySelector('.singINN_');
     const signB__ = querySelector('.signB__');
     let btn = querySelector('.incaseLoad');
 

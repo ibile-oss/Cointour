@@ -159,9 +159,6 @@
         $dalyReward = "INSERT INTO daily_reward(userid)VALUES('$usid')";
         mysqli_query($conn,$dalyReward);
 
-        $dalyCombo = "INSERT INTO daly_combo(userid)VALUES('$usid')";
-        mysqli_query($conn,$dalyCombo);
-
         $taskDon = "INSERT INTO taskclaim(userid)VALUES('$usid')";
         mysqli_query($conn,$taskDon);
 

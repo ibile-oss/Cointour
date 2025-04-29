@@ -61,48 +61,7 @@
         die;
     }
 
-    try {
-        if(isset($_POST['dataSet']) && !empty($_POST['dataSet'])){
-            $postData = json_decode($_POST['dataSet']);
-
-            $uid = $postData->uid;
-            $day = $postData->day;
-            $strng = 'clk';
-
-            if($day == 1){
-                $upd = "UPDATE daly_combo SET day1='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }else if($day == 2){
-                $upd = "UPDATE daly_combo SET day2='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }else if($day == 3){
-                $upd = "UPDATE daly_combo SET day3='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }else if($day == 4){
-                $upd = "UPDATE daly_combo SET day4='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }else if($day == 5){
-                $upd = "UPDATE daly_combo SET day5='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }else if($day == 6){
-                $upd = "UPDATE daly_combo SET day6='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }else if($day == 7){
-                $upd = "UPDATE daly_combo SET day7='$strng' WHERE userid='$uid'";
-                $query = mysqli_query($conn,$upd);
-            }
-        }
-
-        //echo mysqli_error($conn);
-
-    }catch(Exception  $th){
-        http_response_code(500);
-        echo json_encode([
-            'status' => 'error',
-            'message' => $th
-        ]);
-        die;
-    }
+   
 
     try {
         if(isset($_POST['test']) && !empty($_POST['test'])){
@@ -772,10 +731,6 @@
             $mesage = $dntials->addresing;
             $uid = $dntials->userId;
             
-
-
-
-            
             $check_if_user_exist = "SELECT * FROM register WHERE userid='$uid'";
             $query_cheking = mysqli_query($conn,$check_if_user_exist);
             if(!mysqli_num_rows($query_cheking) >0){
@@ -842,6 +797,34 @@
         ]);
         die;
     }
+
+    try {
+        if(isset($_POST['timeState']) && !empty($_POST['timeState'])){
+            $data = json_decode(($_POST['timeState']));
+    
+            
+            $time = time();
+            $id = $data->uid;
+    
+            $sel = "SELECT * FROM daly_combo WHERE userid='$id'";
+            $check = mysqli_query($conn,$sel);
+    
+            if(mysqli_num_rows($check) >0){
+                $upedat = "UPDATE daly_combo SET day='$time' WHERE userid='$id'";
+                mysqli_query($conn,$upedat);
+            }else{
+                $ins = "INSERT INTO daly_combo(userid,day)VALUES('$id','$time')";
+                $query = mysqli_query($conn,$ins);
+            }
+        } 
+    } catch (Exception $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
         
     try {
         if(isset($_POST['check_time']) && !empty($_POST['check_time'])){
@@ -859,7 +842,32 @@
                 echo json_encode(["day" => null]);
             }
         }
-    } catch (Exception $th) {
+    } catch (Exception $th){
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;
+    }
+
+    try {
+        if(isset($_POST['Dcombo']) && !empty($_POST['Dcombo'])){
+            $data = json_decode($_POST['Dcombo']);
+            
+            $id = $data->uid;
+
+            $sel = "SELECT day FROM daly_combo WHERE userid='$id'";
+            $query = mysqli_query($conn,$sel);
+            $result = mysqli_fetch_assoc($query);
+
+            if ($result) {
+                echo json_encode(["timestamp" => $result['day']]);
+            } else {
+                echo json_encode(["day" => null]);
+            }
+        }
+    } catch (Exception $th){
         http_response_code(500);
         echo json_encode([
             'status' => 'error',
@@ -879,12 +887,12 @@
             
             $query = mysqli_query($conn,$searchQuery);
             if(!mysqli_num_rows($query) >0){
-                echo "No Data Found";
+                echo "No Reward Found";
                 die;
             }else{
                 $delet = "DELETE FROM daily_reward WHERE userid='$uid'";
                 mysqli_query($conn,$delet);
-                echo "Data Cleared";
+                echo "Reward Cleared";
                 die;
             }
 
@@ -896,6 +904,35 @@
             'message' => $th
         ]);
         die;
+    }
+
+    try {
+        if(isset($_POST['cleaRcombo']) && !empty($_POST['cleaRcombo'])){
+            $data = json_decode(($_POST['cleaRcombo']));
+            
+            $uid = $data->uid;
+            echo $uid;
+
+            $searchQuery = "SELECT * FROM daly_combo WHERE userid='$uid'";
+            
+            $query = mysqli_query($conn,$searchQuery);
+            if(!mysqli_num_rows($query) > 0){
+                echo "No Combo Found";
+                die;
+            }else{
+                $delet = "DELETE FROM daly_combo WHERE userid='$uid'";
+                mysqli_query($conn,$delet);
+                echo "Combo Cleared";
+                die;
+            }
+        }
+    } catch (Exception $th) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => $th
+        ]);
+        die;;
     }
 
 
