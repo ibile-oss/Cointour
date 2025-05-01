@@ -139,7 +139,7 @@ function Close_Tabs(){
     },400)
 }
 
-function RewardLocked(){
+function RewardLocked(cnt){
     let attri = 'asset/img/3d-casual-life-warning-sign.gif';
     a = createElement('div');
     a.className = 'tocover';
@@ -156,7 +156,7 @@ function RewardLocked(){
     a.onclick = () =>{
         a.remove();
     }
-    cnt_daily_rewards.appendChild(a);
+    cnt.appendChild(a);
 }
 
 function PupOutRewards(param){

@@ -1,6 +1,7 @@
 <?php
     define('__Root__','http://localhost/cointour/');
     define('__upl__','http://localhost/cointour/asset/apis/sendUpload/uploads/');
+    define('__urlScr__','http://localhost/cointour/asset/apis/sendUpload/');
     define('__img__','http://localhost/cointour/asset/img/');
     define('ROOT','http://localhost/cointour/admin/super-admin/table/');
     define('RUT','http://localhost/cointour/asset/apis/general_req/');
@@ -268,7 +269,7 @@
     }
 
     function checkUpload($conn,$uid){
-        $check = "SELECT * FROM user_screenshot WHERE userid='$uid'";
+        $check = "SELECT * FROM uploads WHERE user_id='$uid'";
         $query = mysqli_query($conn,$check);
 
         if(mysqli_num_rows($query) > 0){
@@ -279,28 +280,19 @@
     }
 
     function fetch_user_confirm($conn,$uid){
-        $sel = "SELECT * FROM user_screenshot WHERE userid='$uid'";
-        $query = mysqli_query($conn,$sel);
+        $sql = "SELECT * FROM uploads WHERE user_id = '$uid'";
+        $result = mysqli_query($conn, $sql);
 
-        if(!mysqli_num_rows($query) >0){
-            echo "No Screenshot Uploaded";
-        }else{
-            while ($fetch = mysqli_fetch_assoc($query)){
-                $scn1 = $fetch['shot1'];
-                $scn2 = $fetch['shot2'];
-                $scn3 = $fetch['shot3'];
-                $scn4 = $fetch['shot4'];
-                $scn5 = $fetch['shot5'];
-
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)){
                 ?>
-                    <nav><img src="<?php echo __upl__ . $scn1 ?>" alt=""></nav>       
-                    <nav><img src="<?php echo __upl__ . $scn2 ?>" alt=""></nav>       
-                    <nav><img src="<?php echo __upl__ . $scn3 ?>" alt=""></nav>       
-                    <nav><img src="<?php echo __upl__ . $scn4 ?>" alt=""></nav>       
-                    <nav><img src="<?php echo __upl__ . $scn5 ?>" alt=""></nav>  
+                    <nav><img src="<?php echo __upl__ . $row["file_name"]?>" alt=""></nav> 
                 <?php
             }
+        } else {
+            echo "No uploaded shots yet.";
         }
+        echo mysqli_error($conn);
     }
 
     function fetStar($conn,$uid){

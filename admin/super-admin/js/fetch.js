@@ -143,7 +143,7 @@ function addfaqs(){
             })
             .then(respons => respons.json())
             .then(result =>{
-                console.log(result);
+                // console.log(result);
                 if(result.status !== 'success'){
                     ele.remove();
                     btn_tn.innerHTML = result.message;
@@ -318,7 +318,7 @@ function users(){
                     })
                     .then(respons => respons.json())
                     .then(result =>{
-                        console.log(result);
+                        // console.log(result);
                         if(result.status !== 'success'){
                             btn.classList.add('dangar');
                             console.log(result);
@@ -498,10 +498,10 @@ function another(){
                     })
                     .then(respons => respons.json())
                     .then(result =>{
-                        console.log(result);
+                        // console.log(result);
                         if(result.status !== 'success'){
                             btn.classList.add('dangar');
-                            console.log(result);
+                            // console.log(result);
                             load.remove();
                             btn.innerHTML = '';
                             btn.innerHTML = result.message;

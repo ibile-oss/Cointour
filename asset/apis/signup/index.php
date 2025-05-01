@@ -156,8 +156,11 @@
         $w = "INSERT INTO lvlclick(userid)VALUES('$usid')";
         mysqli_query($conn,$w);
 
-        $dalyReward = "INSERT INTO daily_reward(userid)VALUES('$usid')";
-        mysqli_query($conn,$dalyReward);
+        // $dalyReward = "INSERT INTO daily_reward(userid)VALUES('$usid')";
+        // mysqli_query($conn,$dalyReward);
+
+        // $dalycombo = "INSERT INTO daly_combo(userid)VALUES('$usid')";
+        // mysqli_query($conn,$dalycombo);
 
         $taskDon = "INSERT INTO taskclaim(userid)VALUES('$usid')";
         mysqli_query($conn,$taskDon);

@@ -30,6 +30,7 @@ let opnmtk = querySelector('.sh_hhdr .opnMkt');
                 let daily_lock = querySelectorAll('.daily_wrap_f__  .daily_lock');
                     let daily_open = querySelectorAll('.daily_wrap_f__ .daily_open');
 let cnt_daily_rewards = querySelector('.daily_rewards .dail_iner .wrap_levels');
+    let cnt_daily_combo = querySelector('.daily_combo .dail_iner .wrap_levels');
     let cnt_daily_iner = querySelector('.daily_rewards .dail_iner');
         let dailyAmount = querySelectorAll('.daily_wrap_f__ .img_2_');
             let navigateNav = querySelectorAll('.navigator__ .tools_bars');
@@ -69,7 +70,7 @@ let taskCnt = querySelectorAll('.task_body__X__X');
 
 
 
-                
+             
 
 
 
@@ -755,7 +756,7 @@ function Awarding_chairs(amount,ref){
         dailyReward_wrap[x].onclick = () =>{
             if(!Istoday){
                 dailyReward_wrap[x].disabled = true;    
-                RewardLocked();
+                RewardLocked(cnt_daily_rewards);
                 return;
             }
 
@@ -807,6 +808,7 @@ for (let x = 0; x < dailyCombo.length; x++){
     const Shop = () =>{
         if(!Istoday){
             dailyCombo[x].disabled = true;
+            RewardLocked(cnt_daily_combo);
             return;
         }
 
@@ -912,6 +914,11 @@ opnStr.onclick = () =>{
     store.style.setProperty('display','flex');
     market.style.setProperty('display','none');
 }
+
+let targetArr = ['Qinx-x-x-x--x--x--x','q-x-x-x-xh-hdd','img__ss_',
+    'qinin--x-x-x--x--','level-qx-x-x','q---',
+    'lgW---','lvl_pro','balnce','ball_cnce','bal_nnng---','img__ss_'];
+
 for (let x = 0; x < smOpn.length; x++){
     smOpn[x].onclick = () =>{
         if(smOpntxt[x].innerHTML == 'Daily Rwards'){
@@ -938,8 +945,18 @@ for (let x = 0; x < smOpn.length; x++){
             store.style.setProperty('display','none');
             Star_pad.style.setProperty('display','none');
         }
+        document.addEventListener('click',  function(e){
+           for (let i = 0; i < targetArr.length; i++) {
+                if(e.target.className == targetArr[i]){
+                    Close_Tabs();
+                }
+           }
+        })
     }
+    
 }
+
+
 clmkt.onclick = () =>{
     market.classList.add('return');
     setTimeout(() =>{
@@ -1018,7 +1035,7 @@ clsSTR.onclick = () =>{
 _js_slc.addEventListener('click', ClasTogle);   
 
 
-function setcount2(){
+function setcount2() {
     try {
         fetch(`${__RUT__()}/asset/apis/general_req/`, { 
             method: "POST",
@@ -1046,8 +1063,7 @@ function setcount2(){
         console.error(error);
     }
 }
-
-function starcount2(enableTime){
+function starcount2(enableTime) {
     const interval = setInterval(() => {
         const now = new Date().getTime();
         if (now >= enableTime) {
@@ -1068,4 +1084,3 @@ function starcount2(enableTime){
     }, 1000); // Check every second
 }
 setInterval(setcount2, 5000);
-

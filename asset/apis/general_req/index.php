@@ -151,7 +151,7 @@
 
             $uid = $posdata->uid;
             
-            $screen_shot = "SELECT * FROM user_screenshot WHERE userid='$uid'";
+            $screen_shot = "SELECT * FROM uploads WHERE user_id='$uid'";
             $query = mysqli_query($conn,$screen_shot);
 
             $user_links = "SELECT * FROM user_on_media WHERE userid='$uid'";
@@ -684,6 +684,14 @@
             $user_name = $name1 . ' ' . $name2;
             $dte = "SELECT * FROM faqs WHERE faqs='$heading'";
             $ur = mysqli_query($conn,$dte);
+            if(!mysqli_num_rows($ur) >0){
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Faqs heading dos\'nt exist'
+                ]);
+                die;
+            }
+
             $fetch2 = mysqli_fetch_assoc($ur);
 
             $faqsDate = $fetch2['dte'];
@@ -773,12 +781,13 @@
         if(isset($_POST['timeterval']) && !empty($_POST['timeterval'])){
             $data = json_decode(($_POST['timeterval']));
 
+            
             $time = time();
             $id = $data->uid;
-
+    
             $sel = "SELECT * FROM daily_reward WHERE userid='$id'";
             $check = mysqli_query($conn,$sel);
-
+    
             if(mysqli_num_rows($check) >0){
                 $upedat = "UPDATE daily_reward SET day='$time' WHERE userid='$id'";
                 mysqli_query($conn,$upedat);
@@ -786,7 +795,6 @@
                 $ins = "INSERT INTO daily_reward(userid,day)VALUES('$id','$time')";
                 $query = mysqli_query($conn,$ins);
             }
-
             
         }
     } catch (Exception $th) {
@@ -797,12 +805,12 @@
         ]);
         die;
     }
+   
 
     try {
         if(isset($_POST['timeState']) && !empty($_POST['timeState'])){
             $data = json_decode(($_POST['timeState']));
-    
-            
+
             $time = time();
             $id = $data->uid;
     
@@ -881,7 +889,6 @@
             $data = json_decode(($_POST['clearit']));
 
             $uid = $data->uid;
-            echo $uid;
 
             $searchQuery = "SELECT * FROM daily_reward WHERE userid='$uid'";
             
@@ -911,7 +918,6 @@
             $data = json_decode(($_POST['cleaRcombo']));
             
             $uid = $data->uid;
-            echo $uid;
 
             $searchQuery = "SELECT * FROM daly_combo WHERE userid='$uid'";
             
@@ -934,7 +940,6 @@
         ]);
         die;;
     }
-
 
   
 

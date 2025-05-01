@@ -202,7 +202,62 @@ const senDfaqs = querySelector('.wrap_ggmg');
     const faqsTxt = querySelector('.input_search input');
         const search_faqsUser = querySelector('.search_faqs input');
 
+const form = document.querySelector('.formm_d');
 
+let fullname = document.getElementById("name");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const subject = document.getElementById("subject");
+const mess = document.getElementById("message");
+        
+        
+function checkInput(){
+    const items = document.querySelectorAll('.item');
+    for(const item of items){
+        if(item.value == ""){
+            item.classList.add('error');
+            item.parentElement.classList.add('error');
+        }
+        if(items[1].value != ""){
+            checkEmail();
+        }
+        items[1].addEventListener('keyup', () =>{
+            checkEmail();
+        });
+        item.addEventListener('keyup', () =>{
+            if(item.value != ""){
+                item.classList.remove('error');
+                item.parentElement.classList.remove('error');
+            }else{
+                item.classList.add('error');
+                item.parentElement.classList.add('error');
+            }
+        });
+    }
+}
+function Contact(event){
+    event.preventDefault();
+    checkInput();
+}
+
+function checkEmail(){
+    const emailtxt = document.querySelector('.error-txt.email')
+    const email_check = /^([a-z\d\.-]+)@([a-z\-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
+    if(!email.value.match(email_check)){
+        email.classList.add('error');
+        email.parentElement.classList.add('error');
+
+        if(email.value != ""){
+            emailtxt.innerHTML = "Enter a valid email address";
+        }else{
+            emailtxt.innerHTML = "Email address can't be blank";
+        }
+    }
+    else{
+        email.classList.remove('error');
+        email.parentElement.classList.remove('error');
+    }
+}
 
 
 
@@ -211,7 +266,7 @@ search_faqsUser.addEventListener('keyup',function(){
     search_faqs_us(search_faqsUser.value);
 })
 
-async function search_faqs_us(params) {
+async function search_faqs_us(params){
     try {
         const fech = await fetch(`${__root__2()}/asset/apis/general_req/`,{
             method:"POST",
@@ -261,7 +316,7 @@ senDfaqs.onclick = () =>{
         })
         .then(respons => respons.json())
         .then(result =>{
-            console.log(result);
+            // console.log(result);
             if(result.status !== 'success'){
                 ERROR(result.message);
                 RemoveIndexAnimation();
@@ -299,7 +354,7 @@ openMain.onclick = () =>{
         })
         .then(respons => respons.json())
         .then(result =>{
-            console.log(result);
+            // console.log(result);
             if(result.status !== 'success'){
                 RemoveIndexAnimation();
                 ERROR(result.message);
@@ -339,7 +394,7 @@ for (let x = 0; x < deltCnt.length; x++){
                     })
                     .then(respons => respons.json())
                     .then(result =>{
-                        console.log(result);
+                        // console.log(result);
                         if(result.status !== 'success'){
                             ERROR(result.message);
                             return;
@@ -529,7 +584,7 @@ async function profile_picture(){
         });
 
         const res = await send.json();
-        console.log(res);
+        // console.log(res);
 
         if(res.status !== 'success'){
             err.style.setProperty('display','flex');
@@ -555,49 +610,55 @@ async function profile_picture(){
 async function send_dir(event){
     event.preventDefault();
     const tittle = querySelector('.header').getAttribute('uid');
+    let fileInput = document.getElementById("file");
+    let files = fileInput.files;
 
-    try {
-        const formdata = new FormData();
-        formdata.append('tittle',tittle);
-        const files = document.getElementById('file').files;
+    if (files.length === 0) {
+        err_msg_txt('Please select at least one file.');
+        return;
+    }
 
-        for (let x = 0; x < files.length; x++){
-            formdata.append('files[]', files[x]);
-        }
+    if (files.length > 5) {
+        err_msg_txt('You can only upload up to five images.');
+        return;
+    }
 
-        let fileLen = 5;
-        if(files.length > fileLen){
-            err_msg_txt('Pleas Select Only 5 Screenshots For Comfirmation');
-            return
-        }
-        if(files.length < fileLen){
-            err_msg_txt('Pleas Select Up To 5 Screenshots For Comfirmation');
-            return
-        }    
+    if (files.length < 5) {
+        err_msg_txt('You can only upload up to five images.');
+        return;
+    }
+    let formData = new FormData();
+    formData.append("user_id", tittle);
 
-        const request = await fetch(`${__root__2()}/asset/apis/sendUpload/`,{
-            method:"POST",
-            body:formdata
-        });
+    for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        let allowedExtensions = ["image/png", "image/jpeg", "image/jpg"];
 
-        const respons = await request.json();
-        console.log(respons);
-
-        if(respons.status !== 'success'){
-            err_msg_txt(respons.message);
+        if (!allowedExtensions.includes(file.type)) {
+            err_msg_txt('Only PNG, JPG, and JPEG files are allowed.');
             return;
         }
 
-        success_msg_txt(respons.message);
-
-    } catch (error){
-        err_msg_txt(error);
-        console.error(error);
+        formData.append("proof[]", file);
     }
 
+    try {
+        let response = await fetch(`${__root__2()}/asset/apis/sendUpload/`, {
+            method: "POST",
+            body: formData
+        });
+
+        let result = await response.json();
+        if (result.status === "success") {
+            err_msg_txt(result.message);
+            console.log("Uploaded files:", result.file_name);
+        } else {
+            err_msg_txt(result.message);
+        }
+    } catch (error) {
+        err_msg_txt(error);
+    }
 }
-
-
 
 
 for (let i = 0; i < msg_recent_Transfar.length; i++) {
@@ -740,25 +801,26 @@ closHis.onclick = () =>{
 }
 for (let x = 0; x < clo2_p.length; x++) {
     clo2_p[x].onclick = () =>{
-            create_your_wallet_pin.classList.add('impot');
-                testimonials.classList.add('goBack');
-                    Bank_details_push.classList.add('goBack');
-                    document.querySelector('.wallet_cnt_parkd').classList.add('goBack');
-                        document.querySelector('.frequently_asked_question').classList.add('goBack');
-                            document.querySelector('.coins_available').classList.add('goBack');
+        create_your_wallet_pin.classList.add('impot');
+        testimonials.classList.add('goBack');
+        Bank_details_push.classList.add('goBack');
+        document.querySelector('.wallet_cnt_parkd').classList.add('goBack');
+        document.querySelector('.frequently_asked_question').classList.add('goBack');
+        document.querySelector('.coins_available').classList.add('goBack');
+        document.querySelector('.contact_us').style.setProperty('display','none');
         setTimeout(() =>{
-                testimonials.style.setProperty('display','none');
-                    testimonials.classList.remove('goBack');
-                     Bank_details_push.style.setProperty('display','none');
-                        create_your_wallet_pin.style.setProperty('display','none');
-                            create_your_wallet_pin.classList.remove('impot');
-                                Bank_details_push.classList.remove('goBack');
-                                    document.querySelector('.frequently_asked_question').style.setProperty('display','none');
+            testimonials.style.setProperty('display','none');
+            testimonials.classList.remove('goBack');
+            Bank_details_push.style.setProperty('display','none');
+            create_your_wallet_pin.style.setProperty('display','none');
+            create_your_wallet_pin.classList.remove('impot');
+            Bank_details_push.classList.remove('goBack');
+            document.querySelector('.frequently_asked_question').style.setProperty('display','none');
             document.querySelector('.frequently_asked_question').classList.remove('goBack');
-                document.querySelector('.coins_available').style.setProperty('display','none');
-                    document.querySelector('.coins_available').classList.remove('goBack');
-                        document.querySelector('.wallet_cnt_parkd').style.setProperty('display','none');
-                            document.querySelector('.wallet_cnt_parkd').classList.remove('goBack');
+            document.querySelector('.coins_available').style.setProperty('display','none');
+            document.querySelector('.coins_available').classList.remove('goBack');
+            document.querySelector('.wallet_cnt_parkd').style.setProperty('display','none');
+            document.querySelector('.wallet_cnt_parkd').classList.remove('goBack');
         },400)
     }
 }
@@ -885,15 +947,14 @@ async function Post(){
                 });
             
                 const respons = await sen.json();
-                console.log(respons);
             
                 if(respons.status !== 'success'){
-                    // console.log(respons.message);
+                    err_mgg(respons.message);
                     return;
                 }
         
                 txtArea.value = '';
-                err_mgg('Testimonial Added Successfully');
+                err_mgg(respons.message);
                 loader.remove();
                 buton.innerHTML = 'Add Testimonial';
 
@@ -1018,10 +1079,28 @@ for (let x = 0; x < open_cnt.length; x++) {
         }if(open_[x].innerHTML == 'Stock'){
             medium_stock.style.setProperty('display','flex');
         }if(open_[x].innerHTML == 'Me'){
+            Loading_Animation_Index();
             document.querySelector('.me_account').style.setProperty('display','flex');
-            Scrol_to_top();
+            setTimeout(() =>{
+                document.querySelector('.me_account').setAttribute('data-ready','true'); 
+            },3000);
+            const observer = new MutationObserver((mutations) =>{
+                mutations.forEach((mutation) =>{
+                    if(mutation.attributeName === 'data-ready' && document.querySelector('.me_account')
+                    .getAttribute('data-ready') == 'true'){
+                        observer.disconnect();
+                        RemoveIndexAnimation();
+                        Scrol_to_top();
+                    }
+                })
+            })
+            observer.observe(document.querySelector('.me_account'),{attributes: true})
         }if(open_[x].innerHTML == 'Messages'){
             document.querySelector('.messages').style.setProperty('display','flex');
+            Scrol_to_top();
+        }
+        if(open_[x].innerHTML == 'Contact us'){
+            document.querySelector('.contact_us').style.setProperty('display','flex');
             Scrol_to_top();
         }
         
@@ -1203,23 +1282,23 @@ infor_ff.onclick = () =>{
 
 for (let x = 0; x < close_.length; x++) {
     close_[x].onclick = () =>{
-            task_cnt.classList.add('callback');
-            document.querySelector('.messages').classList.add('callback');
-                Referals_cnt.classList.add('callback');
-                    engage.classList.add('callback');
-                        shares_task.classList.add('callback');
-                            setTimeout(() =>{
-                                task_cnt.style.setProperty('display','none');
-                                document.querySelector('.messages').classList.remove('callback');
-                                document.querySelector('.messages').style.setProperty('display','none');
-                                task_cnt.classList.remove('callback');
-                                Referals_cnt.style.setProperty('display','none');
-                                Referals_cnt.classList.remove('callback');
-                                shares_task.style.setProperty('display','none');
-                                engage.style.setProperty('display','none');
-                                engage.classList.remove('callback');
-                                shares_task.classList.remove('callback');
-                            },400)
+    task_cnt.classList.add('callback');
+    document.querySelector('.messages').classList.add('callback');
+    Referals_cnt.classList.add('callback');
+    engage.classList.add('callback');
+    shares_task.classList.add('callback');
+    setTimeout(() =>{
+        task_cnt.style.setProperty('display','none');
+        document.querySelector('.messages').classList.remove('callback');
+        document.querySelector('.messages').style.setProperty('display','none');
+        task_cnt.classList.remove('callback');
+        Referals_cnt.style.setProperty('display','none');
+        Referals_cnt.classList.remove('callback');
+        shares_task.style.setProperty('display','none');
+        engage.style.setProperty('display','none');
+        engage.classList.remove('callback');
+        shares_task.classList.remove('callback');
+    },400)
         
     }
 }
